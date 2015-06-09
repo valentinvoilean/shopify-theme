@@ -1,0 +1,11 @@
+---
+:api_key: 0654607778654a29ed87c8c00a58b5c0
+:password: e9a5c5207d40d4888c7dd2a316dfb7b2
+:store: valiv.myshopify.com
+:theme_id: 
+:ignore_files:
+- gulpfile.js
+- package.json
+- node_modules/
+- css/
+- bower_components/

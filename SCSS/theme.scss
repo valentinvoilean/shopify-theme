@@ -1,0 +1,23 @@
+@import url("grid/_normalize.scss");
+@import url("grid/_functions.scss");
+@import url("grid/_global.scss");
+@import url("grid/_grid.scss");
+
+body {
+    color: green;
+}
+
+.layout {
+  // `layout` container functions as a row
+  @include grid-row();
+}
+
+.layout-content {
+  // Mobile-first: make `layout-container` full-width
+  @include grid-column(12);
+
+  // On medium-up size, make `layout-container` 9 columns wide
+  @media #{$large-up} {
+    @include grid-column(9);
+  }
+}
