@@ -550,6 +550,13 @@ $last-child-float: $opposite-direction !default;
 }
 
 
-body {
-    background: green;
+@mixin content-grid {
+    display: block;
+    margin: 0 auto;
+    width: 90vw;
+
+    @media #{$medium-only} { width: rem-calc(640); }
+    @media #{$large-up} { width: rem-calc(960); }
 }
+
+header, main, footer { @include content-grid; }

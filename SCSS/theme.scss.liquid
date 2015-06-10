@@ -3,6 +3,13 @@
 @import url("grid/_global.scss");
 @import url("grid/_grid.scss");
 
-body {
-    background: green;
+@mixin content-grid {
+    display: block;
+    margin: 0 auto;
+    width: 90vw;
+
+    @media #{$medium-only} { width: rem-calc(640); }
+    @media #{$large-up} { width: rem-calc(960); }
 }
+
+header, main, footer { @include content-grid; }
