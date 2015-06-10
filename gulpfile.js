@@ -19,19 +19,5 @@ gulp.task('watch', function () {
   gulp.watch(globalConfig.src + '/**/*.*', ['styles']);
 });
 
-
-
-
-// convert scss to css in the same folder
-gulp.task('sass', function () {
-  gulp.src('./assets/**/*.scss')
-    .pipe(sass().on('error', sass.logError))
-    .pipe(gulp.dest('./assets'));
-});
-
-gulp.task('sass:watch', function () {
-  gulp.watch('./assets/**/*.scss', ['sass']);
-});
-
 // Default task
-gulp.task('default', ['watch', 'sass:watch']);
+gulp.task('default', ['watch']);
