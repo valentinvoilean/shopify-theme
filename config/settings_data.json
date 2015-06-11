@@ -4,6 +4,7 @@
     "Slate": {
       "customer_layout": "theme",
       "background_color": "#fff",
+      "header_background_color": "#000",
       "text_color": "#555555",
       "link_color": "#b5792b",
       "facebook_url": "https:\/\/www.facebook.com\/shopify",

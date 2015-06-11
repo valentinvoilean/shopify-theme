@@ -1,40 +1,6 @@
-//
-// Foundation Variables
-//
-
-// Data attribute namespace
-// styles get applied to [data-mysite-plugin], etc
 $namespace: false !default;
-
-// The default font-size is set to 100% of the browser style sheet (usually 16px)
-// for compatibility with browser-based text zoom or user-set defaults.
-
-// Since the typical default browser font-size is 16px, that makes the calculation for grid size.
-// If you want your base font-size to be different and not have it affect the grid breakpoints,
-// set $rem-base to $base-font-size and make sure $base-font-size is a px value.
 $base-font-size: 100% !default;
-
-// $base-line-height is 24px while $base-font-size is 16px
 $base-line-height: 1.5 !default;
-
-//
-// Global Foundation Mixins
-//
-
-// @mixins
-//
-// We use this to add box-sizing across browser prefixes
-@mixin box-sizing($type:border-box) {
-  -webkit-box-sizing: $type; // Android < 2.3, iOS < 4
-     -moz-box-sizing: $type;
-          box-sizing: $type; // Chrome, IE 8+, Opera, Safari 5.1
-}
-
-// We use this to do clear floats
-@mixin clearfix {
-  &:before, &:after { content: " "; display: table; }
-  &:after { clear: both; }
-}
 
 // We use these to control text direction settings
 $text-direction: ltr !default;

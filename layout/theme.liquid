@@ -44,6 +44,7 @@
       class="{% if customer %}customer-logged-in {% endif %}template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}">
 
 <header>
+    <div class="topNav"></div>
     <div class="social-links half column left-aligned">
         {% include 'social-links' %}
     </div>

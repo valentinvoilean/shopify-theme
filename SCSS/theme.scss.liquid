@@ -1,15 +1,64 @@
-@import url("grid/_normalize.scss");
-@import url("grid/_functions.scss");
+@import url("_normalize.scss");
+
+/* ==========================================================================
+   Most theme settings should be stored in Sassy CSS variables here, for reuse.
+   ========================================================================== */
+/*!theme settings */
+$background-color:        {{ settings.background_color }};
+$text-color:              {{ settings.text_color }};
+$link-color:              {{ settings.link_color }};
+$base-font-family:        {{ settings.base_font_family }};
+$base-font-size:          {{ settings.base_font_size }};
+$base-font-weight:        {{ settings.base_font_weight }};
+$heading-font-family:     $base-font-family;
+$heading-font-weight:     600;
+
+$rem-base: 16px !default; // Foundation by ZURB - foundation.zurb.com - Licensed under MIT Open Source
+$modules: () !default;
+
+/* Table of content */
+/* 1.  Functions
+   2.  Mixins
+   3.  Foundation Global
+   4.  Grid
+   5.  Base styles
+   6.  Header
+*/
+
+/* =====================
+   1. Functions
+   ===================== */
+@import url("_functions.scss");
+
+
+/* =====================
+   2. Mixins
+   ===================== */
+@import url("_mixins.scss");
+
+
+/* =====================
+   3. Foundation Global
+   ===================== */
 @import url("grid/_global.scss");
+
+
+/* =====================
+   4. Grid
+   ===================== */
 @import url("grid/_grid.scss");
 
-@mixin content-grid {
-    display: block;
-    margin: 0 auto;
-    width: 90vw;
 
-    @media #{$medium-only} { width: rem-calc(640); }
-    @media #{$large-up} { width: rem-calc(960); }
+/* =====================
+   5. Base styles
+   ===================== */
+main, footer { @include content-grid; }
+
+
+/* =====================
+   6. Header
+   ===================== */
+.topNav {
+   width: 100vw;
+   height: rem-calc(25);
 }
-
-header, main, footer { @include content-grid; }
