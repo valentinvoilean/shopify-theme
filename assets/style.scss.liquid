@@ -5,11 +5,6 @@
 $background-color:        {{ settings.background_color }};
 $text-color:              {{ settings.text_color }};
 $link-color:              {{ settings.link_color }};
-$base-font-family:        {{ settings.base_font_family }};
-$base-font-size:          {{ settings.base_font_size }};
-$base-font-weight:          {{ settings.base_font_weight }};
-$heading-font-family:     $base-font-family;
-$heading-font-weight:     600;
 $headerBackgroundColor:   {{ settings.header_background_color }};
 
 /* Table of content */
@@ -23,36 +18,12 @@ $headerBackgroundColor:   {{ settings.header_background_color }};
 
 html, body {
     background-color: $background-color;
-    font-size: $base-font-size;
-    font-weight: $base-font-weight;
-    line-height: 1.6;
-    font-family: $base-font-family;
     color: $text-color;
 }
-
-h1, h2, h3, h4, h5, h6 {
-    font-family: $heading-font-family;
-    font-weight: $heading-font-weight;
-    text-rendering: optimizeLegibility; /* to enable ligatures and kerning */
-    @extend .paragraph-margins;
-}
-
-/* Contain floats: nicolasgallagher.com/micro-clearfix-hack/ */
-.clearfix:before, .clearfix:after { content: ''; display: table; }
-
-.clearfix:after { clear: both; }
-
-.clearfix { zoom: 1; }
-
-.clear { clear: both; }
-
-.clear-after { *zoom: 1; }
-
-.clear-after:after { content: ''; display: table; clear: both; }
 
 /* =====================
    2. Header
    ===================== */
-.topNav {
+#topNav {
     background: $headerBackgroundColor;
 }

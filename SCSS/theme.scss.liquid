@@ -4,16 +4,13 @@
    Most theme settings should be stored in Sassy CSS variables here, for reuse.
    ========================================================================== */
 /*!theme settings */
-$background-color:        {{ settings.background_color }};
-$text-color:              {{ settings.text_color }};
-$link-color:              {{ settings.link_color }};
 $base-font-family:        {{ settings.base_font_family }};
 $base-font-size:          {{ settings.base_font_size }};
 $base-font-weight:        {{ settings.base_font_weight }};
 $heading-font-family:     $base-font-family;
 $heading-font-weight:     600;
 
-$rem-base: 16px !default; // Foundation by ZURB - foundation.zurb.com - Licensed under MIT Open Source
+$rem-base: 16px !default;
 $modules: () !default;
 
 /* Table of content */
@@ -54,11 +51,38 @@ $modules: () !default;
    ===================== */
 main, footer { @include content-grid; }
 
+/* Contain floats: nicolasgallagher.com/micro-clearfix-hack/ */
+.clearfix:before, .clearfix:after { content: ''; display: table; }
+.clearfix:after { clear: both; }
+.clearfix { zoom: 1; }
+.clear { clear: both; }
+.clear-after { *zoom: 1; }
+.clear-after:after { content: ''; display: table; clear: both; }
+
+html, body {
+    font-size: $base-font-size;
+    font-weight: $base-font-weight;
+    line-height: 1.6;
+    font-family: $base-font-family;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: $heading-font-family;
+    font-weight: $heading-font-weight;
+    text-rendering: optimizeLegibility; /* to enable ligatures and kerning */
+}
+
+.is-hidden { display: none; }
+.is-mobile { @media #{$small-only} { display: block; } }
+.is-mobile-up { @media #{$small-up} { display: block; } }
+.is-tablet { @media #{$medium-only} { display: block; } }
+.is-tablet-up { @media #{$medium-up} { display: block; } }
+.is-desktop { @media #{$large-up} { display: block; } }
 
 /* =====================
    6. Header
    ===================== */
-.topNav {
+#topNav {
    width: 100vw;
-   height: rem-calc(25);
+   height: rem-calc(35);
 }

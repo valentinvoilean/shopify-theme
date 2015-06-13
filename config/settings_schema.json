@@ -136,6 +136,42 @@
     "settings": [
       {
         "type": "header",
+        "content": "Top navigation"
+      },
+      {
+        "type": "select",
+        "id": "display_top_navigation",
+        "label": "Display top navigation",
+        "options": [
+          {
+            "value": "is-hidden",
+            "label": "Don't display it"
+          },
+          {
+            "value": "is-mobile",
+            "label": "On Mobile"
+          },
+          {
+            "value": "is-mobile-up",
+            "label": "On Mobile & up"
+          },
+          {
+            "value": "is-tablet",
+            "label": "On Tablet"
+          },
+          {
+            "value": "is-tablet-up",
+            "label": "On Tablet & up"
+          },
+          {
+            "value": "is-desktop",
+            "label": "On Desktop"
+          }
+        ],
+        "default": "is-mobile-up"
+      },
+      {
+        "type": "header",
         "content": "Logo Options"
       },
       {

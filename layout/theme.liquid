@@ -44,8 +44,7 @@
       class="{% if customer %}customer-logged-in {% endif %}template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}">
 
 <header>
-    <div class="topNav"></div>
-    <div class="social-links half column left-aligned">
+    <div id="topNav" class="{{ settings.display_top_navigation }}">
         {% include 'social-links' %}
     </div>
 
@@ -56,7 +55,7 @@
     of Google Analytics may not work if linking directly to the /checkout page.
     {% endcomment %}
 
-    <div class="half column right-aligned">
+    <div class="">
 
         <div class="cart-link">
             <a href="/cart"><img
@@ -89,7 +88,7 @@
     Theme settings are added to http://www.shopify.com/admin/themes/current#config/settings.html
     {% endcomment %}
 
-    <div class="masthead full column clear centered" role="banner">
+    <div class="" role="banner">
         {% if settings.use_logo %}
             <a id="logo" href="/">
                 {{ 'logo.png' | asset_url | img_tag: shop.name }}
@@ -109,7 +108,7 @@
         {% endif %}
     </div>
 
-    <div class="clear full column">
+    <div class="">
 
         {% comment %}
         Main Navigation
