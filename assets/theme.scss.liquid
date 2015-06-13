@@ -12,8 +12,7 @@ $base-font-weight:        {{ settings.base_font_weight }};
 $heading-font-family:     $base-font-family;
 $heading-font-weight:     600;
 
-$rem-baseline: 16px !default;
-$rem-fallback: true !default;
+$rem-fallback: false !default;
 $rem-px-only: false !default;
 
 /* Table of content */
@@ -28,7 +27,7 @@ $rem-px-only: false !default;
    1. Functions
    ===================== */
 // list-separator polyfill by Hugo Giraudel (https://sass-compatibility.github.io/#list_separator_function)
-@function unit-separator($list) {
+@function rem-separator($list) {
   @if function-exists("list-separator") == true {
     @return list-separator($list);
   }
@@ -44,13 +43,13 @@ $rem-px-only: false !default;
 // sass-rem by pierreburel (https://github.com/pierreburel/sass-rem/blob/master/_rem.scss)
 @function rem-convert($to, $values...) {
   $result: ();
-  $separator: unit-separator($values);
+  $separator: rem-separator($values);
 
   @each $value in $values {
     @if type-of($value) == "number" and unit($value) == "rem" and $to == "px" {
-      $result: append($result, $value / 1rem * $rem-baseline, $separator);
+      $result: append($result, $value / 1rem * $base-font-size, $separator);
     } @else if type-of($value) == "number" and unit($value) == "px" and $to == "rem" {
-      $result: append($result, $value / ($rem-baseline / 1rem), $separator);
+      $result: append($result, $value / ($base-font-size / 1rem), $separator);
     } @else if type-of($value) == "list" {
       $result: append($result, rem-convert($to, $value...), $separator);
     } @else {
@@ -69,24 +68,8 @@ $rem-px-only: false !default;
   }
 }
 
-// sass-em by pierreburel (https://github.com/pierreburel/sass-em/blob/master/_em.scss)
-@function em($values...) {
-  $context: nth($values, length($values));
-  $result: ();
-  $separator: unit-separator($values);
-
-  @for $i from 1 through length($values) - 1 {
-    $value: nth($values, $i);
-    @if type-of($value) == "number" and unit($value) == "px" {
-      $result: append($result, $value / $context * 1em, $separator);
-    } @else if type-of($value) == "list" {
-      $result: append($result, em(append($value, $context)...), $separator);
-    } @else {
-      $result: append($result, $value, $separator);
-    }
-  }
-
-  @return $result;
+@function em($pixels, $context: $base-font-size) {
+  @return #{$pixels/$context}em
 }
 
 
@@ -106,7 +89,7 @@ $rem-px-only: false !default;
 
 // sass-rem by pierreburel (https://github.com/pierreburel/sass-rem/blob/master/_rem.scss)
 @mixin rem-baseline($zoom: 100%) {
-  font-size: $zoom / 16px * $rem-baseline;
+  font-size: $zoom / 16px * $base-font-size;
 }
 
 @mixin rem($properties, $values...) {
@@ -126,18 +109,11 @@ $rem-px-only: false !default;
   }
 }
 
-// sass-em by pierreburel (https://github.com/pierreburel/sass-em/blob/master/_em.scss)
-@mixin em($properties, $context) {
-  @each $property in map-keys($properties) {
-    #{$property}: em(append(map-get($properties, $property), $context)...);
-  }
-}
-
 
 /* =====================
    3. Bootstrap Grid
    ===================== */
-// Twitter Bootstrap v3.3.4 - Code and documentation copyright 2011-2015 Twitter, Inc. Code released under the MIT license. (https://github.com/twbs/bootstrap)
+/*! Twitter Bootstrap v3.3.4  | MIT License | github.com/twbs/bootstrap */
 
 .container { margin-right: auto; margin-left: auto; padding-left: rem(15px); padding-right: rem(15px)}
 
@@ -534,7 +510,7 @@ main, footer { @extend .container }
 .clear-after:after { content: ''; display: table; clear: both; }
 
 html, body {
-    font-size: $base-font-size;
+    font-size: em($base-font-size);
     font-weight: $base-font-weight;
     line-height: 1.6;
     font-family: $base-font-family;

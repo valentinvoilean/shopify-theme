@@ -10,8 +10,7 @@ $base-font-weight:        {{ settings.base_font_weight }};
 $heading-font-family:     $base-font-family;
 $heading-font-weight:     600;
 
-$rem-baseline: 16px !default;
-$rem-fallback: true !default;
+$rem-fallback: false !default;
 $rem-px-only: false !default;
 
 /* Table of content */
@@ -54,7 +53,7 @@ main, footer { @extend .container }
 .clear-after:after { content: ''; display: table; clear: both; }
 
 html, body {
-    font-size: $base-font-size;
+    font-size: em($base-font-size);
     font-weight: $base-font-weight;
     line-height: 1.6;
     font-family: $base-font-family;

@@ -1,7 +1,7 @@
 {
-  "current": "Slate",
+  "current": "Black",
   "presets": {
-    "Slate": {
+    "Black": {
       "customer_layout": "theme",
       "background_color": "#fff",
       "header_background_color": "#000",
