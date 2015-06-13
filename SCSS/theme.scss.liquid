@@ -73,8 +73,13 @@ h1, h2, h3, h4, h5, h6 {
     width: 100vw;
 
     .social_links {
-        float: left;
         overflow: hidden;
+        text-align: center;
+
+        @include breakpoint(tablet){
+            float: left;
+            text-align: left;
+        }
     }
 
     .social_link {
