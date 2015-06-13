@@ -559,14 +559,16 @@ h1, h2, h3, h4, h5, h6 {
    5. Header
    ===================== */
 #topnav {
-    @include rem(min-height, 35px);
+    @include rem(min-height, 30px);
     width: 100vw;
 
     .social_links {
+        @include rem(line-height, 20px);
         overflow: hidden;
         text-align: center;
 
         @include breakpoint(tablet){
+            @include rem(line-height, 30px);
             float: left;
             text-align: left;
         }
@@ -574,24 +576,23 @@ h1, h2, h3, h4, h5, h6 {
 
     .social_link {
         @include rem(margin-right, 5px);
-        @include rem(line-height, 35px);
         @include rem(font-size, 16px);
     }
 
     .contact {
         float: left;
+        @include rem(line-height, 30px);
 
         @include breakpoint(mobile) {
+            @include rem(line-height, 20px);
             width: 100%;
             text-align: center;
-            border-top: rem(1px) solid;
         }
     }
 
     .email_address,
     .phone_number {
-        @include rem(font-size, 12px);
-        @include rem(line-height, 35px);
+        @include rem(font-size, 11px);
         @include rem(margin-left, 10px);
         display: inline-block;
 
