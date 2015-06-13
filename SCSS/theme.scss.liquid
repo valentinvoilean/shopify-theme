@@ -10,16 +10,16 @@ $base-font-weight:        {{ settings.base_font_weight }};
 $heading-font-family:     $base-font-family;
 $heading-font-weight:     600;
 
-$rem-base: 16px !default;
-$modules: () !default;
+$rem-baseline: 16px !default;
+$rem-fallback: true !default;
+$rem-px-only: false !default;
 
 /* Table of content */
 /* 1.  Functions
    2.  Mixins
-   3.  Foundation Global
-   4.  Grid
-   5.  Base styles
-   6.  Header
+   3.  Bootstrap Grid
+   4.  Base styles
+   5.  Header
 */
 
 /* =====================
@@ -35,21 +35,15 @@ $modules: () !default;
 
 
 /* =====================
-   3. Foundation Global
+   3. Bootstrap Grid
    ===================== */
-@import url("grid/_global.scss");
+@import url("_grid.scss");
 
 
 /* =====================
-   4. Grid
+   4. Base styles
    ===================== */
-@import url("grid/_grid.scss");
-
-
-/* =====================
-   5. Base styles
-   ===================== */
-main, footer { @include content-grid; }
+main, footer { @extend .container }
 
 /* Contain floats: nicolasgallagher.com/micro-clearfix-hack/ */
 .clearfix:before, .clearfix:after { content: ''; display: table; }
@@ -72,17 +66,10 @@ h1, h2, h3, h4, h5, h6 {
     text-rendering: optimizeLegibility; /* to enable ligatures and kerning */
 }
 
-.is-hidden { display: none; }
-.is-mobile { @media #{$small-only} { display: block; } }
-.is-mobile-up { @media #{$small-up} { display: block; } }
-.is-tablet { @media #{$medium-only} { display: block; } }
-.is-tablet-up { @media #{$medium-up} { display: block; } }
-.is-desktop { @media #{$large-up} { display: block; } }
-
 /* =====================
-   6. Header
+   5. Header
    ===================== */
 #topNav {
-   width: 100vw;
-   height: rem-calc(35);
+    @include rem(height, 35px);
+    width: 100vw;
 }

@@ -144,31 +144,31 @@
         "label": "Display top navigation",
         "options": [
           {
-            "value": "is-hidden",
+            "value": "hide",
             "label": "Don't display it"
           },
           {
-            "value": "is-mobile",
+            "value": "visible-xs",
             "label": "On Mobile"
           },
           {
-            "value": "is-mobile-up",
+            "value": "show",
             "label": "On Mobile & up"
           },
           {
-            "value": "is-tablet",
+            "value": "visible-sm visible-md",
             "label": "On Tablet"
           },
           {
-            "value": "is-tablet-up",
+            "value": "hidden-xs",
             "label": "On Tablet & up"
           },
           {
-            "value": "is-desktop",
+            "value": "visible-lg",
             "label": "On Desktop"
           }
         ],
-        "default": "is-mobile-up"
+        "default": "show"
       },
       {
         "type": "header",
