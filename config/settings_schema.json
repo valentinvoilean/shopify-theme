@@ -36,12 +36,17 @@
       },
       {
         "type": "header",
-        "content": "Icons"
+        "content": "Top Navigation"
       },
       {
         "type": "color",
         "id": "topnav_icon_color",
-        "label": "Top Navigation Icons Color"
+        "label": "Icon Color"
+      },
+      {
+        "type": "color",
+        "id": "topnav_link_color",
+        "label": "Link color"
       }
     ]
   },
@@ -178,6 +183,82 @@
           }
         ],
         "default": "show"
+      },
+      {
+        "type": "select",
+        "id": "display_top_navigation_phone",
+        "label": "Display the Phone Number",
+        "options": [
+          {
+            "value": "hide",
+            "label": "Don't display it"
+          },
+          {
+            "value": "visible-xs",
+            "label": "On Mobile"
+          },
+          {
+            "value": "show",
+            "label": "On Mobile & up"
+          },
+          {
+            "value": "visible-sm visible-md",
+            "label": "On Tablet"
+          },
+          {
+            "value": "hidden-xs",
+            "label": "On Tablet & up"
+          },
+          {
+            "value": "visible-lg",
+            "label": "On Desktop"
+          }
+        ],
+        "default": "show"
+      },
+      {
+        "type": "select",
+        "id": "display_top_navigation_email",
+        "label": "Display The Email Address",
+        "options": [
+          {
+            "value": "hide",
+            "label": "Don't display it"
+          },
+          {
+            "value": "visible-xs",
+            "label": "On Mobile"
+          },
+          {
+            "value": "show",
+            "label": "On Mobile & up"
+          },
+          {
+            "value": "visible-sm visible-md",
+            "label": "On Tablet"
+          },
+          {
+            "value": "hidden-xs",
+            "label": "On Tablet & up"
+          },
+          {
+            "value": "visible-lg",
+            "label": "On Desktop"
+          }
+        ],
+        "default": "show"
+      },
+      {
+         "type":      "text",
+         "id":        "top_navigation_phone",
+         "label":     "Top Navigation Phone Number",
+         "default":   "+1 (555) 555"
+      },
+      {
+         "type":      "text",
+         "id":        "top_navigation_email",
+         "label":     "Top Navigation Email Address",
+         "default":   "will@smith.com"
       },
       {
         "type": "header",

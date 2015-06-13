@@ -44,9 +44,13 @@
       class="{% if customer %}customer-logged-in {% endif %}template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}">
 
 <header>
-    <div id="topNav" class="{{ settings.display_top_navigation }}">
+    <div id="topnav" class="{{ settings.display_top_navigation }}">
         <div class="container">
             {% include 'social-links' %}
+            <div class="contact">
+                <span class="phone_number {{ settings.display_top_navigation_phone }}">{{ settings.top_navigation_phone }}</span>
+                <a href="mailto:{{ settings.top_navigation_email }}" class="email_address {{ settings.display_top_navigation_email }}">{{ settings.top_navigation_email }}</a>
+            </div>
         </div>
     </div>
 

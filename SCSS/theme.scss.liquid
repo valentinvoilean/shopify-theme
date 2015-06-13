@@ -68,8 +68,8 @@ h1, h2, h3, h4, h5, h6 {
 /* =====================
    5. Header
    ===================== */
-#topNav {
-    @include rem(height, 35px);
+#topnav {
+    @include rem(min-height, 35px);
     width: 100vw;
 
     .social_links {
@@ -84,7 +84,21 @@ h1, h2, h3, h4, h5, h6 {
 
     .social_link {
         @include rem(margin-right, 5px);
-        line-height: em(35px);
-        font-size: em(16px);
+        @include rem(line-height, 35px);
+        @include rem(font-size, 16px);
+    }
+
+    .contact {
+        @include breakpoint(mobile) {
+            width: 100%;
+            text-align: center;
+        }
+    }
+
+    .email_address,
+    .phone_number {
+        @include rem(font-size, 14px);
+        @include rem(line-height, 35px);
+        float: left;
     }
 }
