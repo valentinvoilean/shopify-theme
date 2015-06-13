@@ -447,6 +447,10 @@ $rem-px-only: false !default;
 
 .show { display: block !important }
 
+.show-inline { display: inline !important }
+
+.show-inline-block { display: inline-block !important }
+
 .invisible { visibility: hidden }
 
 .text-hide { font: 0/0 a; color: transparent; text-shadow: none; background-color: transparent; border: 0 }
@@ -575,16 +579,38 @@ h1, h2, h3, h4, h5, h6 {
     }
 
     .contact {
+        float: left;
+
         @include breakpoint(mobile) {
             width: 100%;
             text-align: center;
+            border-top: rem(1px) solid;
         }
     }
 
     .email_address,
     .phone_number {
-        @include rem(font-size, 14px);
+        @include rem(font-size, 12px);
         @include rem(line-height, 35px);
-        float: left;
+        @include rem(margin-left, 10px);
+        display: inline-block;
+
+        &:before {
+            @include rem(margin-right, 10px);
+            content: "|";
+        }
+
+        &:first-child { margin: 0; }
+        &:first-child:before { content: ""; margin: 0; }
+
+        @include breakpoint(tablet) {
+            float: left;
+
+            &:first-child { @include rem(margin-left, 10px); }
+            &:first-child:before {
+                @include rem(margin-right, 10px);
+                content: "|";
+            }
+        }
     }
 }

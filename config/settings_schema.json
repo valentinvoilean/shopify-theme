@@ -194,15 +194,15 @@
             "label": "Don't display it"
           },
           {
-            "value": "visible-xs",
+            "value": "visible-xs-inline-block",
             "label": "On Mobile"
           },
           {
-            "value": "show",
+            "value": "show-inline-block",
             "label": "On Mobile & up"
           },
           {
-            "value": "visible-sm visible-md",
+            "value": "visible-sm-inline-block visible-md-inline-block",
             "label": "On Tablet"
           },
           {
@@ -210,11 +210,11 @@
             "label": "On Tablet & up"
           },
           {
-            "value": "visible-lg",
+            "value": "visible-lg-inline-block",
             "label": "On Desktop"
           }
         ],
-        "default": "show"
+        "default": "show-inline-block"
       },
       {
         "type": "select",
@@ -226,15 +226,15 @@
             "label": "Don't display it"
           },
           {
-            "value": "visible-xs",
+            "value": "visible-xs-inline-block",
             "label": "On Mobile"
           },
           {
-            "value": "show",
+            "value": "show-inline-block",
             "label": "On Mobile & up"
           },
           {
-            "value": "visible-sm visible-md",
+            "value": "visible-sm-inline-block visible-md-inline-block",
             "label": "On Tablet"
           },
           {
@@ -242,11 +242,11 @@
             "label": "On Tablet & up"
           },
           {
-            "value": "visible-lg",
+            "value": "visible-lg-inline-block",
             "label": "On Desktop"
           }
         ],
-        "default": "show"
+        "default": "show-inline-block"
       },
       {
          "type":      "text",
