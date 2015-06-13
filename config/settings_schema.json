@@ -42,11 +42,6 @@
         "type": "color",
         "id": "topnav_icon_color",
         "label": "Top Navigation Icons Color"
-      },
-      {
-        "type": "color",
-        "id": "topnav_icon_hover_color",
-        "label": "Top Navigation Icons Hover Color"
       }
     ]
   },

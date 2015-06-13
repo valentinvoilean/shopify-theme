@@ -7,11 +7,12 @@ $text-color:              {{ settings.text_color }};
 $link-color:              {{ settings.link_color }};
 $headerBackgroundColor:   {{ settings.header_background_color }};
 $topNavIconColor:         {{ settings.topnav_icon_color }};
-$topNavIconHoverColor:    {{ settings.topnav_icon_hover_color }};
+
 /* Table of content */
 /* 1.  Base styles
    2.  CSS transitions
-   2.  Header
+   3.  Mixins
+   4.  Header
 */
 
 /* =====================
@@ -30,7 +31,13 @@ html, body {
 
 
 /* =====================
-   2. Header
+   3. Mixins
+   ===================== */
+@import url("partials/_color-mixins.scss");
+
+
+/* =====================
+   4. Header
    ===================== */
 #topNav {
     background: $headerBackgroundColor;
@@ -38,9 +45,10 @@ html, body {
     .social_link {
         @extend %fadeInBackground;
         @extend %growTransition;
-
+        @include opacity(0.7);
         color: $topNavIconColor;
-        &:hover { color: $topNavIconHoverColor; }
+
+        &:hover { @include opacity(1); }
     }
 }
 
