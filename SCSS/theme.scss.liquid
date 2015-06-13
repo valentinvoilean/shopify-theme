@@ -1,4 +1,4 @@
-@import url("_normalize.scss");
+@import url("partials/_normalize.scss");
 
 /* ==========================================================================
    Most theme settings should be stored in Sassy CSS variables here, for reuse.
@@ -24,19 +24,19 @@ $rem-px-only: false !default;
 /* =====================
    1. Functions
    ===================== */
-@import url("_functions.scss");
+@import url("partials/_functions.scss");
 
 
 /* =====================
    2. Mixins
    ===================== */
-@import url("_mixins.scss");
+@import url("partials/_mixins.scss");
 
 
 /* =====================
    3. Bootstrap Grid
    ===================== */
-@import url("_grid.scss");
+@import url("partials/_grid.scss");
 
 
 /* =====================
@@ -71,4 +71,15 @@ h1, h2, h3, h4, h5, h6 {
 #topNav {
     @include rem(height, 35px);
     width: 100vw;
+
+    .social_links {
+        float: left;
+        overflow: hidden;
+    }
+
+    .social_link {
+        @include rem(margin-right, 5px);
+        line-height: em(35px);
+        font-size: em(16px);
+    }
 }

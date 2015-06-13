@@ -528,4 +528,15 @@ h1, h2, h3, h4, h5, h6 {
 #topNav {
     @include rem(height, 35px);
     width: 100vw;
+
+    .social_links {
+        float: left;
+        overflow: hidden;
+    }
+
+    .social_link {
+        @include rem(margin-right, 5px);
+        line-height: em(35px);
+        font-size: em(16px);
+    }
 }

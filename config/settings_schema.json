@@ -33,6 +33,20 @@
         "type": "color",
         "id": "link_color",
         "label": "Link color"
+      },
+      {
+        "type": "header",
+        "content": "Icons"
+      },
+      {
+        "type": "color",
+        "id": "topnav_icon_color",
+        "label": "Top Navigation Icons Color"
+      },
+      {
+        "type": "color",
+        "id": "topnav_icon_hover_color",
+        "label": "Top Navigation Icons Hover Color"
       }
     ]
   },
@@ -250,11 +264,6 @@
       },
       {
         "type": "text",
-        "id": "wordpress_url",
-        "label": "Wordpress URL"
-      },
-      {
-        "type": "text",
         "id": "yelp_url",
         "label": "Yelp URL"
       },
@@ -262,34 +271,6 @@
         "type": "text",
         "id": "contact_email",
         "label": "Email"
-      },
-      {
-        "type": "blog",
-        "id": "featured_blog",
-        "label": "Blog feed"
-      },
-      {
-        "type": "select",
-        "id": "social_icons_style",
-        "label": "Social icons style",
-        "options": [
-          {
-            "value": "",
-            "label": "Silhouette"
-          },
-          {
-            "value": "-circle",
-            "label": "Circle"
-          },
-          {
-            "value": "-rounded",
-            "label": "Rounded corners"
-          },
-          {
-            "value": "-square",
-            "label": "Square"
-          }
-        ]
       }
     ]
   },
