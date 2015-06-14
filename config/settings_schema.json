@@ -154,8 +154,8 @@
       },
       {
         "type": "select",
-        "id": "display_top_navigation",
-        "label": "Display top navigation",
+        "id": "display_social_icons",
+        "label": "Display social icons",
         "options": [
           {
             "value": "hide",

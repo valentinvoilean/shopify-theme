@@ -1,4 +1,5 @@
-<div class="social_links">
+{% unless settings.display_social_icons == 'hide' %}
+<div class="social_links {{ settings.display_social_icons }}">
     {% unless settings.facebook_url == blank %}
     <a class="social_link" href="{{ settings.facebook_url }}" title="Follow us on Facebook" target="_blank"><i class="fa fa-facebook"></i></a>
     {% endunless %}
@@ -36,3 +37,4 @@
     <a class="social_link" href="mailto:{{ settings.contact_email }}" title="Email us" target="_blank"><i class="fa fa-envelope-o"></i></a>
     {% endunless %}
 </div>
+{% endunless %}

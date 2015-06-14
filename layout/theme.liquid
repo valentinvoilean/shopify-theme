@@ -44,20 +44,10 @@
       class="{% if customer %}customer-logged-in {% endif %}template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}">
 
 <header>
-    <div id="topnav" class="{{ settings.display_top_navigation }}">
+    <div id="topnav">
         <div class="container">
-            {% include 'social-links' %}
-            <div class="contact">
-                {% unless settings.display_top_navigation_email == 'hide' %}
-                    <a href="mailto:{{ settings.top_navigation_email }}" class="email_address {{ settings.display_top_navigation_email }}">
-                        {{ settings.top_navigation_email }}
-                    </a>
-                {% endunless %}
-
-                {% unless settings.display_top_navigation_phone == 'hide' %}
-                    <span class="phone_number {{ settings.display_top_navigation_phone }}">{{ settings.top_navigation_phone }}</span>
-                {% endunless %}
-            </div>
+            {% include 'topnav-social-links' %}
+            {% include 'topnav-contact' %}
             <div class="cart-link">
                 <a href="/cart">
                     <i class="fa fa-shopping-cart"></i>

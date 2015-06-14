@@ -592,7 +592,7 @@ h1, h2, h3, h4, h5, h6 {
     .email_address,
     .phone_number {
         @include rem(margin-left, 10px);
-        @include rem(line-height, 20px);
+        @include rem(line-height, 30px);
         font-size: em(11px);
         display: inline-block;
 
@@ -609,7 +609,6 @@ h1, h2, h3, h4, h5, h6 {
         }
 
         @include breakpoint(tablet) {
-            @include rem(line-height, 30px);
             float: left;
 
             &:first-child { @include rem(margin-left, 10px); }
