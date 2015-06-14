@@ -84,23 +84,27 @@ h1, h2, h3, h4, h5, h6 {
 
     .social_link {
         @include rem(margin-right, 5px);
+        @include rem(line-height, 30px);
         font-size: em(16px);
-        line-height: em(30px);
     }
 
     .contact {
         width: 100%;
         text-align: center;
 
-        @include breakpoint(tablet) { float: left; }
+        @include breakpoint(tablet) {
+            float: left;
+            width: auto;
+            text-align: left;
+        }
     }
 
     .email_address,
     .phone_number {
         @include rem(margin-left, 10px);
+        @include rem(line-height, 20px);
         font-size: em(11px);
         display: inline-block;
-        line-height: em(30px);
 
         &:before {
             @include rem(margin-right, 10px);
@@ -115,6 +119,7 @@ h1, h2, h3, h4, h5, h6 {
         }
 
         @include breakpoint(tablet) {
+            @include rem(line-height, 30px);
             float: left;
 
             &:first-child { @include rem(margin-left, 10px); }
