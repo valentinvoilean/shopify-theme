@@ -555,45 +555,46 @@ h1, h2, h3, h4, h5, h6 {
     text-rendering: optimizeLegibility; /* to enable ligatures and kerning */
 }
 
+a { text-decoration: none; }
+
+.text-left-mobile { @include breakpoint(mobile) { text-align: left; } }
+.text-left-tablet { @include breakpoint(tablet) { text-align: left; } }
+.text-left-desktop { @include breakpoint(desktop) { text-align: left !important; } }
+
+.text-right-mobile { @include breakpoint(mobile) { text-align: right; } }
+.text-right-tablet { @include breakpoint(tablet) { text-align: right; } }
+.text-right-desktop { @include breakpoint(desktop) { text-align: right !important; } }
+
+.text-center-mobile { @include breakpoint(mobile) { text-align: center; } }
+.text-center-tablet { @include breakpoint(tablet) { text-align: center; } }
+.text-center-desktop { @include breakpoint(desktop) { text-align: center !important; } }
+
 /* =====================
    5. Header
    ===================== */
 #topnav {
     @include rem(min-height, 30px);
     width: 100vw;
+    font-size: 0; // fix the inline-block elements
 
     .social_links {
+        display: inline-block;
         overflow: hidden;
-        text-align: center;
-
-        @include breakpoint(tablet) {
-            float: left;
-            text-align: left;
-        }
     }
 
     .social_link {
         @include rem(margin-right, 5px);
         @include rem(line-height, 30px);
-        font-size: em(16px);
+        @include rem(font-size, 16px);
     }
 
-    .contact {
-        width: 100%;
-        text-align: center;
-
-        @include breakpoint(tablet) {
-            float: left;
-            width: auto;
-            text-align: left;
-        }
-    }
+    .contact { display: inline-block; }
 
     .email_address,
     .phone_number {
         @include rem(margin-left, 10px);
         @include rem(line-height, 30px);
-        font-size: em(11px);
+        @include rem(font-size, 11px);
         display: inline-block;
 
         &:before {
@@ -609,7 +610,6 @@ h1, h2, h3, h4, h5, h6 {
         }
 
         @include breakpoint(tablet) {
-            float: left;
 
             &:first-child { @include rem(margin-left, 10px); }
 
@@ -620,15 +620,15 @@ h1, h2, h3, h4, h5, h6 {
             }
         }
     }
+}
 
-    .cart-link {
-        @include rem(font-size, 11px);
-        @include rem(line-height, 30px);
-        float: right;
+.cart-link {
+    @include rem(font-size, 11px);
+    @include rem(line-height, 30px);
+    float: right;
 
-        .fa-shopping-cart {
-            @include rem(margin-right, 5px);
-            @include rem(font-size, 16px);
-        }
+    .fa-shopping-cart {
+        @include rem(margin-right, 5px);
+        @include rem(font-size, 16px);
     }
 }

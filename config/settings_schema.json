@@ -166,7 +166,7 @@
             "label": "On Mobile"
           },
           {
-            "value": "show",
+            "value": "show-inline-block",
             "label": "On Mobile & up"
           },
           {
@@ -182,7 +182,7 @@
             "label": "On Desktop"
           }
         ],
-        "default": "show"
+        "default": "show-inline-block"
       },
       {
         "type": "select",
@@ -259,6 +259,66 @@
          "id":        "top_navigation_email",
          "label":     "Top Navigation Email Address",
          "default":   "will@smith.com"
+      },
+      {
+        "type": "select",
+        "id": "topnav_mobile_alignment",
+        "label": "Mobile behaviour",
+        "options": [
+          {
+            "value": "text-left-mobile",
+            "label": "Align content to left"
+          },
+          {
+            "value": "text-right-mobile",
+            "label": "Align content to right"
+          },
+          {
+            "value": "text-center-mobile",
+            "label": "Center the content"
+          }
+        ],
+        "default": "text-left-mobile"
+      },
+      {
+        "type": "select",
+        "id": "topnav_tablet_alignment",
+        "label": "Tablet behaviour",
+        "options": [
+          {
+            "value": "text-left-tablet",
+            "label": "Align content to left"
+          },
+          {
+            "value": "text-right-tablet",
+            "label": "Align content to right"
+          },
+          {
+            "value": "text-center-tablet",
+            "label": "Center the content"
+          }
+        ],
+        "default": "text-left-tablet"
+      },
+      {
+        "type": "select",
+        "id": "topnav_desktop_alignment",
+        "label": "Desktop behaviour",
+        "options": [
+          {
+            "value": "text-left-desktop",
+            "label": "Align content to left"
+          },
+          {
+            "value": "text-right-desktop",
+            "label": "Align content to right"
+          },
+          {
+            "value": "text-center-desktop",
+            "label": "Center the content"
+          }
+        ],
+        "default": "text-left-desktop"
       },
       {
         "type": "header",

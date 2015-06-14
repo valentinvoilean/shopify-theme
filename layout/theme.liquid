@@ -45,17 +45,9 @@
 
 <header>
     <div id="topnav">
-        <div class="container">
+        <div class="container {{ settings.topnav_desktop_alignment }} {{ settings.topnav_tablet_alignment }} {{ settings.topnav_mobile_alignment }}">
             {% include 'topnav-social-links' %}
             {% include 'topnav-contact' %}
-            <div class="cart-link">
-                <a href="/cart">
-                    <i class="fa fa-shopping-cart"></i>
-                    <span>
-                        {{ cart.item_count }} {{ cart.item_count | pluralize: 'item', 'items' }} - {{ cart.total_price | money }}
-                    </span>
-                </a>
-            </div>
         </div>
     </div>
 
@@ -66,9 +58,16 @@
     of Google Analytics may not work if linking directly to the /checkout page.
     {% endcomment %}
 
-    <div class="">
+    <div class="container">
 
-
+        <div class="cart-link">
+            <a href="/cart">
+                <i class="fa fa-shopping-cart"></i>
+                <span>
+                    {{ cart.item_count }} {{ cart.item_count | pluralize: 'item', 'items' }} - {{ cart.total_price | money }}
+                </span>
+            </a>
+        </div>
 
         {% if shop.customer_accounts_enabled %}
             <div class="customer-links">
