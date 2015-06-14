@@ -48,8 +48,23 @@
         <div class="container">
             {% include 'social-links' %}
             <div class="contact">
-                <a href="mailto:{{ settings.top_navigation_email }}" class="email_address {{ settings.display_top_navigation_email }}">{{ settings.top_navigation_email }}</a>
-                <span class="phone_number {{ settings.display_top_navigation_phone }}">{{ settings.top_navigation_phone }}</span>
+                {% unless settings.display_top_navigation_email == 'hide' %}
+                    <a href="mailto:{{ settings.top_navigation_email }}" class="email_address {{ settings.display_top_navigation_email }}">
+                        {{ settings.top_navigation_email }}
+                    </a>
+                {% endunless %}
+
+                {% unless settings.display_top_navigation_phone == 'hide' %}
+                    <span class="phone_number {{ settings.display_top_navigation_phone }}">{{ settings.top_navigation_phone }}</span>
+                {% endunless %}
+            </div>
+            <div class="cart-link">
+                <a href="/cart">
+                    <i class="fa fa-shopping-cart"></i>
+                    <span>
+                        {{ cart.item_count }} {{ cart.item_count | pluralize: 'item', 'items' }} - {{ cart.total_price | money }}
+                    </span>
+                </a>
             </div>
         </div>
     </div>
@@ -63,11 +78,7 @@
 
     <div class="">
 
-        <div class="cart-link">
-            <a href="/cart"><img
-                        src="{{ 'cart.svg' | asset_url }}"/> {{ cart.item_count }} {{ cart.item_count | pluralize: 'item', 'items' }}
-                ({{ cart.total_price | money }})</a>
-        </div>
+
 
         {% if shop.customer_accounts_enabled %}
             <div class="customer-links">

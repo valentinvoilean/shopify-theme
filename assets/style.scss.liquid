@@ -84,7 +84,7 @@ a { text-decoration: none; }
     .social_link {
         @extend %fadeInBackground;
         @extend %growTransition;
-        @include opacity(0.7);
+        @include opacity(0.8);
         color: $topNavIconColor;
 
         &:hover { @include opacity(1); }
@@ -93,10 +93,19 @@ a { text-decoration: none; }
     .email_address,
     .phone_number {
         @extend %fadeInBackground;
-        @include opacity(0.7);
+        @include opacity(0.8);
         color: $topNavLinkColor;
     }
 
     .email_address { &:hover { @include opacity(1); } }
+
+    .cart-link {
+        color: $topNavIconColor;
+        @include opacity(0.8);
+
+        &:hover { @include opacity(1); }
+
+        & > a { color: $topNavIconColor; }
+    }
 }
 
