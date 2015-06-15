@@ -60,6 +60,12 @@ html, body {
     }
 
     .email_address { &:hover { @include opacity(1); } }
+
+    .social_links + .contact:before,
+    .contact_item:after {
+        color: $topNavLinkColor;
+        @include opacity(0.8);
+    }
 }
 
 .cart-link {

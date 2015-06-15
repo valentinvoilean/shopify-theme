@@ -1,13 +1,17 @@
 {% unless settings.display_top_navigation_email == 'hide' and settings.display_top_navigation_phone == 'hide' %}
-<div class="contact">
+<ul class="contact">
     {% unless settings.display_top_navigation_email == 'hide' %}
-        <a href="mailto:{{ settings.top_navigation_email }}" class="email_address {{ settings.display_top_navigation_email }}">
-            {{ settings.top_navigation_email }}
-        </a>
+        <li class="contact_item">
+            <a href="mailto:{{ settings.top_navigation_email }}" class="email_address {{ settings.display_top_navigation_email }}">
+                {{ settings.top_navigation_email }}
+            </a>
+        </li>
     {% endunless %}
 
     {% unless settings.display_top_navigation_phone == 'hide' %}
-        <span class="phone_number {{ settings.display_top_navigation_phone }}">{{ settings.top_navigation_phone }}</span>
+        <li class="contact_item">
+            <span class="phone_number {{ settings.display_top_navigation_phone }}">{{ settings.top_navigation_phone }}</span>
+        </li>
     {% endunless %}
-</div>
+</ul>
 {% endunless %}

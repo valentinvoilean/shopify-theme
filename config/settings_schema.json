@@ -154,6 +154,66 @@
       },
       {
         "type": "select",
+        "id": "topnav_mobile_alignment",
+        "label": "Mobile behaviour",
+        "options": [
+          {
+            "value": "txt-lt-sm",
+            "label": "Align content to left"
+          },
+          {
+            "value": "txt-rt-sm",
+            "label": "Align content to right"
+          },
+          {
+            "value": "txt-ct-sm",
+            "label": "Center the content"
+          }
+        ],
+        "default": "txt-lt-sm"
+      },
+      {
+        "type": "select",
+        "id": "topnav_tablet_alignment",
+        "label": "Tablet behaviour",
+        "options": [
+          {
+            "value": "txt-lt-md",
+            "label": "Align content to left"
+          },
+          {
+            "value": "txt-rt-md",
+            "label": "Align content to right"
+          },
+          {
+            "value": "txt-ct-md",
+            "label": "Center the content"
+          }
+        ],
+        "default": "txt-lt-md"
+      },
+      {
+        "type": "select",
+        "id": "topnav_desktop_alignment",
+        "label": "Desktop behaviour",
+        "options": [
+          {
+            "value": "txt-lt-lg",
+            "label": "Align content to left"
+          },
+          {
+            "value": "txt-rt-lg",
+            "label": "Align content to right"
+          },
+          {
+            "value": "txt-ct-lg",
+            "label": "Center the content"
+          }
+        ],
+        "default": "txt-lt-lg"
+      },
+      {
+        "type": "select",
         "id": "display_social_icons",
         "label": "Display social icons",
         "options": [
@@ -259,66 +319,6 @@
          "id":        "top_navigation_email",
          "label":     "Top Navigation Email Address",
          "default":   "will@smith.com"
-      },
-      {
-        "type": "select",
-        "id": "topnav_mobile_alignment",
-        "label": "Mobile behaviour",
-        "options": [
-          {
-            "value": "txt-lt-sm",
-            "label": "Align content to left"
-          },
-          {
-            "value": "txt-rt-sm",
-            "label": "Align content to right"
-          },
-          {
-            "value": "txt-ct-sm",
-            "label": "Center the content"
-          }
-        ],
-        "default": "txt-lt-sm"
-      },
-      {
-        "type": "select",
-        "id": "topnav_tablet_alignment",
-        "label": "Tablet behaviour",
-        "options": [
-          {
-            "value": "txt-lt-md",
-            "label": "Align content to left"
-          },
-          {
-            "value": "txt-rt-md",
-            "label": "Align content to right"
-          },
-          {
-            "value": "txt-ct-md",
-            "label": "Center the content"
-          }
-        ],
-        "default": "txt-lt-md"
-      },
-      {
-        "type": "select",
-        "id": "topnav_desktop_alignment",
-        "label": "Desktop behaviour",
-        "options": [
-          {
-            "value": "txt-lt-lg",
-            "label": "Align content to left"
-          },
-          {
-            "value": "txt-rt-lg",
-            "label": "Align content to right"
-          },
-          {
-            "value": "txt-ct-lg",
-            "label": "Center the content"
-          }
-        ],
-        "default": "txt-lt-lg"
       },
       {
         "type": "header",
