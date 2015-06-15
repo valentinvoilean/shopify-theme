@@ -557,17 +557,17 @@ h1, h2, h3, h4, h5, h6 {
 
 a { text-decoration: none; }
 
-.text-left-mobile { @include breakpoint(mobile) { text-align: left; } }
-.text-left-tablet { @include breakpoint(tablet) { text-align: left; } }
-.text-left-desktop { @include breakpoint(desktop) { text-align: left !important; } }
+.txt-lt-sm { @include breakpoint(mobile) { text-align: left; } }
+.txt-lt-md { @include breakpoint(tablet) { text-align: left; } }
+.txt-lt-lg { @include breakpoint(desktop) { text-align: left !important; } }
 
-.text-right-mobile { @include breakpoint(mobile) { text-align: right; } }
-.text-right-tablet { @include breakpoint(tablet) { text-align: right; } }
-.text-right-desktop { @include breakpoint(desktop) { text-align: right !important; } }
+.txt-rt-sm { @include breakpoint(mobile) { text-align: right; } }
+.txt-rt-md { @include breakpoint(tablet) { text-align: right; } }
+.txt-rt-lg { @include breakpoint(desktop) { text-align: right !important; } }
 
-.text-center-mobile { @include breakpoint(mobile) { text-align: center; } }
-.text-center-tablet { @include breakpoint(tablet) { text-align: center; } }
-.text-center-desktop { @include breakpoint(desktop) { text-align: center !important; } }
+.txt-ct-sm { @include breakpoint(mobile) { text-align: center; } }
+.txt-ct-md { @include breakpoint(tablet) { text-align: center; } }
+.txt-ct-lg { @include breakpoint(desktop) { text-align: center !important; } }
 
 /* =====================
    5. Header
@@ -600,24 +600,6 @@ a { text-decoration: none; }
         &:before {
             @include rem(margin-right, 10px);
             content: "|";
-        }
-
-        &:first-child { margin: 0; }
-        &:first-child:before {
-            content: "";
-            margin: 0;
-            display: inline-block;
-        }
-
-        @include breakpoint(tablet) {
-
-            &:first-child { @include rem(margin-left, 10px); }
-
-            &:first-child:before {
-                @include rem(margin-right, 10px);
-                content: "|";
-                display: inline-block;
-            }
         }
     }
 }

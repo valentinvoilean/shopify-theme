@@ -266,19 +266,19 @@
         "label": "Mobile behaviour",
         "options": [
           {
-            "value": "text-left-mobile",
+            "value": "txt-lt-sm",
             "label": "Align content to left"
           },
           {
-            "value": "text-right-mobile",
+            "value": "txt-rt-sm",
             "label": "Align content to right"
           },
           {
-            "value": "text-center-mobile",
+            "value": "txt-ct-sm",
             "label": "Center the content"
           }
         ],
-        "default": "text-left-mobile"
+        "default": "txt-lt-sm"
       },
       {
         "type": "select",
@@ -286,19 +286,19 @@
         "label": "Tablet behaviour",
         "options": [
           {
-            "value": "text-left-tablet",
+            "value": "txt-lt-md",
             "label": "Align content to left"
           },
           {
-            "value": "text-right-tablet",
+            "value": "txt-rt-md",
             "label": "Align content to right"
           },
           {
-            "value": "text-center-tablet",
+            "value": "txt-ct-md",
             "label": "Center the content"
           }
         ],
-        "default": "text-left-tablet"
+        "default": "txt-lt-md"
       },
       {
         "type": "select",
@@ -306,19 +306,19 @@
         "label": "Desktop behaviour",
         "options": [
           {
-            "value": "text-left-desktop",
+            "value": "txt-lt-lg",
             "label": "Align content to left"
           },
           {
-            "value": "text-right-desktop",
+            "value": "txt-rt-lg",
             "label": "Align content to right"
           },
           {
-            "value": "text-center-desktop",
+            "value": "txt-ct-lg",
             "label": "Center the content"
           }
         ],
-        "default": "text-left-desktop"
+        "default": "txt-lt-lg"
       },
       {
         "type": "header",
