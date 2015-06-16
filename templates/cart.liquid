@@ -100,6 +100,12 @@
       {{ content_for_additional_checkout_buttons }}
     </p>
     {% endif %}
+    <p>
+      {{ shop.name }} process all orders in {{ shop.currency }}.
+      While the content of your cart is currently displayed in
+      <span class="selected-currency"></span>,
+      you will checkout using {{ shop.currency }} at the most current exchange rate.
+    </p>
   </div>
   
   {% comment %}

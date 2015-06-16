@@ -48,6 +48,7 @@
         <div class="container">
             {% include 'topnav-social-links' %}
             {% include 'topnav-contact' %}
+            {% include 'currency-picker' %}
         </div>
     </div>
 
@@ -166,6 +167,6 @@
 </footer>
 
 {{ '//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js' | script_tag }}
-{{ 'shop.js'  | asset_url | script_tag }}
+{% include 'currencies' %}
 </body>
 </html>
