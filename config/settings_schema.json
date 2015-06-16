@@ -154,66 +154,6 @@
       },
       {
         "type": "select",
-        "id": "topnav_mobile_alignment",
-        "label": "Mobile behaviour",
-        "options": [
-          {
-            "value": "txt-lt-sm",
-            "label": "Align content to left"
-          },
-          {
-            "value": "txt-rt-sm",
-            "label": "Align content to right"
-          },
-          {
-            "value": "txt-ct-sm",
-            "label": "Center the content"
-          }
-        ],
-        "default": "txt-lt-sm"
-      },
-      {
-        "type": "select",
-        "id": "topnav_tablet_alignment",
-        "label": "Tablet behaviour",
-        "options": [
-          {
-            "value": "txt-lt-md",
-            "label": "Align content to left"
-          },
-          {
-            "value": "txt-rt-md",
-            "label": "Align content to right"
-          },
-          {
-            "value": "txt-ct-md",
-            "label": "Center the content"
-          }
-        ],
-        "default": "txt-lt-md"
-      },
-      {
-        "type": "select",
-        "id": "topnav_desktop_alignment",
-        "label": "Desktop behaviour",
-        "options": [
-          {
-            "value": "txt-lt-lg",
-            "label": "Align content to left"
-          },
-          {
-            "value": "txt-rt-lg",
-            "label": "Align content to right"
-          },
-          {
-            "value": "txt-ct-lg",
-            "label": "Center the content"
-          }
-        ],
-        "default": "txt-lt-lg"
-      },
-      {
-        "type": "select",
         "id": "display_social_icons",
         "label": "Display social icons",
         "options": [
@@ -277,48 +217,10 @@
         "default": "show-inline-block"
       },
       {
-        "type": "select",
-        "id": "display_top_navigation_email",
-        "label": "Display The Email Address",
-        "options": [
-          {
-            "value": "hide",
-            "label": "Don't display it"
-          },
-          {
-            "value": "visible-xs-inline-block",
-            "label": "On Mobile"
-          },
-          {
-            "value": "show-inline-block",
-            "label": "On Mobile & up"
-          },
-          {
-            "value": "visible-sm-inline-block visible-md-inline-block",
-            "label": "On Tablet"
-          },
-          {
-            "value": "hidden-xs",
-            "label": "On Tablet & up"
-          },
-          {
-            "value": "visible-lg-inline-block",
-            "label": "On Desktop"
-          }
-        ],
-        "default": "show-inline-block"
-      },
-      {
          "type":      "text",
          "id":        "top_navigation_phone",
          "label":     "Top Navigation Phone Number",
          "default":   "+1 (555) 555"
-      },
-      {
-         "type":      "text",
-         "id":        "top_navigation_email",
-         "label":     "Top Navigation Email Address",
-         "default":   "will@smith.com"
       },
       {
         "type": "header",
