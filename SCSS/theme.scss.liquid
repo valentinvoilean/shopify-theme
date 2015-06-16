@@ -83,7 +83,7 @@ a { text-decoration: none; }
    5. Header
    ===================== */
 #topnav {
-    @include rem(min-height, 30px);
+    @include rem(min-height, 50px);
     width: 100vw;
     font-size: 0; // fix the inline-block elements
 
@@ -93,8 +93,8 @@ a { text-decoration: none; }
     }
 
     .social_link {
-        @include rem(margin-right, 5px);
-        @include rem(line-height, 30px);
+        @include rem(margin-right, 20px);
+        @include rem(line-height, 50px);
         @include rem(font-size, 16px);
     }
 
@@ -109,8 +109,7 @@ a { text-decoration: none; }
             @include rem(margin-right, 10px);
             @include rem(margin-left, 10px);
             @include rem(font-size, 11px);
-            @include rem(line-height, 30px);
-            content: "|";
+            @include rem(line-height, 50px);
             float: left;
         }
     }
@@ -122,24 +121,16 @@ a { text-decoration: none; }
         &:after {
             @include rem(margin-left, 10px);
             @include rem(font-size, 11px);
-            @include rem(line-height, 30px);
-            content: "|";
+            @include rem(line-height, 50px);
             float: left;
         }
 
-        &:last-child {
-            margin-right: 0;
-
-            &:after {
-                content: "";
-                margin-left: 0;
-            }
-        }
+        &:last-child { margin-right: 0; }
     }
 
     .email_address,
     .phone_number {
-        @include rem(line-height, 30px);
+        @include rem(line-height, 50px);
         @include rem(font-size, 11px);
         float: left;
     }
@@ -147,7 +138,7 @@ a { text-decoration: none; }
 
 .cart-link {
     @include rem(font-size, 11px);
-    @include rem(line-height, 30px);
+    @include rem(line-height, 50px);
     float: right;
 
     .fa-shopping-cart {
