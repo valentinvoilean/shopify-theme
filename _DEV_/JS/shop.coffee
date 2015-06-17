@@ -1,4 +1,5 @@
-a = 1
-b = 2
+window.Shop = {}
 
-console.log a+b+"a"
+#= require_tree modules
+
+currency = new Currency "Example"
