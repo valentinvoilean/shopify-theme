@@ -4,7 +4,7 @@ var gulp = require('gulp'),
     sass = require('gulp-sass');
 
 var globalConfig = {
-  src: 'SCSS' // your dev stylesheet directory. No trailing slash
+  src: '_DEV_/SCSS' // your dev stylesheet directory. No trailing slash
 };
 
 // Process CSS
