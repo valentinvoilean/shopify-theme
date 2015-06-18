@@ -26,7 +26,7 @@ gulp.task('coffee', function () {
 // Watch files
 gulp.task('watch', function () {
     gulp.watch(sass_folder.src + '/**/*.*', ['styles']);
-    gulp.watch(coffee_folder.src + '/*.coffee', ['coffee']);
+    gulp.watch(coffee_folder.src + '/**/*.*', ['coffee']);
 });
 
 // Default task
