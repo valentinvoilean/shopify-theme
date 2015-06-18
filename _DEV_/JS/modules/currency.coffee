@@ -34,7 +34,7 @@
       else Currency.currentCurrency = _options.defaultCurrency
     else if $("[name=currencies]").size() and $("[name=currencies] option[value=#{_options.cookieCurrency}]").size() is 0
       Currency.currentCurrency = _options.shopCurrency
-      Currency.cookie.write _options.shopCurrency
+      localStorage.setItem "currency", _options.shopCurrency
     else if _options.cookieCurrency is _options.shopCurrency
       Currency.currentCurrency = _options.shopCurrency
     else Currency.convertAll _options.shopCurrency, _options.cookieCurrency

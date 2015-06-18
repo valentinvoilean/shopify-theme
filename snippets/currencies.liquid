@@ -10,7 +10,7 @@
             money_with_currency_format: '{{ shop.money_with_currency_format | strip_html | json }}',
             money_format: '{{ shop.money_format | strip_html | json }}',
             defaultCurrency: '{{ settings.default_currency | default: shop.currency }}',
-            cookieCurrency: Currency.cookie.read()
+            cookieCurrency: localStorage.getItem('currency')
         });
     </script>
 
