@@ -17,7 +17,7 @@
         var defaultCurrency = '{{ settings.default_currency | default: shop.currency }}';
 
         /* Cookie currency */
-        var cookieCurrency = Currency.cookie.read();
+        var cookieCurrency = localStorage.getItem('currency');
 
         /* Fix for customer account pages */
         jQuery('span.money span.money').each(function () {
@@ -41,7 +41,7 @@
         // If the cookie value does not correspond to any value in the currency dropdown.
         else if (jQuery('[name=currencies]').size() && jQuery('[name=currencies] option[value=' + cookieCurrency + ']').size() === 0) {
             Currency.currentCurrency = shopCurrency;
-            Currency.cookie.write(shopCurrency);
+            localStorage.setItem('currency', shopCurrency)
         }
         else if (cookieCurrency === shopCurrency) {
             Currency.currentCurrency = shopCurrency;
@@ -69,6 +69,12 @@
         });
 
         jQuery('.selected-currency').text(Currency.currentCurrency);
+
+
+        /**
+         * Initialize custom currency dropdown
+         */
+        shop.ChangeCurrency.init({ element: "#topnav" });
 
     </script>
 
