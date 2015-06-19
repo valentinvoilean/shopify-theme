@@ -5,6 +5,7 @@ var gulp = require('gulp'),
     gutil = require('gulp-util'),
     coffee = require('gulp-coffee'),
     include = require('gulp-include'),
+    shell = require('gulp-shell'),
 
     sass_folder = {src: '_DEV_/SCSS'},
     coffee_folder = {src: '_DEV_/JS'};
@@ -29,5 +30,7 @@ gulp.task('watch', function () {
     gulp.watch(coffee_folder.src + '/**/*.*', ['coffee']);
 });
 
+gulp.task('shopifyThemeWatch', shell.task(['theme watch']));
+
 // Default task
-gulp.task('default', ['watch']);
+gulp.task('default', ['watch','shopifyThemeWatch']);
