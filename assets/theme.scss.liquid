@@ -572,10 +572,29 @@ a { text-decoration: none; }
 /* =====================
    5. Header
    ===================== */
+
+//Top Navigation
+$topnav-height: 50px;
+$topnav-fontsize: 11px;
+
 #topnav {
-    @include rem(min-height, 50px);
+    @include rem(min-height, $topnav-height);
     width: 100vw;
     font-size: 0; // fix the inline-block elements
+
+    .arrow-down {
+        @include rem(margin-left, 5px);
+    	width: 0;
+    	height: 0;
+    	border-left: rem(4px) solid;
+    	border-right: rem(4px) solid;
+    	border-top: rem(4px) solid;
+        display: inline-block;
+        vertical-align: middle;
+    }
+}
+// Top Navigation: Social Icons
+#topnav {
 
     .social_links {
         display: inline-block;
@@ -584,9 +603,12 @@ a { text-decoration: none; }
 
     .social_link {
         @include rem(margin-right, 20px);
-        @include rem(line-height, 50px);
+        @include rem(line-height, $topnav-height);
         @include rem(font-size, 16px);
     }
+}
+// Top Navigation: Phone & Email address
+#topnav {
 
     .contact {
         display: inline-block;
@@ -598,8 +620,8 @@ a { text-decoration: none; }
         &:before {
             @include rem(margin-right, 10px);
             @include rem(margin-left, 10px);
-            @include rem(font-size, 11px);
-            @include rem(line-height, 50px);
+            @include rem(font-size, $topnav-fontsize);
+            @include rem(line-height, $topnav-height);
             float: left;
         }
     }
@@ -610,8 +632,8 @@ a { text-decoration: none; }
 
         &:after {
             @include rem(margin-left, 10px);
-            @include rem(font-size, 11px);
-            @include rem(line-height, 50px);
+            @include rem(font-size, $topnav-fontsize);
+            @include rem(line-height, $topnav-height);
             float: left;
         }
 
@@ -620,9 +642,20 @@ a { text-decoration: none; }
 
     .email_address,
     .phone_number {
-        @include rem(line-height, 50px);
-        @include rem(font-size, 11px);
+        @include rem(line-height, $topnav-height);
+        @include rem(font-size, $topnav-fontsize);
         float: left;
+    }
+}
+// Top Navigation: Currencies
+#topnav {
+
+    .currency__base {
+        @include rem(font-size, $topnav-fontsize);
+        float: right;
+        line-height: $topnav-height;
+        height: $topnav-height;
+        cursor: pointer;
     }
 }
 

@@ -1,0 +1,14 @@
+// Top Navigation: Social Icons
+#topnav {
+
+    .social_links {
+        display: inline-block;
+        overflow: hidden;
+    }
+
+    .social_link {
+        @include rem(margin-right, 20px);
+        @include rem(line-height, $topnav-height);
+        @include rem(font-size, 16px);
+    }
+}

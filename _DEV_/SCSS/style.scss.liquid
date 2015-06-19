@@ -28,13 +28,13 @@ html, body {
 /* =====================
    2. CSS transitions
    ===================== */
-@import url("partials/_transitions.scss");
+@import url("partials/core/_transitions.scss");
 
 
 /* =====================
    3. Mixins
    ===================== */
-@import url("partials/_color-mixins.scss");
+@import url("partials/core/_color-mixins.scss");
 
 
 /* =====================
@@ -42,6 +42,12 @@ html, body {
    ===================== */
 #topnav {
     background: $headerBackgroundColor;
+
+    .arrow-down {
+        border-left-color: transparent;
+        border-right-color: transparent;
+        border-top-color: $topNavIconColor;
+    }
 
     .social_link {
         @extend %fadeInBackground;
@@ -56,7 +62,8 @@ html, body {
     }
 
     .social_links + .contact:before,
-    .contact_item:after {
+    .contact_item:after,
+    .currency__base {
         color: $topNavLinkColor;
     }
 }

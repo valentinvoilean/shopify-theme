@@ -4,7 +4,7 @@
     "Black": {
       "customer_layout": "theme",
       "background_color": "#fff",
-      "header_background_color": "#000",
+      "header_background_color": "#212121",
       "topnav_icon_color": "#fff",
       "topnav_link_color": "#fff",
       "text_color": "#555555",

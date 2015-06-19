@@ -1,0 +1,20 @@
+//Top Navigation
+$topnav-height: 50px;
+$topnav-fontsize: 11px;
+
+#topnav {
+    @include rem(min-height, $topnav-height);
+    width: 100vw;
+    font-size: 0; // fix the inline-block elements
+
+    .arrow-down {
+        @include rem(margin-left, 5px);
+    	width: 0;
+    	height: 0;
+    	border-left: rem(4px) solid;
+    	border-right: rem(4px) solid;
+    	border-top: rem(4px) solid;
+        display: inline-block;
+        vertical-align: middle;
+    }
+}

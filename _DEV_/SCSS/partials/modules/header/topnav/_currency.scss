@@ -1,0 +1,11 @@
+// Top Navigation: Currencies
+#topnav {
+
+    .currency__base {
+        @include rem(font-size, $topnav-fontsize);
+        float: right;
+        line-height: $topnav-height;
+        height: $topnav-height;
+        cursor: pointer;
+    }
+}

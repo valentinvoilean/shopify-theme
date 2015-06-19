@@ -79,6 +79,12 @@ html, body {
 #topnav {
     background: $headerBackgroundColor;
 
+    .arrow-down {
+        border-left-color: transparent;
+        border-right-color: transparent;
+        border-top-color: $topNavIconColor;
+    }
+
     .social_link {
         @extend %fadeInBackground;
         @extend %growTransition;
@@ -92,7 +98,8 @@ html, body {
     }
 
     .social_links + .contact:before,
-    .contact_item:after {
+    .contact_item:after,
+    .currency__base {
         color: $topNavLinkColor;
     }
 }

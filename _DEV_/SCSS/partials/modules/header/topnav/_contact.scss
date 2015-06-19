@@ -1,0 +1,40 @@
+// Top Navigation: Phone & Email address
+#topnav {
+
+    .contact {
+        display: inline-block;
+        padding: 0;
+    }
+
+    .social_links + .contact {
+
+        &:before {
+            @include rem(margin-right, 10px);
+            @include rem(margin-left, 10px);
+            @include rem(font-size, $topnav-fontsize);
+            @include rem(line-height, $topnav-height);
+            float: left;
+        }
+    }
+
+    .contact_item {
+        @include rem(margin-right, 10px);
+        float: left;
+
+        &:after {
+            @include rem(margin-left, 10px);
+            @include rem(font-size, $topnav-fontsize);
+            @include rem(line-height, $topnav-height);
+            float: left;
+        }
+
+        &:last-child { margin-right: 0; }
+    }
+
+    .email_address,
+    .phone_number {
+        @include rem(line-height, $topnav-height);
+        @include rem(font-size, $topnav-fontsize);
+        float: left;
+    }
+}
