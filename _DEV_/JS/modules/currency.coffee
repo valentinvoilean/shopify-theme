@@ -9,7 +9,10 @@
     money_with_currency_format: ""
     money_format: ""
     defaultCurrency: ""
-    cookieCurrency: ""
+    cookieCurrency: "",
+    currencyBaseClass: ".currency__base"
+    currencyListClass: ".currency__list"
+    currencyListItem: ".currency__item"
 
   _setDefaults = () ->
     Currency.format = _options.currencyFormat
@@ -43,19 +46,38 @@
     $("[name=currencies]").val(Currency.currentCurrency).change ()->
       newCurrency = $(@).val()
       Currency.convertAll Currency.currentCurrency, newCurrency
-      $(".selected-currency").text Currency.currentCurrency
+      $(".currency__selected").text Currency.currentCurrency
 
     original_selectCallback = window.selectCallback
     selectCallback = (variant, selector) ->
       original_selectCallback(variant, selector)
       Currency.convertAll _options.shopCurrency, $("[name=currencies]").val()
-      $(".selected-currency").text Currency.currentCurrency
+      $(".currency__selected").text Currency.currentCurrency
 
     $("body").on "ajaxCart.afterCartLoad", () ->
         Currency.convertAll _options.shopCurrency, $("[name=currencies]").val()
-        $(".selected-currency").text Currency.currentCurrency
+        $(".currency__selected").text Currency.currentCurrency
 
-    $(".selected-currency").text(Currency.currentCurrency);
+    $(".currency__selected").text(Currency.currentCurrency);
+
+
+
+
+    $(_options.currencyBaseClass)
+      .on 'mouseenter', () ->
+        $('.currency__list').stop(true,true).slideDown()
+      .on 'mouseleave', () ->
+        $('.currency__list').stop(true,true).slideUp()
+
+    $('.currency__item').on 'click', () ->
+      $('.currency__base').trigger('mouseleave')
+      newCurrency = $(@).html()
+      Currency.convertAll Currency.currentCurrency, newCurrency
+      $(".currency__selected").text Currency.currentCurrency
+
+
+
+
 
   # public
   init: (options)->

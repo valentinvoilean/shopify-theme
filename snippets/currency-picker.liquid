@@ -1,4 +1,4 @@
-<label class="currency-picker__wrapper">
+<label class="currency-picker__wrapper" style="display: none">
     <span class="currency-picker__label">Pick a currency</span>
     <select class="currency-picker" name="currencies" style="display: inline; width: auto; vertical-align: inherit;">
         {% assign codes = 'USD,EUR,GBP,CAD,ARS,AUD,BBD,BDT,BSD,BHD,BRL,BOB,BND,BGN,ILS,MMK,KYD,CLP,CNY,COP,CRC,HRK,CZK,DKK,DOP,XCD,EGP,XPF,FJD,GHS,GTQ,GYD,GEL,HKD,HUF,ISK,INR,IDR,NIS,JMD,JPY,JOD,KZT,KES,KWD,LVL,LTL,MXN,MYR,MUR,MDL,MAD,MNT,MZN,ANG,NZD,NGN,NOK,OMR,PKR,PYG,PEN,PHP,PLN,QAR,RON,RUB,SAR,RSD,SCR,SGD,SYP,ZAR,KRW,LKR,SEK,CHF,TWD,THB,TZS,TTD,TRY,UAH,AED,UYU,VEB,VND,ZMK' | split: ',' %}
@@ -13,9 +13,14 @@
 </label>
 
 <div class="currency__base">
-    <div class="currency__selected">EUR <span class="arrow-down"></span></div>
-    <div class="currency__list">
-        <div class="currency__item">USD</div>
-        <div class="currency__item">RON</div>
-    </div>
+    {% assign codes = 'USD,EUR,GBP,CAD,ARS,AUD,BBD,BDT,BSD,BHD,BRL,BOB,BND,BGN,ILS,MMK,KYD,CLP,CNY,COP,CRC,HRK,CZK,DKK,DOP,XCD,EGP,XPF,FJD,GHS,GTQ,GYD,GEL,HKD,HUF,ISK,INR,IDR,NIS,JMD,JPY,JOD,KZT,KES,KWD,LVL,LTL,MXN,MYR,MUR,MDL,MAD,MNT,MZN,ANG,NZD,NGN,NOK,OMR,PKR,PYG,PEN,PHP,PLN,QAR,RON,RUB,SAR,RSD,SCR,SGD,SYP,ZAR,KRW,LKR,SEK,CHF,TWD,THB,TZS,TTD,TRY,UAH,AED,UYU,VEB,VND,ZMK' | split: ',' %}
+    {% assign supported_codes = settings.supported_currencies | split: ' ' %}
+    <div class="currency__active"><span class="currency__selected">{{ shop.currency }}</span><span class="arrow-down"></span></div>
+    <ul class="currency__list">
+        {% for code in supported_codes %}
+            {% if code != shop.currency and codes contains code %}
+                <li class="currency__item">{{ code }}</li>
+            {% endif %}
+        {% endfor %}
+    </ul>
 </div>

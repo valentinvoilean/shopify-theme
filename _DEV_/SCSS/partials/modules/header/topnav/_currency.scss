@@ -7,5 +7,30 @@
         line-height: $topnav-height;
         height: $topnav-height;
         cursor: pointer;
+        position: relative;
+
+    }
+
+    .currency__active {
+        line-height: $topnav-height;
+        height: $topnav-height;
+    }
+
+    .currency__list {
+        @include rem(padding, 0 14px);
+        list-style: none;
+        overflow: hidden;
+        margin: 0;
+        position: absolute;
+        top: $topnav-height -1;
+        right: 0;
+        border-top: rem(1px) solid;
+        display: none;
+    }
+
+    .currency__item {
+        @include rem(line-height, 28px);
+        @include rem(height, 28px);
+        display: block;
     }
 }
