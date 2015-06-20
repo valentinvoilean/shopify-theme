@@ -672,9 +672,9 @@ $topnav-fontsize: 11px;
         overflow: hidden;
         margin: 0;
         position: absolute;
-        top: $topnav-height -1;
+        top: calc(#{$topnav-height} + 2px);
         right: 0;
-        border-top: rem(1px) solid;
+        border: rem(1px) solid;
         display: none;
     }
 

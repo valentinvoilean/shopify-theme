@@ -24,8 +24,9 @@
     if storageValue isnt null then _o.currencyValue.text storageValue
 
   _addEvents = () ->
-    _o.currencyBase.on 'click', () ->
-      _o.currencyList.stop(true,true).slideToggle("fast")
+    _o.currencyBase.on 'click', (e) ->
+      e.stopPropagation();
+      _o.currencyList.stop(true,true).slideToggle("400","linear")
 
     _o.currencyItem.on 'click', () ->
       _o.currencyValue.text $(@).text() # Update the custom dropdown value
@@ -33,6 +34,10 @@
       _o.hiddenSelectElement # update & trigger the hidden select element
         .val $(@).text()
         .trigger "change"
+
+    $(document).on 'click', () -> # close the currency flyout on clicking outsited of it
+      _o.currencyList.stop(true,true).slideUp("400","linear")
+
 
   # public
   init: (options)->
