@@ -15,7 +15,7 @@
     <div class="currency__active"><span class="currency__value">{{ shop.currency }}</span><span class="arrow-down"></span></div>
     <ul class="currency__list">
         {% for code in supported_codes %}
-            {% if code != shop.currency and codes contains code %}
+            {% if codes contains code %}
                 <li class="currency__item">{{ code }}</li>
             {% endif %}
         {% endfor %}

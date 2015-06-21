@@ -19,9 +19,15 @@
     _o.currencyValue = $el.find _o.currencyValueClass
     _o.hiddenSelectElement = $el.find _o.hiddenSelectElementClass
 
+
   _checkLocalstorage = () ->
     storageValue = localStorage.getItem "currency"
-    if storageValue isnt null then _o.currencyValue.text storageValue
+
+    if storageValue isnt null then _o.currencyValue.text storageValue #update the value after refresh
+
+    _o.currencyItem.each () ->
+      if $(@).text() is storageValue then $(this).hide() # hide the active item in the dropdown
+
 
   _addEvents = () ->
     _o.currencyBase.on 'click', (e) ->
@@ -29,8 +35,14 @@
       _o.currencyList.stop(true,true).fadeToggle("fast","linear")
 
     _o.currencyItem.on 'click', () ->
+
       _o.currencyValue.text $(@).text() # Update the custom dropdown value
+
+      _o.currencyItem.show() # display all the items
+      $(@).hide() # hide current item
+
       localStorage.setItem("currency", $(@).text()); # Update the local storage
+
       _o.hiddenSelectElement # update & trigger the hidden select element
         .val $(@).text()
         .trigger "change"
