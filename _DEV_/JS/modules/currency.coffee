@@ -1,20 +1,20 @@
-@shop = @shop ? {}
+@Shop = @Shop ? {}
 
-@shop.ChangeCurrency = do ($ = jQuery) ->
+@Shop.ChangeCurrency = do ($ = jQuery) ->
 
   #private
   _o =
     element: "#topnav"
     currencyBaseClass: ".currency__base"
     currencyItemClass: ".currency__item"
-    currencyListClass: ".currency__list"
+    currencyVerticalListClass: ".currency__verticalList"
     currencyValueClass: ".currency__value"
     hiddenSelectElementClass: ".currency-picker"
 
   _updateElements = () ->
     $el = $(_o.element)
     _o.currencyBase = $el.find _o.currencyBaseClass
-    _o.currencyList = $el.find _o.currencyListClass
+    _o.currencyVerticalList = $el.find _o.currencyVerticalListClass
     _o.currencyItem = $el.find _o.currencyItemClass
     _o.currencyValue = $el.find _o.currencyValueClass
     _o.hiddenSelectElement = $el.find _o.hiddenSelectElementClass
@@ -32,7 +32,7 @@
   _addEvents = () ->
     _o.currencyBase.on 'click', (e) ->
       e.stopPropagation();
-      _o.currencyList.stop(true,true).fadeToggle("fast","linear")
+      _o.currencyVerticalList.stop(true,true).fadeToggle("fast","linear")
 
     _o.currencyItem.on 'click', () ->
 
@@ -48,7 +48,7 @@
         .trigger "change"
 
     $(document).on 'click', () -> # close the currency flyout on clicking outsited of it
-      _o.currencyList.stop(true,true).fadeOut("fast","linear")
+      _o.currencyVerticalList.stop(true,true).fadeOut("fast","linear")
 
 
   # public

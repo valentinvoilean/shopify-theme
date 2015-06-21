@@ -16,7 +16,7 @@
         height: $topnav-height;
     }
 
-    .currency__list {
+    .currency__verticalList {
         @include rem(padding, 0 14px);
         list-style: none;
         overflow: hidden;
