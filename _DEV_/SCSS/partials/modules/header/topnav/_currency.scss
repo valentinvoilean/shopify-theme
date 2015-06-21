@@ -11,11 +11,6 @@
 
     }
 
-    .currency__active {
-        line-height: $topnav-height;
-        height: $topnav-height;
-    }
-
     .currency__verticalList {
         @include rem(padding, 0 14px);
         list-style: none;
@@ -26,11 +21,40 @@
         right: 0;
         border: rem(1px) solid;
         display: none;
+
+        .currency__active {
+            line-height: $topnav-height;
+            height: $topnav-height;
+        }
+
+        .currency__item {
+            @include rem(line-height, 28px);
+            @include rem(height, 28px);
+            display: block;
+        }
     }
 
-    .currency__item {
-        @include rem(line-height, 28px);
-        @include rem(height, 28px);
-        display: block;
+    .currency__horizontalList {
+        list-style: none;
+        overflow: hidden;
+        display: inline-block;
+        padding: 0;
+        margin: 0;
+        float: left;
+
+        .currency__item {
+            @include rem(margin-left, 10px);
+            display: none;
+            float: right;
+            line-height: $topnav-height;
+            height: $topnav-height;
+        }
+
+        .currency__active {
+            font-weight: bold;
+            display: block;
+        }
     }
+
+
 }

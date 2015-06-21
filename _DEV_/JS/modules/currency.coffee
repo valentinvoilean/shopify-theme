@@ -5,17 +5,17 @@
   #private
   _o =
     element: "#topnav"
-    currencyBaseClass: ".currency__base"
-    currencyItemClass: ".currency__item"
-    currencyVerticalListClass: ".currency__verticalList"
+    baseClass: ".currency__base"
+    itemClass: ".currency__item"
+    verticalListClass: ".currency__verticalList"
     currencyValueClass: ".currency__value"
     hiddenSelectElementClass: ".currency-picker"
 
   _updateElements = () ->
     $el = $(_o.element)
-    _o.currencyBase = $el.find _o.currencyBaseClass
-    _o.currencyVerticalList = $el.find _o.currencyVerticalListClass
-    _o.currencyItem = $el.find _o.currencyItemClass
+    _o.base = $el.find _o.baseClass
+    _o.verticalList = $el.find _o.verticalListClass
+    _o.verticalItem = $el.find(_o.verticalListClass).find _o.itemClass
     _o.currencyValue = $el.find _o.currencyValueClass
     _o.hiddenSelectElement = $el.find _o.hiddenSelectElementClass
 
@@ -25,20 +25,19 @@
 
     if storageValue isnt null then _o.currencyValue.text storageValue #update the value after refresh
 
-    _o.currencyItem.each () ->
+    _o.verticalItem.each () ->
       if $(@).text() is storageValue then $(this).hide() # hide the active item in the dropdown
 
-
-  _addEvents = () ->
-    _o.currencyBase.on 'click', (e) ->
+  _addTabletEvents = () ->
+    _o.base.find('.visible-md').on 'click', (e) -> # toggle the vertical flyout on tablet
       e.stopPropagation();
-      _o.currencyVerticalList.stop(true,true).fadeToggle("fast","linear")
+      _o.verticalList.stop(true,true).fadeToggle("fast","linear")
 
-    _o.currencyItem.on 'click', () ->
+    _o.verticalItem.on 'click', () ->
 
       _o.currencyValue.text $(@).text() # Update the custom dropdown value
 
-      _o.currencyItem.show() # display all the items
+      _o.verticalItem.show() # display all the items
       $(@).hide() # hide current item
 
       localStorage.setItem("currency", $(@).text()); # Update the local storage
@@ -48,7 +47,10 @@
         .trigger "change"
 
     $(document).on 'click', () -> # close the currency flyout on clicking outsited of it
-      _o.currencyVerticalList.stop(true,true).fadeOut("fast","linear")
+      _o.verticalList.stop(true,true).fadeOut("fast","linear")
+
+  _addEvents = () ->
+    _addTabletEvents()
 
 
   # public
