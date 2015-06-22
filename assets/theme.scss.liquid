@@ -715,17 +715,25 @@ $topnav-fontsize: 11px;
         }
 
         .currency__item {
-            @include rem(margin-left, 10px);
-            display: none;
             line-height: rem($topnav-height);
             height: rem($topnav-height);
+            display: inline-block;
+            width: 0;
+            float: left;
             cursor: pointer;
+            overflow: hidden;
+            -moz-transition: all 0.3s ease;
+            -webkit-transition: all 0.3s ease;
+            -o-transition: all 0.3s ease;
+            transition: all 0.3s ease;
         }
 
         .currency__active {
+            @include rem(margin-left, 10px);
             font-weight: bold;
             display: inline-block;
             cursor: pointer;
+            width: auto;
         }
     }
 
@@ -738,7 +746,9 @@ $topnav-fontsize: 11px;
         }
 
         .currency__item {
+            @include rem(margin-left, 10px);
             display: inline-block;
+            width: auto;
         }
     }
 
