@@ -30,6 +30,7 @@
     if storageValue isnt null
       _o.currencyValue.text storageValue #update the value after refresh
 
+      _o.verticalItem.show()
       _o.verticalItem.each () -> # hide the active item in the dropdown
         if $(@).text() is storageValue then $(@).hide()
 
@@ -37,7 +38,7 @@
       _o.horizontalItem.each () ->
         if $(@).text() is storageValue then $(@).addClass 'currency__active'
 
-    _o.horizontalList.css 'display', 'inline-block'
+    _o.horizontalList.show()
 
   _updateLocalStorage = (currentElement) ->
     localStorage.setItem("currency", currentElement.text()); # Update the local storage
@@ -76,6 +77,8 @@
   _addEvents = () ->
     _addTabletEvents()
     _addDesktopEvents()
+    $(window).on 'mqTablet', _checkLocalstorage
+    $(window).on 'mqDesktop', _checkLocalstorage
 
 
   # public

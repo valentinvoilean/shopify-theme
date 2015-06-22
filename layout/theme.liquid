@@ -167,6 +167,8 @@
 </footer>
 
 {{ '//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js' | script_tag }}
+<!--[if IE 9 ]>{{ "MediaMatch-2.0.2.js" | asset_url | script_tag }}<![endif]-->
+{{ "enquire-2.1.2.js" | asset_url | script_tag }}
 {{ "shop.js" | asset_url | script_tag }}
 {% include 'currencies' %}
 </body>
