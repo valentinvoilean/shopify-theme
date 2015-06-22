@@ -6,9 +6,12 @@
         float: right;
         line-height: $topnav-height;
         height: $topnav-height;
-        cursor: pointer;
         position: relative;
-
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
     }
 
     .currency__verticalList {
@@ -21,6 +24,7 @@
         right: 0;
         border: rem(1px) solid;
         display: none;
+        cursor: pointer;
 
         .currency__active {
             line-height: $topnav-height;
@@ -37,24 +41,55 @@
     .currency__horizontalList {
         list-style: none;
         overflow: hidden;
-        display: inline-block;
+        display: none;
         padding: 0;
         margin: 0;
         float: left;
 
+        &:after {
+            @include rem(margin-left, 5px);
+            @include rem(margin-right, 5px);
+            border-left: rem(4px) solid;
+            border-right: rem(4px) solid;
+            border-top: rem(4px) solid;
+            content: "";
+            width: 0;
+            height: 0;
+            display: inline-block;
+            vertical-align: middle;
+            cursor: pointer;
+            -moz-transition: all 0.5s ease;
+            -webkit-transition: all 0.5s ease;
+            -o-transition: all 0.5s ease;
+            transition: all 0.5s ease;
+        }
+
         .currency__item {
             @include rem(margin-left, 10px);
             display: none;
-            float: right;
-            line-height: $topnav-height;
-            height: $topnav-height;
+            line-height: rem($topnav-height);
+            height: rem($topnav-height);
+            cursor: pointer;
         }
 
         .currency__active {
             font-weight: bold;
-            display: block;
+            display: inline-block;
+            cursor: pointer;
         }
     }
 
+    .currency__expandedList {
+
+        &:after {
+            -ms-transform: rotate(90deg);
+            -webkit-transform: rotate(90deg);
+            transform: rotate(90deg);
+        }
+
+        .currency__item {
+            display: inline-block;
+        }
+    }
 
 }
