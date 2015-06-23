@@ -52,7 +52,7 @@
 
   _addTabletEvents = () ->
     _o.base.find('.visible-md').click (e) -> # toggle the vertical flyout on tablet
-      e.stopPropagation();
+      e.stopPropagation()
       _o.verticalList.stop(true,true).fadeToggle("fast","linear")
 
     _o.verticalItem.click () ->
@@ -63,8 +63,9 @@
 
       _updateLocalStorage($(@))
 
-    $(document).on 'click', () -> # close the currency flyout on clicking outsited of it
-      _o.verticalList.stop(true,true).fadeOut("fast","linear")
+    $(document).on 'click', () ->
+      _o.verticalList.stop(true,true).fadeOut("fast","linear") # collapse the vertical flyout
+      _o.horizontalList.removeClass _o.expandedList
 
   _addDesktopEvents = () ->
     _o.horizontalItem.click () ->
@@ -72,7 +73,8 @@
       _o.horizontalItem.removeClass('currency__active')
       $(@).addClass 'currency__active'
 
-    _o.horizontalList.click () ->
+    _o.horizontalList.click (e) ->
+      e.stopPropagation()
       $(@).toggleClass _o.expandedList
 
 
