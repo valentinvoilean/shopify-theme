@@ -35,6 +35,11 @@
         "label": "Link color"
       },
       {
+        "type": "color",
+        "id": "link_active_color",
+        "label": "Active link color"
+      },
+      {
         "type": "header",
         "content": "Top Navigation"
       },
@@ -47,6 +52,11 @@
         "type": "color",
         "id": "topnav_link_color",
         "label": "Link color"
+      },
+      {
+        "type": "color",
+        "id": "border_color",
+        "label": "Border color"
       }
     ]
   },

@@ -5,9 +5,11 @@
 $background-color:        {{ settings.background_color }};
 $text-color:              {{ settings.text_color }};
 $link-color:              {{ settings.link_color }};
+$link-active-color:       {{ settings.link_active_color }};
 $headerBackgroundColor:   {{ settings.header_background_color }};
 $topNavIconColor:         {{ settings.topnav_icon_color }};
 $topNavLinkColor:         {{ settings.topnav_link_color }};
+$borderColor:             {{ settings.border_color }};
 
 /* Table of content */
 /* 1.  Base styles
@@ -69,13 +71,9 @@ html, body {
 
     .currency__verticalList {
         background: rgba(255,255,255,0.9);
-        border-color: #8d8d8d;
+        border-color: $borderColor;
 
-        .currency__item {
-            color: #000;
-
-            &:hover { color: #8d8d8d; }
-        }
+        .currency__item { color: $text-color; }
     }
 
     .currency__horizontalList {
@@ -85,7 +83,10 @@ html, body {
     }
 
     .currency__expandedList {
-        &:after {border-top-color: red}
+
+        &:after { border-top-color: $link-active-color; }
+
+        .currency__active { color: $link-active-color; }
     }
 
 }

@@ -9,6 +9,8 @@
       "topnav_link_color": "#fff",
       "text_color": "#555555",
       "link_color": "#b5792b",
+      "link_active_color": "#E74700",
+      "border_color": "#8d8d8d",
       "facebook_url": "https:\/\/www.facebook.com\/shopify",
       "twitter_url": "https:\/\/twitter.com\/shopify",
       "pinterest_url": "http:\/\/pinterest.com\/shopify\/",
