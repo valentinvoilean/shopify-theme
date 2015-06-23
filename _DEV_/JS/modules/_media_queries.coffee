@@ -1,26 +1,28 @@
-query1 = "screen and (max-width: 47.94rem)"
-query2 = "screen and (min-width: 48em) and (max-width: 74.94rem)"
-query3 = "screen and (min-width: 75em)"
+###
+  Media Query Module - trigger different messages depending on current media query
+  Dependencies: enquire.js, MediaMatch polyfill
+###
 
-handler1 =
-  match : () ->
+@Shop.Breakpoints = do ($ = jQuery, enquire) ->
+
+  #private
+  _o =
+    query1: "screen and (max-width: 47.94rem)"
+    query2: "screen and (min-width: 48em) and (max-width: 74.94rem)"
+    query3: "screen and (min-width: 75em)"
+
+  _handler1 = () ->
     $(window).trigger('mqMobile')
-  destroy : () ->
-    console.log("media query destroyed - mobile")
 
-handler2 =
-  match : () ->
+  _handler2 = () ->
     $(window).trigger('mqTablet')
-  destroy : () ->
-    console.log("media query destroyed - tablet")
 
-handler3 =
-  match : () ->
+  _handler3 = () ->
     $(window).trigger('mqDesktop')
-  destroy : () ->
-    console.log("media query destroyed - desktop")
 
+  _addEvents = () ->
+    enquire.register _o.query1, _handler1
+    enquire.register _o.query2, _handler2
+    enquire.register _o.query3, _handler3
 
-enquire.register query1, handler1, true
-enquire.register query2, handler2, true
-enquire.register query3, handler3, true
+  return _addEvents

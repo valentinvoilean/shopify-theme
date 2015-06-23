@@ -1,4 +1,6 @@
-@Shop = @Shop ? {}
+###
+  Currency Module - horizontal & vertical flyouts
+###
 
 @Shop.ChangeCurrency = do ($ = jQuery) ->
 
