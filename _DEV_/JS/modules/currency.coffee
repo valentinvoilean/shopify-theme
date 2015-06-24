@@ -8,6 +8,8 @@
   _o =
     element: "#topnav"
     baseClass: ".currency__base"
+    verticalWrapperClass: '.currency__FlyoutDisplay'
+    horizontalWrapperClass: '.currency__inlineDisplay'
     itemClass: ".currency__item"
     verticalListClass: ".currency__verticalList"
     horizontalListClass: ".currency__horizontalList"
@@ -24,6 +26,8 @@
     _o.horizontalItem = $el.find(_o.horizontalListClass).find _o.itemClass
     _o.currencyValue = $el.find _o.currencyValueClass
     _o.hiddenSelectElement = $el.find _o.hiddenSelectElementClass
+    _o.verticalWrapper = $el.find _o.verticalWrapperClass
+    _o.horizontalWrapper = $el.find _o.horizontalWrapperClass
 
 
   _checkLocalstorage = () ->
@@ -50,8 +54,8 @@
       .trigger "change"
 
 
-  _addTabletEvents = () ->
-    _o.base.find('.visible-md').click (e) -> # toggle the vertical flyout on tablet
+  _addEvents = () ->
+    _o.verticalWrapper.click (e) -> # toggle the vertical flyout on tablet
       e.stopPropagation()
       _o.verticalList.stop(true,true).fadeToggle("fast","linear")
 
@@ -63,11 +67,6 @@
 
       _updateLocalStorage($(@))
 
-    $(document).on 'click', () ->
-      _o.verticalList.stop(true,true).fadeOut("fast","linear") # collapse the vertical flyout
-      _o.horizontalList.removeClass _o.expandedList
-
-  _addDesktopEvents = () ->
     _o.horizontalItem.click () ->
       _updateLocalStorage($(@))
       _o.horizontalItem.removeClass('currency__active')
@@ -77,10 +76,10 @@
       e.stopPropagation()
       $(@).toggleClass _o.expandedList
 
+    $(document).on 'click', () ->
+      _o.verticalList.stop(true,true).fadeOut("fast","linear") # collapse the vertical flyout
+      _o.horizontalList.removeClass _o.expandedList
 
-  _addEvents = () ->
-    _addTabletEvents()
-    _addDesktopEvents()
     $(window).on 'mqTablet', _checkLocalstorage
     $(window).on 'mqDesktop', _checkLocalstorage
 

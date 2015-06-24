@@ -165,6 +165,66 @@
         "default": true
       },
       {
+        "type": "select",
+        "id": "currency_mobile_style",
+        "label": "Mobile display style",
+        "options": [
+          {
+            "value": "hide",
+            "label": "Don't display the currencies"
+          },
+          {
+            "value": "flyout",
+            "label": "Display the currencies vertically"
+          },
+          {
+            "value": "inline",
+            "label": "Display the currencies horizontally"
+          }
+        ],
+        "default": "flyout"
+      },
+      {
+        "type": "select",
+        "id": "currency_tablet_style",
+        "label": "Tablet display style",
+        "options": [
+          {
+            "value": "hide",
+            "label": "Don't display the currencies"
+          },
+          {
+            "value": "flyout",
+            "label": "Display the currencies vertically"
+          },
+          {
+            "value": "inline",
+            "label": "Display the currencies horizontally"
+          }
+        ],
+        "default": "inline"
+      },
+      {
+        "type": "select",
+        "id": "currency_desktop_style",
+        "label": "Desktop display style",
+        "options": [
+          {
+            "value": "hide",
+            "label": "Don't display the currencies"
+          },
+          {
+            "value": "flyout",
+            "label": "Display the currencies vertically"
+          },
+          {
+            "value": "inline",
+            "label": "Display the currencies horizontally"
+          }
+        ],
+        "default": "inline"
+      },
+      {
         "type": "paragraph",
         "content": "Although you will be able to display prices on your store front in different currencies, Shopify will still process orders in your shop's currency."
       },

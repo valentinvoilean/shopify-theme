@@ -11,7 +11,7 @@
 
 <div class="currency__base">
 
-    <div class="visible-lg">
+    <div class="currency__inlineDisplay visible-lg">
         <ul class="currency__horizontalList">
             {% for code in supported_codes %}
                 {% if codes contains code %}
@@ -25,7 +25,7 @@
         </ul>
     </div>
 
-    <div class="visible-md">
+    <div class="currency__FlyoutDisplay visible-md">
         <div class="currency__value">{{ shop.currency }}</div>
         <ul class="currency__verticalList">
             {% for code in supported_codes %}

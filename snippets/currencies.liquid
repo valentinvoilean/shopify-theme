@@ -74,7 +74,12 @@
         /**
          * Initialize custom currency dropdown
          */
-        Shop.ChangeCurrency.init({ element: "#topnav" });
+        Shop.ChangeCurrency.init({
+            element: "#topnav",
+            mobileDisplay: "{{ settings.currency_mobile_style }}",
+            tabletDisplay: "{{ settings.currency_tablet_style }}",
+            desktopDisplay: "{{ settings.currency_desktop_style }}"
+        });
 
     </script>
 

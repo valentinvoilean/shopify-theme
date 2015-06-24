@@ -48,7 +48,9 @@
         <div class="container">
             {% include 'topnav-social-links' %}
             {% include 'topnav-message' %}
-            {% include 'currency-picker' %}
+            {% if settings.show_multiple_currencies %}
+                {% include 'currency-picker' %}
+            {%  endif %}
             {% include 'topnav-myaccount' %}
         </div>
     </div>
