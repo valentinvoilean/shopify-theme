@@ -1,0 +1,13 @@
+.topnav_message {
+    @include rem(font-size, 11px);
+    line-height: $topnav-height;
+    height: $topnav-height;
+    float: left;
+}
+
+.social_links + .topnav_message {
+    &:before {
+        @include rem(margin, 0 20px);
+        content: "|";
+    }
+}

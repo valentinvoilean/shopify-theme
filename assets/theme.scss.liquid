@@ -598,7 +598,7 @@ $topnav-fontsize: 11px;
 #topnav {
 
     .social_links {
-        display: inline-block;
+        float: left;
         overflow: hidden;
     }
 
@@ -606,46 +606,23 @@ $topnav-fontsize: 11px;
         @include rem(margin-right, 20px);
         @include rem(line-height, $topnav-height);
         @include rem(font-size, 16px);
+
+        &:last-child {
+            margin-right: 0;
+        }
     }
 }
-// Top Navigation: Phone & Email address
-#topnav {
+.topnav_message {
+    @include rem(font-size, 11px);
+    line-height: $topnav-height;
+    height: $topnav-height;
+    float: left;
+}
 
-    .contact {
-        display: inline-block;
-        padding: 0;
-    }
-
-    .social_links + .contact {
-
-        &:before {
-            @include rem(margin-right, 10px);
-            @include rem(margin-left, 10px);
-            @include rem(font-size, $topnav-fontsize);
-            @include rem(line-height, $topnav-height);
-            float: left;
-        }
-    }
-
-    .contact_item {
-        @include rem(margin-right, 10px);
-        float: left;
-
-        &:after {
-            @include rem(margin-left, 10px);
-            @include rem(font-size, $topnav-fontsize);
-            @include rem(line-height, $topnav-height);
-            float: left;
-        }
-
-        &:last-child { margin-right: 0; }
-    }
-
-    .email_address,
-    .phone_number {
-        @include rem(line-height, $topnav-height);
-        @include rem(font-size, $topnav-fontsize);
-        float: left;
+.social_links + .topnav_message {
+    &:before {
+        @include rem(margin, 0 20px);
+        content: "|";
     }
 }
 // Top Navigation: Currencies

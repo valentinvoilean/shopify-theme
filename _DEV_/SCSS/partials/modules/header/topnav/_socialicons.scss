@@ -2,7 +2,7 @@
 #topnav {
 
     .social_links {
-        display: inline-block;
+        float: left;
         overflow: hidden;
     }
 
@@ -10,5 +10,9 @@
         @include rem(margin-right, 20px);
         @include rem(line-height, $topnav-height);
         @include rem(font-size, 16px);
+
+        &:last-child {
+            margin-right: 0;
+        }
     }
 }

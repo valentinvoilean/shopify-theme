@@ -227,7 +227,7 @@
             "label": "On Mobile"
           },
           {
-            "value": "show-inline-block",
+            "value": "show",
             "label": "On Mobile & up"
           },
           {
@@ -243,7 +243,7 @@
             "label": "On Desktop"
           }
         ],
-        "default": "show-inline-block"
+        "default": "show"
       },
       {
         "type": "select",
@@ -279,9 +279,8 @@
       },
       {
          "type":      "text",
-         "id":        "top_navigation_phone",
-         "label":     "Top Navigation Phone Number",
-         "default":   "+1 (555) 555"
+         "id":        "topnav_message",
+         "label":     "Top Navigation Custom message"
       },
       {
         "type": "header",
