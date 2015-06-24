@@ -59,3 +59,15 @@
     @warn "Breakpoint mixin supports: mobile, tablet, desktop";
   }
 }
+
+@mixin topnavArrowDown() {
+  @include rem(margin-left, 5px);
+  @include rem(margin-right, 5px);
+  width: 0;
+  height: 0;
+  border-left: rem(4px) solid transparent;
+  border-right: rem(4px) solid transparent;
+  border-top: rem(4px) solid #fff;
+  display: inline-block;
+  vertical-align: middle;
+}

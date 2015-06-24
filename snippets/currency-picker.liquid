@@ -26,7 +26,7 @@
     </div>
 
     <div class="visible-md">
-        <div class="currency__active"><span class="currency__value">{{ shop.currency }}</span><span class="arrow-down"></span></div>
+        <div class="currency__value">{{ shop.currency }}</div>
         <ul class="currency__verticalList">
             {% for code in supported_codes %}
                 {% if codes contains code %}

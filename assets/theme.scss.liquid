@@ -138,6 +138,18 @@ $rem-px-only: false !default;
   }
 }
 
+@mixin topnavArrowDown() {
+  @include rem(margin-left, 5px);
+  @include rem(margin-right, 5px);
+  width: 0;
+  height: 0;
+  border-left: rem(4px) solid transparent;
+  border-right: rem(4px) solid transparent;
+  border-top: rem(4px) solid #fff;
+  display: inline-block;
+  vertical-align: middle;
+}
+
 
 /* =====================
    3. Bootstrap Grid
@@ -581,18 +593,6 @@ $topnav-fontsize: 11px;
     @include rem(min-height, $topnav-height);
     width: 100vw;
     font-size: 0; // fix the inline-block elements
-
-    .arrow-down {
-        @include rem(margin-left, 5px);
-        @include rem(margin-right, 5px);
-    	width: 0;
-    	height: 0;
-    	border-left: rem(4px) solid;
-    	border-right: rem(4px) solid;
-    	border-top: rem(4px) solid;
-        display: inline-block;
-        vertical-align: middle;
-    }
 }
 // Top Navigation: Social Icons
 #topnav {
@@ -643,6 +643,14 @@ $topnav-fontsize: 11px;
         .visible-md { cursor: pointer; }
     }
 
+    .currency__value {
+
+        &:after {
+            @include topnavArrowDown();
+            content: "";
+        }
+    }
+
     .currency__verticalList {
         @include rem(padding, 0 14px);
         list-style: none;
@@ -654,11 +662,6 @@ $topnav-fontsize: 11px;
         border: rem(1px) solid;
         display: none;
         cursor: pointer;
-
-        .currency__active {
-            line-height: $topnav-height;
-            height: $topnav-height;
-        }
 
         .currency__item {
             @include rem(line-height, 28px);
@@ -678,16 +681,8 @@ $topnav-fontsize: 11px;
         float: left;
 
         &:after {
-            @include rem(margin-left, 5px);
-            @include rem(margin-right, 5px);
-            border-left: rem(4px) solid;
-            border-right: rem(4px) solid;
-            border-top: rem(4px) solid;
+            @include topnavArrowDown();
             content: "";
-            width: 0;
-            height: 0;
-            display: inline-block;
-            vertical-align: middle;
             cursor: pointer;
             -moz-transition: all 0.5s ease;
             -webkit-transition: all 0.5s ease;
@@ -760,6 +755,10 @@ $topnav-fontsize: 11px;
     &:hover {
         text-decoration: underline;
     }
+}
+
+.topnav_myprofileLink {
+
 }
 
 .cart-link {

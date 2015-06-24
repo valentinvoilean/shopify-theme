@@ -49,12 +49,6 @@ html, body {
         color: $topNavLinkColor;
     }
 
-    .arrow-down {
-        border-left-color: transparent;
-        border-right-color: transparent;
-        border-top-color: $topNavIconColor;
-    }
-
     .social_link {
         @extend %fadeInBackground;
         @extend %growTransition;
@@ -70,6 +64,11 @@ html, body {
         color: $topNavLinkColor;
     }
 
+    .currency__active {
+
+        &:after { border-top-color: $topNavLinkColor; }
+    }
+
     .currency__verticalList {
         background: rgba(255,255,255,0.9);
         border-color: $borderColor;
@@ -78,9 +77,8 @@ html, body {
     }
 
     .currency__horizontalList {
-        &:after {
-            @extend .arrow-down;
-        }
+
+        &:after { border-top-color: $topNavLinkColor; }
     }
 
     .currency__expandedList {
