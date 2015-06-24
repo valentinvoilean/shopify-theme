@@ -103,6 +103,10 @@
             @include rem(margin-left, 10px);
             display: inline-block;
             width: auto;
+
+            &:hover {
+                text-decoration: underline;
+            }
         }
     }
 

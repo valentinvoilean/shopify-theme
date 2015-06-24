@@ -1,0 +1,16 @@
+{% if shop.customer_accounts_enabled %}
+    <div class="topnav_myaccount">
+
+        {% if customer %}
+            <a class="topnav_myprofileLink" href="/account">My Account</a>
+        {% else %}
+            <a href="{{ customer_login_link }}" class="topnav_loginLink">Log in</a>
+
+            {% if shop.customer_accounts_optional %}
+                /
+                <a href="{{ customer_register_link }}" class="topnav_registerLink">Join</a>
+            {% endif %}
+        {% endif %}
+
+    </div>
+{% endif %}

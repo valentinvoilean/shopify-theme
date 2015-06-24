@@ -730,9 +730,36 @@ $topnav-fontsize: 11px;
             @include rem(margin-left, 10px);
             display: inline-block;
             width: auto;
+
+            &:hover {
+                text-decoration: underline;
+            }
         }
     }
 
+}
+.topnav_myaccount {
+    @include rem(font-size, $topnav-fontsize);
+    @include rem(margin-right, 20px);
+    float: right;
+    line-height: $topnav-height;
+    height: $topnav-height;
+    position: relative;
+    cursor: pointer;
+    text-transform: uppercase;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.topnav_loginLink,
+.topnav_registerLink {
+
+    &:hover {
+        text-decoration: underline;
+    }
 }
 
 .cart-link {
