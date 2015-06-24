@@ -246,38 +246,6 @@
         "default": "show"
       },
       {
-        "type": "select",
-        "id": "display_top_navigation_phone",
-        "label": "Display the Phone Number",
-        "options": [
-          {
-            "value": "hide",
-            "label": "Don't display it"
-          },
-          {
-            "value": "visible-xs-inline-block",
-            "label": "On Mobile"
-          },
-          {
-            "value": "show-inline-block",
-            "label": "On Mobile & up"
-          },
-          {
-            "value": "visible-sm-inline-block visible-md-inline-block",
-            "label": "On Tablet"
-          },
-          {
-            "value": "hidden-xs",
-            "label": "On Tablet & up"
-          },
-          {
-            "value": "visible-lg-inline-block",
-            "label": "On Desktop"
-          }
-        ],
-        "default": "show-inline-block"
-      },
-      {
          "type":      "text",
          "id":        "topnav_message",
          "label":     "Top Navigation Custom message"
