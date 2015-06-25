@@ -25,7 +25,7 @@
     _o.verticalItem = _$el.find(_o.verticalListClass).find _o.itemClass
     _o.horizontalItem = _$el.find(_o.horizontalListClass).find _o.itemClass
     _o.currencyValue = _$el.find _o.currencyValueClass
-    _o.hiddenSelectElement = _$el.find _o.hiddenSelectElementClass
+    _o.hiddenSelectElement = $(_o.hiddenSelectElementClass)
     _o.verticalWrapper = _$el.find _o.verticalWrapperClass
     _o.horizontalWrapper = _$el.find _o.horizontalWrapperClass
 
