@@ -16,6 +16,9 @@
     expandedList: "currency__expandedList"
     currencyValueClass: ".currency__value"
     hiddenSelectElementClass: ".currency-picker"
+    mobileDisplay: ''
+    tabletDisplay: ''
+    desktopDisplay: ''
 
   _updateElements = () ->
     $el = $(_o.element)
@@ -53,6 +56,21 @@
       .val currentElement.text()
       .trigger "change"
 
+  _configureDisplay = () ->
+    if _o.mobileDisplay is 'flyout'
+      _o.verticalWrapper.addClass 'visible-xs'
+    else if _o.mobileDisplay is 'inline'
+      _o.horizontalWrapper.addClass 'visible-xs'
+
+    if _o.tabletDisplay is 'flyout'
+      _o.verticalWrapper.addClass 'visible-sm'
+    else if _o.tabletDisplay is 'inline'
+      _o.horizontalWrapper.addClass 'visible-sm'
+
+    if _o.desktopDisplay is 'flyout'
+      _o.verticalWrapper.addClass 'visible-md visible-lg'
+    else if _o.desktopDisplay is 'inline'
+      _o.horizontalWrapper.addClass 'visible-md visible-lg'
 
   _addEvents = () ->
     _o.verticalWrapper.click (e) -> # toggle the vertical flyout on tablet
@@ -80,6 +98,7 @@
       _o.verticalList.stop(true,true).fadeOut("fast","linear") # collapse the vertical flyout
       _o.horizontalList.removeClass _o.expandedList
 
+    $(window).on 'mqMobile', _checkLocalstorage
     $(window).on 'mqTablet', _checkLocalstorage
     $(window).on 'mqDesktop', _checkLocalstorage
 
@@ -89,4 +108,5 @@
     $.extend _o, options
     _updateElements()
     _checkLocalstorage()
+    _configureDisplay()
     _addEvents()
