@@ -17,11 +17,44 @@
 .topnav_loginLink,
 .topnav_registerLink {
 
-    &:hover {
-        text-decoration: underline;
-    }
+    &:hover { text-decoration: underline; }
 }
 
 .topnav_myprofileLink {
 
+    &:after {
+        @include topnavArrowDown();
+        content: "";
+        cursor: pointer;
+        -moz-transition: all 0.5s ease;
+        -webkit-transition: all 0.5s ease;
+        -o-transition: all 0.5s ease;
+        transition: all 0.5s ease;
+    }
+}
+
+.topnav_customerLinks {
+    @include rem(padding, 0 14px);
+    list-style: none;
+    overflow: hidden;
+    margin: 0;
+    position: absolute;
+    top: calc(#{$topnav-height} + 2px);
+    right: 0;
+    border: rem(1px) solid;
+    display: none;
+    cursor: pointer;
+
+    li {
+        @include rem(line-height, 28px);
+        @include rem(height, 28px);
+        display: block;
+
+        &:hover { text-decoration: underline; }
+    }
+
+    a {
+        text-decoration: none;
+        white-space: nowrap;
+    }
 }

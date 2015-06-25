@@ -84,7 +84,6 @@
 
         .currency__active {
             @include rem(margin-left, 10px);
-            font-weight: bold;
             display: inline-block;
             cursor: pointer;
             width: auto;
