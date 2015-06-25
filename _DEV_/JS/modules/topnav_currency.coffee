@@ -104,7 +104,9 @@
   # public
   init: (element)->
     _$el = $(element);
-    _updateElements()
-    _checkLocalstorage()
-    _configureDisplay()
-    _addEvents()
+
+    if _$el.length
+      _updateElements()
+      _checkLocalstorage()
+      _configureDisplay()
+      _addEvents()

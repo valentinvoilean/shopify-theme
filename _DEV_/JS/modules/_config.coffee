@@ -3,11 +3,17 @@ Shop.Init = do ($ = jQuery) ->
   _documentReadyList = [
     {
       name: 'Breakpoints'
-      options: ''
+    },
+    {
+      name: 'Myaccount'
+      options: '.topnav_myaccount'
     }
   ]
 
-  _windowOnLoadList = []
+  _windowOnLoadList = [{
+    name: 'ChangeCurrency',
+    options: '#topnav .currency__base'
+  }]
 
   _loadModulesOnDocumentReady = () ->
     for module in _documentReadyList
