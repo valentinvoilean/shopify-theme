@@ -5,15 +5,14 @@
 @Shop.ChangeCurrency = do ($ = jQuery) ->
 
   #private
+  _$el = null
   _o =
-    element: "#topnav"
-    baseClass: ".currency__base"
     verticalWrapperClass: '.currency__FlyoutDisplay'
     horizontalWrapperClass: '.currency__inlineDisplay'
-    itemClass: ".currency__item"
     verticalListClass: ".currency__verticalList"
     horizontalListClass: ".currency__horizontalList"
     expandedList: "currency__expandedList"
+    itemClass: ".currency__item"
     currencyValueClass: ".currency__value"
     hiddenSelectElementClass: ".currency-picker"
     mobileDisplay: ''
@@ -21,16 +20,14 @@
     desktopDisplay: ''
 
   _updateElements = () ->
-    $el = $(_o.element)
-    _o.base = $el.find _o.baseClass
-    _o.verticalList = $el.find _o.verticalListClass
-    _o.horizontalList = $el.find _o.horizontalListClass
-    _o.verticalItem = $el.find(_o.verticalListClass).find _o.itemClass
-    _o.horizontalItem = $el.find(_o.horizontalListClass).find _o.itemClass
-    _o.currencyValue = $el.find _o.currencyValueClass
-    _o.hiddenSelectElement = $el.find _o.hiddenSelectElementClass
-    _o.verticalWrapper = $el.find _o.verticalWrapperClass
-    _o.horizontalWrapper = $el.find _o.horizontalWrapperClass
+    _o.verticalList = _$el.find _o.verticalListClass
+    _o.horizontalList = _$el.find _o.horizontalListClass
+    _o.verticalItem = _$el.find(_o.verticalListClass).find _o.itemClass
+    _o.horizontalItem = _$el.find(_o.horizontalListClass).find _o.itemClass
+    _o.currencyValue = _$el.find _o.currencyValueClass
+    _o.hiddenSelectElement = _$el.find _o.hiddenSelectElementClass
+    _o.verticalWrapper = _$el.find _o.verticalWrapperClass
+    _o.horizontalWrapper = _$el.find _o.horizontalWrapperClass
 
 
   _checkLocalstorage = () ->
@@ -57,6 +54,8 @@
       .trigger "change"
 
   _configureDisplay = () ->
+    $.extend _o, _$el.data('options')
+
     if _o.mobileDisplay is 'flyout'
       _o.verticalWrapper.addClass 'visible-xs'
     else if _o.mobileDisplay is 'inline'
@@ -102,10 +101,9 @@
     $(window).on 'mqTablet', _checkLocalstorage
     $(window).on 'mqDesktop', _checkLocalstorage
 
-
   # public
-  init: (options)->
-    $.extend _o, options
+  init: (element)->
+    _$el = $(element);
     _updateElements()
     _checkLocalstorage()
     _configureDisplay()

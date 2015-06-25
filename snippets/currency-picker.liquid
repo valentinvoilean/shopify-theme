@@ -10,8 +10,7 @@
         {% endfor %}
     </select>
 
-    <div class="currency__base">
-
+    <div class="currency__base" data-options='{ "mobileDisplay": "{{ settings.currency_mobile_style }}", "tabletDisplay": "{{ settings.currency_tablet_style }}", "desktopDisplay": "{{ settings.currency_desktop_style }}" }'>
         <div class="currency__inlineDisplay">
             <ul class="currency__horizontalList">
                 {% for code in supported_codes %}
