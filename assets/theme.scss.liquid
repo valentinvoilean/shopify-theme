@@ -737,66 +737,73 @@ $topnav-fontsize: 11px;
     }
 
 }
-.topnav_myaccount {
-    @include rem(font-size, $topnav-fontsize);
-    @include rem(margin-right, 20px);
-    float: right;
-    line-height: $topnav-height;
-    height: $topnav-height;
-    position: relative;
-    cursor: pointer;
-    text-transform: uppercase;
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-}
+#topnav {
 
-.topnav_loginLink,
-.topnav_registerLink {
-
-    &:hover { text-decoration: underline; }
-}
-
-.topnav_myprofileLink {
-
-    &:after {
-        @include topnavArrowDown();
-        content: "";
+    .MA {
+        @include rem(font-size, $topnav-fontsize);
+        @include rem(margin-right, 20px);
+        float: right;
+        line-height: $topnav-height;
+        height: $topnav-height;
+        position: relative;
         cursor: pointer;
-        -moz-transition: all 0.5s ease;
-        -webkit-transition: all 0.5s ease;
-        -o-transition: all 0.5s ease;
-        transition: all 0.5s ease;
+        text-transform: uppercase;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
     }
-}
 
-.topnav_customerLinks {
-    @include rem(padding, 0 14px);
-    list-style: none;
-    overflow: hidden;
-    margin: 0;
-    position: absolute;
-    top: calc(#{$topnav-height} + 2px);
-    right: 0;
-    border: rem(1px) solid;
-    display: none;
-    cursor: pointer;
-
-    li {
-        @include rem(line-height, 28px);
-        @include rem(height, 28px);
-        display: block;
+    .MA-loginLink,
+    .MA-registerLink {
 
         &:hover { text-decoration: underline; }
     }
 
-    a {
-        text-decoration: none;
-        white-space: nowrap;
+    .MA-myprofileLink {
+
+        &:after {
+            @include topnavArrowDown();
+            content: "";
+            cursor: pointer;
+            -moz-transition: all 0.5s ease;
+            -webkit-transition: all 0.5s ease;
+            -o-transition: all 0.5s ease;
+            transition: all 0.5s ease;
+        }
     }
+
+    .MA-customerLinks {
+        @include rem(padding, 0 14px);
+        list-style: none;
+        overflow: hidden;
+        margin: 0;
+        position: absolute;
+        top: calc(#{$topnav-height} + 2px);
+        right: 0;
+        border: rem(1px) solid;
+        display: none;
+        cursor: pointer;
+
+        li {
+            @include rem(line-height, 28px);
+            @include rem(height, 28px);
+            display: block;
+
+            &:hover { text-decoration: underline; }
+        }
+
+        a {
+            text-decoration: none;
+            white-space: nowrap;
+        }
+    }
+
+    .MA-lightboxLinks,
+    .MA-flyoutLinks { display: none; }
 }
+
 
 .cart-link {
     @include rem(font-size, 11px);

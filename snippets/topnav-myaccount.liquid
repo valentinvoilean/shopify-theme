@@ -1,18 +1,29 @@
 {% if shop.customer_accounts_enabled %}
-    <div class="topnav_myaccount">
+    <div class="MA" data-options='{ "mobileDisplay": "{{ settings.myaccount_mobile_style }}", "tabletDisplay": "{{ settings.myaccount_tablet_style }}", "desktopDisplay": "{{ settings.myaccount_desktop_style }}" }'>
         {% if customer %}
-            <a class="topnav_myprofileLink" href="/account">My Account</a>
-            <ul class="topnav_customerLinks">
+            <a class="MA-myprofileLink" href="/account">My Account</a>
+            <ul class="MA-customerLinks">
                 <li><a href="/account">My Profile</a></li>
                 <li><a href="/account">My Wishlist</a></li>
                 <li><a href="{{ customer_logout_link }}">Log Out</a></li>
             </ul>
         {% else %}
-            <a href="{{ customer_login_link }}" class="topnav_loginLink">Log in</a>
-            {% if shop.customer_accounts_optional %}
-                /
-                <a href="{{ customer_register_link }}" class="topnav_registerLink">Join</a>
-            {% endif %}
+
+            <div class="MA-lightboxLinks">
+                <a href="{{ customer_login_link }}" class="MA-loginLink">Log in</a>
+                {% if shop.customer_accounts_optional %}
+                    /
+                    <a href="{{ customer_register_link }}" class="MA-registerLink">Join</a>
+                {% endif %}
+            </div>
+
+            <ul class="MA-flyoutLinks">
+                <li><a class="MA-myprofileLink" href="/account">My Account</a></li>
+                <li><a href="{{ customer_logout_link }}">Log Out</a></li>
+                <li><a href="/account">My Wishlist</a></li>
+                <li><a href="/account">My Profile</a></li>
+            </ul>
+
         {% endif %}
     </div>
 {% endif %}
