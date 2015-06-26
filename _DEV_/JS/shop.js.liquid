@@ -1,5 +1,14 @@
 Shop = {};
 
-//= include modules/*.liquid
+//= include config/media_queries.js.liquid
 
+{% if settings.show_multiple_currencies %}
+//= include modules/topnav_currency.js.liquid
+{% endif %}
+
+{% if shop.customer_accounts_enabled %}
+//= include modules/topnav_myaccount.js.liquid
+{% endif %}
+
+//= include config/init.js.liquid
 Shop.Init();
