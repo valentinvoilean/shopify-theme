@@ -32,20 +32,24 @@
     {% endif %}
 
     <div class="currency__base">
-        <div class="currency__inlineDisplay {{ hzCurrencyMQ }}">
-            <ul class="currency__horizontalList">
-                {% for code in supported_codes %}
-                    {% if codes contains code %}
-                        {% if code == shop.currency %}
-                            <li class="currency__item currency__active">{{ code }}</li>
-                        {% else %}
-                            <li class="currency__item">{{ code }}</li>
-                        {% endif %}
-                    {% endif %}
-                {% endfor %}
-            </ul>
-        </div>
 
+        {% if hzCurrencyMQ != '' %}
+            <div class="currency__inlineDisplay {{ hzCurrencyMQ }}">
+                <ul class="currency__horizontalList">
+                    {% for code in supported_codes %}
+                        {% if codes contains code %}
+                            {% if code == shop.currency %}
+                                <li class="currency__item currency__active">{{ code }}</li>
+                            {% else %}
+                                <li class="currency__item">{{ code }}</li>
+                            {% endif %}
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+
+        {% if vtCurrencyMQ != '' %}
         <div class="currency__FlyoutDisplay {{ vtCurrencyMQ }}">
             <div class="currency__value">{{ shop.currency }}</div>
             <ul class="currency__verticalList">
@@ -56,6 +60,7 @@
                 {% endfor %}
             </ul>
         </div>
+        {% endif %}
 
     </div>
 {%  endif %}

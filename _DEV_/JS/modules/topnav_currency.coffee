@@ -26,7 +26,6 @@
     _o.verticalWrapper = _$el.find _o.verticalWrapperClass
     _o.horizontalWrapper = _$el.find _o.horizontalWrapperClass
 
-
   _checkLocalstorage = () ->
     storageValue = localStorage.getItem "currency"
 
