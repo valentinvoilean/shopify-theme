@@ -2,10 +2,11 @@
 var gulp = require('gulp'),
     cssimport = require("gulp-cssimport"),
     sass = require('gulp-sass'),
-    gutil = require('gulp-util'),
     coffee = require('gulp-coffee'),
     include = require('gulp-include'),
     shell = require('gulp-shell'),
+    out = require('gulp-out'),
+    uglify = require('gulp-uglify'),
 
     sass_folder = {src: '_DEV_/SCSS'},
     js_folder = {src: '_DEV_/JS'};
@@ -18,15 +19,22 @@ gulp.task('styles', function () {
 });
 
 gulp.task('js', function () {
-    gulp.src(js_folder.src + '/*.liquid')
+    gulp.src(js_folder.src + '/*.js')
         .pipe(include())
         .pipe(gulp.dest('./assets/'))
+});
+
+gulp.task('minify-js', function() {
+    gulp.src(js_folder.src + '/*.js')
+    .pipe(include())
+    .pipe(uglify())
+    .pipe(out('./assets/{basename}.min{extension}'))
 });
 
 // Watch files
 gulp.task('watch', function () {
     gulp.watch(sass_folder.src + '/**/*.*', ['styles']);
-    gulp.watch(js_folder.src + '/**/*.*', ['js']);
+    gulp.watch(js_folder.src + '/**/*.*', ['js', 'minify-js']);
 });
 
 gulp.task('shopifyThemeWatch', shell.task(['theme watch']));
