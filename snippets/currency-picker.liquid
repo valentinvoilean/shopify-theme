@@ -10,8 +10,29 @@
         {% endfor %}
     </select>
 
-    <div class="currency__base" data-options='{ "mobileDisplay": "{{ settings.currency_mobile_style }}", "tabletDisplay": "{{ settings.currency_tablet_style }}", "desktopDisplay": "{{ settings.currency_desktop_style }}" }'>
-        <div class="currency__inlineDisplay">
+    {% assign horizontalListStyles = '' %}
+    {% assign verticalListStyles = '' %}
+
+    {% if settings.currency_mobile_style == 'flyout' %}
+        {% capture verticalListStyles %}{{ verticalListStyles }} visible-xs{% endcapture %}
+    {% elsif settings.currency_mobile_style == 'inline' %}
+        {% capture horizontalListStyles %}{{ horizontalListStyles }} visible-xs{% endcapture %}
+    {% endif %}
+
+    {% if settings.currency_tablet_style == 'flyout' %}
+        {% capture verticalListStyles %}{{ verticalListStyles }} visible-sm{% endcapture %}
+    {% elsif settings.currency_tablet_style == 'inline' %}
+        {% capture horizontalListStyles %}{{ horizontalListStyles }} visible-sm{% endcapture %}
+    {% endif %}
+
+    {% if settings.currency_desktop_style == 'flyout' %}
+        {% capture verticalListStyles %}{{ verticalListStyles }} visible-md visible-lg{% endcapture %}
+    {% elsif settings.currency_desktop_style == 'inline' %}
+        {% capture horizontalListStyles %}{{ horizontalListStyles }} visible-md visible-lg{% endcapture %}
+    {% endif %}
+
+    <div class="currency__base">
+        <div class="currency__inlineDisplay {{ horizontalListStyles }}">
             <ul class="currency__horizontalList">
                 {% for code in supported_codes %}
                     {% if codes contains code %}
@@ -25,7 +46,7 @@
             </ul>
         </div>
 
-        <div class="currency__FlyoutDisplay">
+        <div class="currency__FlyoutDisplay {{ verticalListStyles }}">
             <div class="currency__value">{{ shop.currency }}</div>
             <ul class="currency__verticalList">
                 {% for code in supported_codes %}

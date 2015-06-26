@@ -15,9 +15,6 @@
     itemClass: ".currency__item"
     currencyValueClass: ".currency__value"
     hiddenSelectElementClass: ".currency-picker"
-    mobileDisplay: ''
-    tabletDisplay: ''
-    desktopDisplay: ''
 
   _updateElements = () ->
     _o.verticalList = _$el.find _o.verticalListClass
@@ -52,24 +49,6 @@
     _o.hiddenSelectElement # update & trigger the hidden select element
       .val currentElement.text()
       .trigger "change"
-
-  _configureDisplay = () ->
-    $.extend _o, _$el.data('options')
-
-    if _o.mobileDisplay is 'flyout'
-      _o.verticalWrapper.addClass 'visible-xs'
-    else if _o.mobileDisplay is 'inline'
-      _o.horizontalWrapper.addClass 'visible-xs'
-
-    if _o.tabletDisplay is 'flyout'
-      _o.verticalWrapper.addClass 'visible-sm'
-    else if _o.tabletDisplay is 'inline'
-      _o.horizontalWrapper.addClass 'visible-sm'
-
-    if _o.desktopDisplay is 'flyout'
-      _o.verticalWrapper.addClass 'visible-md visible-lg'
-    else if _o.desktopDisplay is 'inline'
-      _o.horizontalWrapper.addClass 'visible-md visible-lg'
 
   _addEvents = () ->
     _o.verticalWrapper.click (e) -> # toggle the vertical flyout on tablet
@@ -108,5 +87,4 @@
     if _$el.length
       _updateElements()
       _checkLocalstorage()
-      _configureDisplay()
       _addEvents()
