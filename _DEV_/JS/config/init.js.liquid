@@ -19,28 +19,31 @@ Shop.Init = (function ($) {
     ];
 
     _loadModulesOnDocumentReady = function () {
-        var i, len, module, results;
-        results = [];
-        for (i = 0, len = _documentReadyList.length; i < len; i++) {
+        var i, module;
+
+        for (i = 0; i < _documentReadyList.length; i++) {
             module = _documentReadyList[i];
-            results.push(Shop[module.name].init(module.options));
+            if (typeof Shop[module.name] !== 'undefined') {
+                Shop[module.name].init(module.options);
+            }
         }
-        return results;
     };
 
     _loadModulesOnWindowLoad = function () {
-        var i, len, module, results;
-        results = [];
-        for (i = 0, len = _windowOnLoadList.length; i < len; i++) {
+        var i, module;
+
+        for (i = 0; i < _windowOnLoadList.length; i++) {
             module = _windowOnLoadList[i];
-            results.push(Shop[module.name].init(module.options));
+            if (typeof Shop[module.name] !== 'undefined') {
+                Shop[module.name].init(module.options);
+            }
         }
-        return results;
     };
 
     _addEvents = function () {
         $(document).ready(_loadModulesOnDocumentReady);
-        return $(window).load(_loadModulesOnWindowLoad);
+        $(window).load(_loadModulesOnWindowLoad);
     };
+
     return _addEvents;
 })(jQuery);
