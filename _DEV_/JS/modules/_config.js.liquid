@@ -1,0 +1,46 @@
+Init = (function ($) {
+    var _addEvents, _documentReadyList, _loadModulesOnDocumentReady, _loadModulesOnWindowLoad, _windowOnLoadList;
+
+    _documentReadyList = [
+        {
+            name: 'Breakpoints'
+        },
+        {
+            name:    'Myaccount',
+            options: '.topnav_myaccount'
+        }
+    ];
+
+    _windowOnLoadList = [
+        {
+            name:    'ChangeCurrency',
+            options: '#topnav .currency__base'
+        }
+    ];
+
+    _loadModulesOnDocumentReady = function () {
+        var i, len, module, results;
+        results = [];
+        for (i = 0, len = _documentReadyList.length; i < len; i++) {
+            module = _documentReadyList[i];
+            results.push(Shop[module.name].init(module.options));
+        }
+        return results;
+    };
+
+    _loadModulesOnWindowLoad = function () {
+        var i, len, module, results;
+        results = [];
+        for (i = 0, len = _windowOnLoadList.length; i < len; i++) {
+            module = _windowOnLoadList[i];
+            results.push(Shop[module.name].init(module.options));
+        }
+        return results;
+    };
+
+    _addEvents = function () {
+        $(document).ready(_loadModulesOnDocumentReady);
+        return $(window).load(_loadModulesOnWindowLoad);
+    };
+    return _addEvents;
+})(jQuery);

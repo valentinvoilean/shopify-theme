@@ -8,7 +8,7 @@ var gulp = require('gulp'),
     shell = require('gulp-shell'),
 
     sass_folder = {src: '_DEV_/SCSS'},
-    coffee_folder = {src: '_DEV_/JS'};
+    js_folder = {src: '_DEV_/JS'};
 
 // Process CSS
 gulp.task('styles', function () {
@@ -17,17 +17,16 @@ gulp.task('styles', function () {
         .pipe(gulp.dest('./assets/'));
 });
 
-gulp.task('coffee', function () {
-    gulp.src(coffee_folder.src + '/*.coffee')
+gulp.task('js', function () {
+    gulp.src(js_folder.src + '/*.liquid')
         .pipe(include())
-        .pipe(coffee({bare: true}).on('error', gutil.log))
         .pipe(gulp.dest('./assets/'))
 });
 
 // Watch files
 gulp.task('watch', function () {
     gulp.watch(sass_folder.src + '/**/*.*', ['styles']);
-    gulp.watch(coffee_folder.src + '/**/*.*', ['coffee']);
+    gulp.watch(js_folder.src + '/**/*.*', ['js']);
 });
 
 gulp.task('shopifyThemeWatch', shell.task(['theme watch']));
