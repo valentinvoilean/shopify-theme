@@ -10,29 +10,29 @@
         {% endfor %}
     </select>
 
-    {% assign horizontalListStyles = '' %}
-    {% assign verticalListStyles = '' %}
+    {% assign hzCurrencyMQ = '' %}
+    {% assign vtCurrencyMQ = '' %}
 
     {% if settings.currency_mobile_style == 'flyout' %}
-        {% capture verticalListStyles %}{{ verticalListStyles }} visible-xs{% endcapture %}
+        {% capture vtCurrencyMQ %}{{ vtCurrencyMQ }} visible-xs{% endcapture %}
     {% elsif settings.currency_mobile_style == 'inline' %}
-        {% capture horizontalListStyles %}{{ horizontalListStyles }} visible-xs{% endcapture %}
+        {% capture hzCurrencyMQ %}{{ hzCurrencyMQ }} visible-xs{% endcapture %}
     {% endif %}
 
     {% if settings.currency_tablet_style == 'flyout' %}
-        {% capture verticalListStyles %}{{ verticalListStyles }} visible-sm{% endcapture %}
+        {% capture vtCurrencyMQ %}{{ vtCurrencyMQ }} visible-sm{% endcapture %}
     {% elsif settings.currency_tablet_style == 'inline' %}
-        {% capture horizontalListStyles %}{{ horizontalListStyles }} visible-sm{% endcapture %}
+        {% capture hzCurrencyMQ %}{{ hzCurrencyMQ }} visible-sm{% endcapture %}
     {% endif %}
 
     {% if settings.currency_desktop_style == 'flyout' %}
-        {% capture verticalListStyles %}{{ verticalListStyles }} visible-md visible-lg{% endcapture %}
+        {% capture vtCurrencyMQ %}{{ vtCurrencyMQ }} visible-md visible-lg{% endcapture %}
     {% elsif settings.currency_desktop_style == 'inline' %}
-        {% capture horizontalListStyles %}{{ horizontalListStyles }} visible-md visible-lg{% endcapture %}
+        {% capture hzCurrencyMQ %}{{ hzCurrencyMQ }} visible-md visible-lg{% endcapture %}
     {% endif %}
 
     <div class="currency__base">
-        <div class="currency__inlineDisplay {{ horizontalListStyles }}">
+        <div class="currency__inlineDisplay {{ hzCurrencyMQ }}">
             <ul class="currency__horizontalList">
                 {% for code in supported_codes %}
                     {% if codes contains code %}
@@ -46,7 +46,7 @@
             </ul>
         </div>
 
-        <div class="currency__FlyoutDisplay {{ verticalListStyles }}">
+        <div class="currency__FlyoutDisplay {{ vtCurrencyMQ }}">
             <div class="currency__value">{{ shop.currency }}</div>
             <ul class="currency__verticalList">
                 {% for code in supported_codes %}

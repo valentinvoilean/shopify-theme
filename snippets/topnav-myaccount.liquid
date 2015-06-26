@@ -1,4 +1,26 @@
 {% if shop.customer_accounts_enabled %}
+
+    {% assign MAflyoutMQ = '' %}
+    {% assign MAlightboxMQ = '' %}
+
+    {% if settings.myaccount_mobile_style == 'flyout' %}
+        {% capture MAflyoutMQ %}{{ MAflyoutMQ }} visible-xs{% endcapture %}
+    {% elsif settings.myaccount_mobile_style == 'lightbox' %}
+        {% capture MAlightboxMQ %}{{ MAlightboxMQ }} visible-xs{% endcapture %}
+    {% endif %}
+
+    {% if settings.myaccount_tablet_style == 'flyout' %}
+        {% capture MAflyoutMQ %}{{ MAflyoutMQ }} visible-sm{% endcapture %}
+    {% elsif settings.myaccount_tablet_style == 'lightbox' %}
+        {% capture MAlightboxMQ %}{{ MAlightboxMQ }} visible-sm{% endcapture %}
+    {% endif %}
+
+    {% if settings.myaccount_desktop_style == 'flyout' %}
+        {% capture MAflyoutMQ %}{{ MAflyoutMQ }} visible-md visible-lg{% endcapture %}
+    {% elsif settings.myaccount_desktop_style == 'lightbox' %}
+        {% capture MAlightboxMQ %}{{ MAlightboxMQ }} visible-md visible-lg{% endcapture %}
+    {% endif %}
+
     <div class="MA" data-options='{ "mobileDisplay": "{{ settings.myaccount_mobile_style }}", "tabletDisplay": "{{ settings.myaccount_tablet_style }}", "desktopDisplay": "{{ settings.myaccount_desktop_style }}" }'>
         {% if customer %}
             <a class="MA-myprofileLink" href="/account">My Account</a>
@@ -9,7 +31,7 @@
             </ul>
         {% else %}
 
-            <div class="MA-lightboxLinks">
+            <div class="MA-lightboxLinks {{ MAlightboxMQ }}">
                 <a href="{{ customer_login_link }}" class="MA-loginLink">Log in</a>
                 {% if shop.customer_accounts_optional %}
                     /
@@ -17,7 +39,7 @@
                 {% endif %}
             </div>
 
-            <ul class="MA-flyoutLinks">
+            <ul class="MA-flyoutLinks {{ MAflyoutMQ }}">
                 <li><a class="MA-myprofileLink" href="/account">My Account</a></li>
                 <li><a href="{{ customer_logout_link }}">Log Out</a></li>
                 <li><a href="/account">My Wishlist</a></li>
