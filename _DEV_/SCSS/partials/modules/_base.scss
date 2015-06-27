@@ -1,4 +1,14 @@
-main, footer { @extend .container }
+html, body {
+    font-size: em($base-font-size);
+    font-weight: $base-font-weight;
+    line-height: 1;
+    font-family: $base-font-family;
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
 
 /* Contain floats: nicolasgallagher.com/micro-clearfix-hack/ */
 .clearfix:before, .clearfix:after { content: ''; display: table; }
@@ -8,13 +18,6 @@ main, footer { @extend .container }
 .clear-after { *zoom: 1; }
 .clear-after:after { content: ''; display: table; clear: both; }
 
-html, body {
-    font-size: em($base-font-size);
-    font-weight: $base-font-weight;
-    line-height: 1;
-    font-family: $base-font-family;
-}
-
 h1, h2, h3, h4, h5, h6 {
     font-family: $heading-font-family;
     font-weight: $heading-font-weight;
@@ -22,17 +25,5 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 a { text-decoration: none; }
-
-.txt-lt-sm { @include breakpoint(mobile) { text-align: left; } }
-.txt-lt-md { @include breakpoint(tablet) { text-align: left; } }
-.txt-lt-lg { @include breakpoint(desktop) { text-align: left !important; } }
-
-.txt-rt-sm { @include breakpoint(mobile) { text-align: right; } }
-.txt-rt-md { @include breakpoint(tablet) { text-align: right; } }
-.txt-rt-lg { @include breakpoint(desktop) { text-align: right !important; } }
-
-.txt-ct-sm { @include breakpoint(mobile) { text-align: center; } }
-.txt-ct-md { @include breakpoint(tablet) { text-align: center; } }
-.txt-ct-lg { @include breakpoint(desktop) { text-align: center !important; } }
 
 .fa { transform: none !important; }
