@@ -17,6 +17,7 @@ Shop.Myaccount = (function ($) {
 
         _updateElements = function () {
             _o.lightboxLinks = _$el.find(_o.lightboxLinksClass);
+            _o.lightBox =  _$el.find(_o.lightboxClass);
 
             if (_o.lightboxLinks.length) {
                 _o.loginLink = _o.lightboxLinks.find(_o.loginLinkClass);
@@ -26,7 +27,7 @@ Shop.Myaccount = (function ($) {
         },
 
         _displayLightBox = function () {
-
+            _o.lightBox.show();
         },
 
         _loginLightBox = function (e) {
