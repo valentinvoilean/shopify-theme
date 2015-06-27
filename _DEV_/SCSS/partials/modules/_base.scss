@@ -34,3 +34,5 @@ a { text-decoration: none; }
 .txt-ct-sm { @include breakpoint(mobile) { text-align: center; } }
 .txt-ct-md { @include breakpoint(tablet) { text-align: center; } }
 .txt-ct-lg { @include breakpoint(desktop) { text-align: center !important; } }
+
+.fa { transform: none !important; }

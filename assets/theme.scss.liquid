@@ -581,6 +581,8 @@ a { text-decoration: none; }
 .txt-ct-md { @include breakpoint(tablet) { text-align: center; } }
 .txt-ct-lg { @include breakpoint(desktop) { text-align: center !important; } }
 
+.fa { transform: none !important; }
+
 /* =====================
    5. Header
    ===================== */
@@ -808,6 +810,8 @@ $topnav-fontsize: 11px;
         width: 100vw;
         height: 100vw;
         position: fixed;
+        left: 0;
+        top: 0;
     }
 }
 
