@@ -22,6 +22,7 @@ Shop.Myaccount = (function ($) {
             _o.lightbox =  _$el.find(_o.lightboxClass);
             _o.lightboxWrapper = _o.lightbox.find(_o.lightboxWrapperClass);
             _o.lightboxCloseButton = _o.lightbox.find(_o.lightboxCloseButtonClass);
+            _o.lightboxInput = _o.lightbox.find('input');
 
             if (_o.lightboxLinks.length) {
                 _o.loginLink = _o.lightboxLinks.find(_o.loginLinkClass);
@@ -45,12 +46,22 @@ Shop.Myaccount = (function ($) {
             _displayLightBox();
         },
 
+        _activateInput = function () {
+            $(this).parent().addClass('is-active');
+        },
+
+        _deactivateInput = function () {
+            if (!$(this).val()) $(this).parent().removeClass('is-active');
+        },
+
         _addEvents = function () {
 
             if (_o.lightboxLinks.length) {
                 _o.loginLink.on('click', _loginLightBox);
                 _o.registerLink.on('click', _registerLightBox);
-                _o.lightboxCloseButton.on('click', _displayLightBox)
+                _o.lightboxCloseButton.on('click', _displayLightBox);
+                _o.lightboxInput.on('focus', _activateInput);
+                _o.lightboxInput.on('blur', _deactivateInput);
             }
         };
 

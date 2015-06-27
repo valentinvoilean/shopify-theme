@@ -850,7 +850,7 @@ $topnav-fontsize: 11px;
         font-weight: 300;
         line-height: rem(15px);
         margin-top: 0;
-        margin-bottom: rem(25px);
+        margin-bottom: rem(30px);
     }
 
     .MA-lightboxForm {
@@ -860,18 +860,50 @@ $topnav-fontsize: 11px;
     .MA-lightboxInput {
         width: calc(50% - #{rem(7.5px)});
         margin: 0 0 rem(25px);
-        padding: 0;
-        border: 0;
         float: left;
-        outline: none;
         border-bottom: rem(1px) solid;
-        line-height: rem(25px);
-        font-size: rem(12px);
-        font-weight: 300;
+        position: relative;
 
         &:nth-child(even) {
             float: right;
         }
+
+        input {
+            float: left;
+            width: 100%;
+            padding: 0;
+            border: 0;
+            margin: 0;
+            outline: none;
+            line-height: rem(25px);
+            font-size: rem(12px);
+            font-weight: 300;
+            transition:0.2s ease all;
+            -moz-transition:0.2s ease all;
+            -webkit-transition:0.2s ease all;
+        }
+
+        label {
+            pointer-events:none;
+            position: absolute;
+            padding: 0;
+            border: 0;
+            margin: 0;
+            top: 0;
+            left: 0;
+            line-height: rem(25px);
+            font-size: rem(12px);
+            transition:0.2s ease all;
+            -moz-transition:0.2s ease all;
+            -webkit-transition:0.2s ease all;
+        }
+
+        input:required + label:after {
+            content: " *"
+        }
+
+        &.is-active label { top: rem(-20px); }
+        &.is-active input { padding-left: rem(10px); }
     }
 
     .MA-closeBtn {

@@ -12,10 +12,12 @@ $topNavLinkColor:         {{ settings.topnav_link_color }};
 $borderColor:             {{ settings.border_color }};
 
 /* Custom Colors */
-$color-1: rgba(255,255,255,0.9);
+$color-1: rgba(255,255,255,0.9); /* lightbox color, signup flyouts */
 $color-2: #000;
-$color-3: #fff;
+$color-3: #FFF;
 $color-4: #DFDFDF;
+$color-5: #ff9494; /* error color */
+$color-6: #414141;
 
 /* Table of content */
 /* 1.  Base styles
@@ -71,12 +73,19 @@ html, body { background-color: $background-color; color: $text-color; }
     .MA-lightboxWrapper { border-color: $borderColor; background: $color-3; }
     .MA-lightboxWrapper.animate { @extend %slideDown; }
     .MA-lightboxTitle, .MA-lightboxDescription { color: $color-2;}
-    .MA-lightboxInput {
-        color: $color-2; border-color: $color-4;
-        &::-webkit-input-placeholder { color: $color-4; }
-        &::-moz-placeholder { color: $color-4; }
-        &:-ms-input-placeholder { color: $color-4; }
+    .MA-lightboxInput { border-color: $color-4; }
+    .MA-lightboxInput input { color: $color-2; }
+    .MA-lightboxInput input:invalid { border: 0; outline: none; box-shadow:none; }
+    .MA-lightboxInput label { color: $color-4;}
+    .MA-lightboxInput:hover {
+        border-color: $color-2;
+        input { color: $color-2; }
+        label { color: $color-2; }
     }
+    .MA-lightboxInput.is-active { border-color: $color-2; }
+    .MA-lightboxInput.is-active label { color: $color-2; }
+    .MA-lightboxInput.is-active input { background: $color-2; color: $color-3;}
+
     .MA-closeBtn { color: $color-2; }
 }
 
