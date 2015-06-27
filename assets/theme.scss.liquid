@@ -801,17 +801,16 @@ $topnav-fontsize: 11px;
     }
 
     .MA-lightboxLinks,
-    .MA-flyoutLinks { display: none; }
-}
+    .MA-flyoutLinks,
+    .MA-lightbox { display: none; }
 
-
-.cart-link {
-    @include rem(font-size, 11px);
-    @include rem(line-height, 50px);
-    float: right;
-
-    .fa-shopping-cart {
-        @include rem(margin-right, 5px);
-        @include rem(font-size, 16px);
+    .MA-lightbox {
+        width: 100vw;
+        height: 100vw;
+        position: fixed;
     }
 }
+
+
+.cart-link { @include rem(font-size, 11px); @include rem(line-height, 50px); float: right; }
+.cart-link .fa-shopping-cart { @include rem(margin-right, 5px); @include rem(font-size, 16px); }

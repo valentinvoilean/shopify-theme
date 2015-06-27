@@ -22,10 +22,7 @@ $borderColor:             {{ settings.border_color }};
    1. Base styles
    ===================== */
 
-html, body {
-    background-color: $background-color;
-    color: $text-color;
-}
+html, body { background-color: $background-color; color: $text-color; }
 
 /* =====================
    2. CSS transitions
@@ -45,69 +42,28 @@ html, body {
 #topnav {
     background: $headerBackgroundColor;
 
-    a {
-        color: $topNavLinkColor;
-    }
+    a { color: $topNavLinkColor; }
 
-    .social_link {
-        @extend %fadeInBackground;
-        @extend %growTransition;
-        color: $topNavIconColor;
-    }
+    .social_link { @extend %fadeInBackground; @extend %growTransition; color: $topNavIconColor; }
 
-    .topnav_message {
-        color: $topNavIconColor;
-    }
+    .topnav_message { color: $topNavIconColor; }
 
     /* Currency Styles */
-    .currency__base {
-        color: $topNavLinkColor;
-    }
-
-    .currency__active {
-
-        &:after { border-top-color: $topNavLinkColor; }
-    }
-
-    .currency__verticalList {
-        background: rgba(255,255,255,0.9);
-        border-color: $borderColor;
-
-        .currency__item { color: $text-color; }
-    }
-
-    .currency__horizontalList {
-
-        &:after { border-top-color: $topNavLinkColor; }
-    }
-
-    .currency__expandedList {
-
-        &:after { border-top-color: $link-active-color; }
-
-        .currency__active { color: $link-active-color; }
-    }
+    .currency__base { color: $topNavLinkColor; }
+    .currency__active:after { border-top-color: $topNavLinkColor; }
+    .currency__verticalList { background: rgba(255,255,255,0.9); border-color: $borderColor; }
+    .currency__verticalList .currency__item { color: $text-color; }
+    .currency__horizontalList:after { border-top-color: $topNavLinkColor; }
+    .currency__expandedList:after { border-top-color: $link-active-color; }
+    .currency__expandedList .currency__active { color: $link-active-color; }
 
     /* My Account styles */
-
-    .MA {
-        color: $topNavIconColor;
-    }
-
-    .MA-customerLinks {
-        background: rgba(255,255,255,0.9);
-        border-color: $borderColor;
-
-        li, a {
-            color: $text-color;
-        }
-    }
+    .MA { color: $topNavIconColor; }
+    .MA-customerLinks { background: rgba(255,255,255,0.9); border-color: $borderColor; }
+    .MA-customerLinks li, .MA-customerLinks a { color: $text-color; }
 
 }
 
-.cart-link {
-    color: $link-color;
-
-    & > a { color: $link-color; }
-}
+.cart-link { color: $link-color; }
+.cart-link > a { color: $link-color; }
 

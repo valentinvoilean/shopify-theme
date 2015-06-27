@@ -62,5 +62,12 @@
     }
 
     .MA-lightboxLinks,
-    .MA-flyoutLinks { display: none; }
+    .MA-flyoutLinks,
+    .MA-lightbox { display: none; }
+
+    .MA-lightbox {
+        width: 100vw;
+        height: 100vw;
+        position: fixed;
+    }
 }
