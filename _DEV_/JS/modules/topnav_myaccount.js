@@ -12,12 +12,16 @@ Shop.Myaccount = (function ($) {
             flyoutLinksClass:   '.MA-flyoutLinks',
             loginLinkClass:     '.MA-loginLink',
             registerLinkClass:  '.MA-registerLink',
-            lightboxClass: '.MA-lightbox'
+            lightboxClass: '.MA-lightbox',
+            lightboxWrapperClass: '.MA-lightboxWrapper',
+            lightboxCloseButtonClass: '.MA-closeBtn'
         },
 
         _updateElements = function () {
             _o.lightboxLinks = _$el.find(_o.lightboxLinksClass);
-            _o.lightBox =  _$el.find(_o.lightboxClass);
+            _o.lightbox =  _$el.find(_o.lightboxClass);
+            _o.lightboxWrapper = _o.lightbox.find(_o.lightboxWrapperClass);
+            _o.lightboxCloseButton = _o.lightbox.find(_o.lightboxCloseButtonClass);
 
             if (_o.lightboxLinks.length) {
                 _o.loginLink = _o.lightboxLinks.find(_o.loginLinkClass);
@@ -27,7 +31,8 @@ Shop.Myaccount = (function ($) {
         },
 
         _displayLightBox = function () {
-            _o.lightBox.show();
+            _o.lightbox.toggle();
+            _o.lightboxWrapper.toggleClass('animate');
         },
 
         _loginLightBox = function (e) {
@@ -45,6 +50,7 @@ Shop.Myaccount = (function ($) {
             if (_o.lightboxLinks.length) {
                 _o.loginLink.on('click', _loginLightBox);
                 _o.registerLink.on('click', _registerLightBox);
+                _o.lightboxCloseButton.on('click', _displayLightBox)
             }
         };
 

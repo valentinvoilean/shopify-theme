@@ -35,10 +35,16 @@
 
         <div class="MA-lightbox">
             <div class="container">
-                <div class="row">
-                    <div class="MA-lightboxWrapper col-xs-10 col-sm-6 col-xs-push-1 col-sm-push-3">
-                        EXISTING CUSTOMER
-                    </div>
+                <div class="MA-lightboxWrapper col-xs-10 col-sm-6 col-xs-push-1 col-sm-push-3">
+                    <h3 class="MA-lightboxTitle">Existing customer</h3>
+                    <p class="MA-lightboxDescription">If you already have an account, please enter your e-mail address and password below.</p>
+                    <form class="MA-lightboxForm">
+                        <input type="text" class="MA-lightboxInput" placeholder="Name" name="name">
+                        <input type="text" class="MA-lightboxInput" placeholder="Surname" name="surname">
+                        <input class="MA-lightboxInput" placeholder="Email" name="email" onfocus="this.type='email'">
+                        <input class="MA-lightboxInput" placeholder="Password" name="password" onfocus="this.type='password'">
+                    </form>
+                    <div class="MA-closeBtn"><i class="fa fa-times"></i></div>
                 </div>
             </div>
         </div>

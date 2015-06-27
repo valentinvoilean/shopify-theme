@@ -9,16 +9,17 @@
         height: $topnav-height;
         position: relative;
         cursor: pointer;
-        text-transform: uppercase;
     }
 
     .MA-loginLink,
     .MA-registerLink {
+        text-transform: uppercase;
 
         &:hover { text-decoration: underline; }
     }
 
     .MA-myprofileLink {
+        text-transform: uppercase;
 
         &:after {
             @include topnavArrowDown();
@@ -42,6 +43,7 @@
         border: rem(1px) solid;
         display: none;
         cursor: pointer;
+        text-transform: uppercase;
 
         li {
             @include rem(line-height, 28px);
@@ -74,5 +76,56 @@
     .MA-lightboxWrapper {
         border: rem(1px) solid;
         margin-top: 10vw;
+        padding-top: rem(15px);
+        padding-bottom: rem(15px);
+        position: relative;
+        visibility: hidden;
+    }
+
+    .MA-lightboxTitle {
+        font-size: rem(20px);
+        text-transform: uppercase;
+        line-height: rem(10px);
+        padding-top: rem(5px);
+        margin-bottom: rem(25px);
+        font-weight: 400;
+    }
+
+    .MA-lightboxDescription {
+        font-size: rem(12px);
+        font-weight: 300;
+        line-height: rem(15px);
+        margin-top: 0;
+        margin-bottom: rem(25px);
+    }
+
+    .MA-lightboxForm {
+        margin-bottom: rem(25px);
+    }
+
+    .MA-lightboxInput {
+        width: calc(50% - #{rem(7.5px)});
+        margin: 0 0 rem(25px);
+        padding: 0;
+        border: 0;
+        float: left;
+        outline: none;
+        border-bottom: rem(1px) solid;
+        line-height: rem(25px);
+        font-size: rem(12px);
+        font-weight: 300;
+
+        &:nth-child(even) {
+            float: right;
+        }
+    }
+
+    .MA-closeBtn {
+        position: absolute;
+        top: rem(-20px);
+        right: rem(-15px);
+        font-size: rem(20px);
+        line-height: 0;
+        cursor: pointer;
     }
 }

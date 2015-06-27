@@ -13,6 +13,9 @@ $borderColor:             {{ settings.border_color }};
 
 /* Custom Colors */
 $color-1: rgba(255,255,255,0.9);
+$color-2: #000;
+$color-3: #fff;
+$color-4: #DFDFDF;
 
 /* Table of content */
 /* 1.  Base styles
@@ -64,6 +67,61 @@ html, body { background-color: $background-color; color: $text-color; }
     }
 }
 
+%slideDown{
+	animation-name: slideDown;
+	-webkit-animation-name: slideDown;
+
+	animation-duration: 1s;
+	-webkit-animation-duration: 1s;
+
+	animation-timing-function: ease;
+	-webkit-animation-timing-function: ease;
+
+	visibility: visible !important;
+}
+
+@keyframes slideDown {
+	0% {
+		transform: translateY(-100%);
+	}
+	50%{
+		transform: translateY(8%);
+	}
+	65%{
+		transform: translateY(-4%);
+	}
+	80%{
+		transform: translateY(4%);
+	}
+	95%{
+		transform: translateY(-2%);
+	}
+	100% {
+		transform: translateY(0%);
+	}
+}
+
+@-webkit-keyframes slideDown {
+	0% {
+		-webkit-transform: translateY(-100%);
+	}
+	50%{
+		-webkit-transform: translateY(8%);
+	}
+	65%{
+		-webkit-transform: translateY(-4%);
+	}
+	80%{
+		-webkit-transform: translateY(4%);
+	}
+	95%{
+		-webkit-transform: translateY(-2%);
+	}
+	100% {
+		-webkit-transform: translateY(0%);
+	}
+}
+
 
 /* =====================
    3. Mixins
@@ -101,8 +159,16 @@ html, body { background-color: $background-color; color: $text-color; }
     .MA-customerLinks { background: $color-1; border-color: $borderColor; }
     .MA-customerLinks li, .MA-customerLinks a { color: $text-color; }
     .MA-lightbox { background: $color-1; }
-    .MA-lightboxWrapper { border-color: $borderColor; }
-
+    .MA-lightboxWrapper { border-color: $borderColor; background: $color-3; }
+    .MA-lightboxWrapper.animate { @extend %slideDown; }
+    .MA-lightboxTitle, .MA-lightboxDescription { color: $color-2;}
+    .MA-lightboxInput {
+        color: $color-2; border-color: $color-4;
+        &::-webkit-input-placeholder { color: $color-4; }
+        &::-moz-placeholder { color: $color-4; }
+        &:-ms-input-placeholder { color: $color-4; }
+    }
+    .MA-closeBtn { color: $color-2; }
 }
 
 .cart-link { color: $link-color; }

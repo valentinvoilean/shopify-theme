@@ -22,6 +22,8 @@ h1, h2, h3, h4, h5, h6 {
     font-family: $heading-font-family;
     font-weight: $heading-font-weight;
     text-rendering: optimizeLegibility; /* to enable ligatures and kerning */
+    padding: 0;
+    margin: 0;
 }
 
 a { text-decoration: none; }
