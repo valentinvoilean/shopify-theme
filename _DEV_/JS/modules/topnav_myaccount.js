@@ -54,6 +54,11 @@ Shop.Myaccount = (function ($) {
             if (!$(this).val()) $(this).parent().removeClass('is-active');
         },
 
+        _detectInput = function () { // necessary for autofill
+            if ($(this).val()) $(this).focus();
+            else $(this).blur();
+        },
+
         _addEvents = function () {
 
             if (_o.lightboxLinks.length) {
@@ -62,6 +67,7 @@ Shop.Myaccount = (function ($) {
                 _o.lightboxCloseButton.on('click', _displayLightBox);
                 _o.lightboxInput.on('focus', _activateInput);
                 _o.lightboxInput.on('blur', _deactivateInput);
+                _o.lightboxInput.on('change', _detectInput);
             }
         };
 

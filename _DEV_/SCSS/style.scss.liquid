@@ -74,7 +74,12 @@ html, body { background-color: $background-color; color: $text-color; }
     .MA-lightboxWrapper.animate { @extend %slideDown; }
     .MA-lightboxTitle, .MA-lightboxDescription { color: $color-2;}
     .MA-lightboxInput { border-color: $color-4; }
-    .MA-lightboxInput input { color: $color-2; }
+    .MA-lightboxInput input {
+        color: $color-2;
+        &:-webkit-autofill { -webkit-box-shadow:0 0 0 10vh $color-2 inset; -webkit-text-fill-color: $color-3; }
+        &:-webkit-autofill:focus { -webkit-box-shadow: 0 0 0 10vh $color-2 inset; -webkit-text-fill-color: $color-3; }
+    }
+
     .MA-lightboxInput input:invalid { border: 0; outline: none; box-shadow:none; }
     .MA-lightboxInput label { color: $color-4;}
     .MA-lightboxInput:hover {
