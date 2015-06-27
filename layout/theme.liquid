@@ -152,7 +152,13 @@
 </footer>
 
 <!--[if IE 9 ]>{{ 'MediaMatch-2.0.2.js' | asset_url | script_tag }}"<![endif]-->
+
+{% if settings.js_minification %}
+<script src="{{ 'shop.min.js' | asset_url }}"></script>
+{% else %}
 <script src="{{ 'shop.js' | asset_url }}"></script>
+{% endif %}
+
 {% include 'currencies' %}
 </body>
 </html>

@@ -9,6 +9,20 @@
     ]
   },
   {
+    "name": "Performance",
+    "settings": [
+      {
+         "type": "header",
+         "content": "Minification"
+       },
+      {
+        "type": "checkbox",
+        "id": "js_minification",
+        "label": "Enable javascript minification"
+      }
+    ]
+  },
+  {
     "name": "Colors",
     "settings": [
       {
