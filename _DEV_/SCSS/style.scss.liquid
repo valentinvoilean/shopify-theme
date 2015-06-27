@@ -11,6 +11,9 @@ $topNavIconColor:         {{ settings.topnav_icon_color }};
 $topNavLinkColor:         {{ settings.topnav_link_color }};
 $borderColor:             {{ settings.border_color }};
 
+/* Custom Colors */
+$color-1: rgba(255,255,255,0.9);
+
 /* Table of content */
 /* 1.  Base styles
    2.  CSS transitions
@@ -51,7 +54,7 @@ html, body { background-color: $background-color; color: $text-color; }
     /* Currency Styles */
     .currency__base { color: $topNavLinkColor; }
     .currency__active:after { border-top-color: $topNavLinkColor; }
-    .currency__verticalList { background: rgba(255,255,255,0.9); border-color: $borderColor; }
+    .currency__verticalList { background: $color-1; border-color: $borderColor; }
     .currency__verticalList .currency__item { color: $text-color; }
     .currency__horizontalList:after { border-top-color: $topNavLinkColor; }
     .currency__expandedList:after { border-top-color: $link-active-color; }
@@ -59,8 +62,9 @@ html, body { background-color: $background-color; color: $text-color; }
 
     /* My Account styles */
     .MA { color: $topNavIconColor; }
-    .MA-customerLinks { background: rgba(255,255,255,0.9); border-color: $borderColor; }
+    .MA-customerLinks { background: $color-1; border-color: $borderColor; }
     .MA-customerLinks li, .MA-customerLinks a { color: $text-color; }
+    .MA-lightbox { background: $color-1; }
 
 }
 
