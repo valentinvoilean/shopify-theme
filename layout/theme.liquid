@@ -151,7 +151,8 @@
         . {{ powered_by_link }}.</p>
 </footer>
 
-{{ "shop.min.js" | asset_url | script_tag }}
+<!--[if IE 9 ]>{{ 'MediaMatch-2.0.2.js' | asset_url | script_tag }}"<![endif]-->
+<script src="{{ 'shop.js' | asset_url }}"></script>
 {% include 'currencies' %}
 </body>
 </html>
