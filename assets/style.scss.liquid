@@ -15,7 +15,7 @@ $borderColor:             {{ settings.border_color }};
 $color-1: rgba(255,255,255,0.9); /* lightbox color, signup flyouts */
 $color-2: #000;
 $color-3: #FFF;
-$color-4: #DFDFDF;
+$color-4: #B3B1B1; /* input colors */
 $color-5: #ff9494; /* error color */
 $color-6: #414141;
 
@@ -182,7 +182,15 @@ html, body { background-color: $background-color; color: $text-color; }
     .MA-lightboxInput.is-active label { color: $color-2; }
     .MA-lightboxInput.is-active input { background: $color-2; color: $color-3;}
 
+    .MA-lightboxButton1 { background: $color-2; }
+    .MA-lightboxButton1:hover { @include opacity(0.8); }
+    .MA-lightboxButton2 { background: $color-3; border-color: $color-2; color: $color-2; }
+    .MA-lightboxButton2:hover { background: $color-2; color: $color-3; }
+
+    .MA-lightboxSeparator { border-color: $borderColor; }
+
     .MA-closeBtn { color: $color-2; }
+
 }
 
 .cart-link { color: $link-color; }
