@@ -54,9 +54,9 @@ Shop.Myaccount = (function ($) {
             if (!$(this).val()) $(this).parent().removeClass('is-active');
         },
 
-        _detectInput = function () { // necessary for autofill
-            if ($(this).val()) $(this).focus();
-            else $(this).blur();
+        _detectInput = function () { // Autofill fix
+            if ($(this).val()) _activateInput.call(this);
+            else _deactivateInput.call(this);
         },
 
         _addEvents = function () {

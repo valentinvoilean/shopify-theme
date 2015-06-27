@@ -124,6 +124,8 @@
             line-height: rem(25px);
             font-size: rem(12px);
             font-weight: 300;
+            -webkit-appearance: none;
+            border-radius: 0;
             transition:0.2s ease all;
             -moz-transition:0.2s ease all;
             -webkit-transition:0.2s ease all;
@@ -150,7 +152,7 @@
         }
 
         &.is-active label { top: rem(-20px); }
-        &.is-active input { padding-left: rem(10px); }
+        &.is-active input { @include rem(padding, 0 10px); }
     }
 
     .MA-closeBtn {
