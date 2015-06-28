@@ -55,31 +55,33 @@ html, body { background-color: $background-color; color: $text-color; }
     .topnav_message { color: $topNavIconColor; }
 
     /* Currency Styles */
-    .currency__base { color: $topNavLinkColor; }
+    .currency__base { @include no-select; color: $topNavLinkColor; }
     .currency__active:after { border-top-color: $topNavLinkColor; }
     .currency__verticalList { background: $color-1; border-color: $borderColor; }
     .currency__verticalList .currency__item { color: $text-color; }
-    .currency__horizontalList:after { border-top-color: $topNavLinkColor; }
-    .currency__expandedList:after { border-top-color: $link-active-color; }
+    .currency__horizontalList:after { @include transition(all 0.5s); border-top-color: $topNavLinkColor; cursor: pointer;}
+    .currency__expandedList:after { @include rotate(90); border-top-color: $link-active-color; }
     .currency__expandedList .currency__active { color: $link-active-color; }
+    .currency__item { @include transition(all 0.3s); cursor: pointer; }
 
     /* My Account styles */
-    .MA { color: $topNavIconColor; }
+    .MA { @include no-select; color: $topNavIconColor; }
     .MA-customerLinks { background: $color-1; border-color: $borderColor; }
     .MA-customerLinks li, .MA-customerLinks a { color: $text-color; }
+    .MA-myprofileLink:after { @include transition(all 0.5s); cursor: pointer; }
     .MA-lightbox { background: $color-1; }
     .MA-lightboxWrapper { border-color: $borderColor; background: $color-3; }
     .MA-lightboxWrapper.animate { @extend %slideDown; }
     .MA-lightboxTitle, .MA-lightboxDescription { color: $color-2;}
     .MA-lightboxInput { border-color: $color-4; }
     .MA-lightboxInput input {
-        color: $color-2;
+        @include transition(all 0.5s); -webkit-appearance: none; color: $color-2;
         &:-webkit-autofill { -webkit-box-shadow:0 0 0 10vh $color-2 inset; -webkit-text-fill-color: $color-3; }
         &:-webkit-autofill:focus { -webkit-box-shadow: 0 0 0 10vh $color-2 inset; -webkit-text-fill-color: $color-3; }
     }
 
     .MA-lightboxInput input:invalid { border: 0; outline: none; box-shadow:none; }
-    .MA-lightboxInput label { color: $color-4;}
+    .MA-lightboxInput label { @include transition(all 0.2s); color: $color-4;}
     .MA-lightboxInput:hover {
         border-color: $color-2;
         input { color: $color-2; }
@@ -89,9 +91,9 @@ html, body { background-color: $background-color; color: $text-color; }
     .MA-lightboxInput.is-active label { color: $color-2; }
     .MA-lightboxInput.is-active input { background: $color-2; color: $color-3;}
 
-    .MA-lightboxButton1 { background: $color-2; }
+    .MA-lightboxButton1 { @include transition(all 0.5s); background: $color-2; }
     .MA-lightboxButton1:hover { @include opacity(0.8); }
-    .MA-lightboxButton2 { background: $color-3; border-color: $color-2; color: $color-2; }
+    .MA-lightboxButton2 { @include transition(all 0.5s); background: $color-3; border-color: $color-2; color: $color-2; }
     .MA-lightboxButton2:hover { background: $color-2; color: $color-3; }
 
     .MA-lightboxSeparator { border-color: $borderColor; }

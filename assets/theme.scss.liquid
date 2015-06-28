@@ -132,14 +132,6 @@ $z-layers: lightbox;
   }
 }
 
-%noselect {
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
 @mixin breakpoint($class) {
   @if $class == mobile {
     @media (max-width: rem(767px)) { @content; }
@@ -649,11 +641,6 @@ $topnav-fontsize: 11px;
         line-height: $topnav-height;
         height: $topnav-height;
         position: relative;
-        -webkit-touch-callout: none;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
 
         .visible-md { cursor: pointer; }
     }
@@ -703,11 +690,6 @@ $topnav-fontsize: 11px;
         &:after {
             @include topnavArrowDown();
             content: "";
-            cursor: pointer;
-            -moz-transition: all 0.5s ease;
-            -webkit-transition: all 0.5s ease;
-            -o-transition: all 0.5s ease;
-            transition: all 0.5s ease;
         }
 
         .currency__item {
@@ -716,12 +698,7 @@ $topnav-fontsize: 11px;
             display: inline-block;
             width: 0;
             float: left;
-            cursor: pointer;
             overflow: hidden;
-            -moz-transition: all 0.3s ease;
-            -webkit-transition: all 0.3s ease;
-            -o-transition: all 0.3s ease;
-            transition: all 0.3s ease;
         }
 
         .currency__active {
@@ -734,20 +711,12 @@ $topnav-fontsize: 11px;
 
     .currency__expandedList {
 
-        &:after {
-            -ms-transform: rotate(90deg);
-            -webkit-transform: rotate(90deg);
-            transform: rotate(90deg);
-        }
-
         .currency__item {
             @include rem(margin-left, 10px);
             display: inline-block;
             width: auto;
 
-            &:hover {
-                text-decoration: underline;
-            }
+            &:hover { text-decoration: underline; }
         }
     }
 
@@ -755,7 +724,6 @@ $topnav-fontsize: 11px;
 #topnav {
 
     .MA {
-        @extend %noselect;
         @include rem(font-size, $topnav-fontsize);
         @include rem(margin-right, 20px);
         float: right;
@@ -778,11 +746,6 @@ $topnav-fontsize: 11px;
         &:after {
             @include topnavArrowDown();
             content: "";
-            cursor: pointer;
-            -moz-transition: all 0.5s ease;
-            -webkit-transition: all 0.5s ease;
-            -o-transition: all 0.5s ease;
-            transition: all 0.5s ease;
         }
     }
 
@@ -855,7 +818,6 @@ $topnav-fontsize: 11px;
         margin-bottom: rem(30px);
     }
 
-
     .MA-lightboxInput {
         width: 100%;
         margin: 0 0 rem(25px);
@@ -879,15 +841,11 @@ $topnav-fontsize: 11px;
             line-height: rem(25px);
             font-size: rem(12px);
             font-weight: 300;
-            -webkit-appearance: none;
             border-radius: 0;
-            transition:0.2s ease all;
-            -moz-transition:0.2s ease all;
-            -webkit-transition:0.2s ease all;
         }
 
         label {
-            pointer-events:none;
+            pointer-events: none;
             position: absolute;
             padding: 0;
             border: 0;
@@ -896,9 +854,6 @@ $topnav-fontsize: 11px;
             left: 0;
             line-height: rem(25px);
             font-size: rem(12px);
-            transition:0.2s ease all;
-            -moz-transition:0.2s ease all;
-            -webkit-transition:0.2s ease all;
         }
 
         input:required + label:after {

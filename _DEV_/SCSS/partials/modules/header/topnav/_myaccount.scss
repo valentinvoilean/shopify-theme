@@ -1,7 +1,6 @@
 #topnav {
 
     .MA {
-        @extend %noselect;
         @include rem(font-size, $topnav-fontsize);
         @include rem(margin-right, 20px);
         float: right;
@@ -24,11 +23,6 @@
         &:after {
             @include topnavArrowDown();
             content: "";
-            cursor: pointer;
-            -moz-transition: all 0.5s ease;
-            -webkit-transition: all 0.5s ease;
-            -o-transition: all 0.5s ease;
-            transition: all 0.5s ease;
         }
     }
 
@@ -101,7 +95,6 @@
         margin-bottom: rem(30px);
     }
 
-
     .MA-lightboxInput {
         width: 100%;
         margin: 0 0 rem(25px);
@@ -125,15 +118,11 @@
             line-height: rem(25px);
             font-size: rem(12px);
             font-weight: 300;
-            -webkit-appearance: none;
             border-radius: 0;
-            transition:0.2s ease all;
-            -moz-transition:0.2s ease all;
-            -webkit-transition:0.2s ease all;
         }
 
         label {
-            pointer-events:none;
+            pointer-events: none;
             position: absolute;
             padding: 0;
             border: 0;
@@ -142,9 +131,6 @@
             left: 0;
             line-height: rem(25px);
             font-size: rem(12px);
-            transition:0.2s ease all;
-            -moz-transition:0.2s ease all;
-            -webkit-transition:0.2s ease all;
         }
 
         input:required + label:after {
