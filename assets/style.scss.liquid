@@ -252,90 +252,93 @@ html, body { background-color: $background-color; color: $text-color; }
         cursor: pointer;
     }
 
-    .lightBox {
-        background: $color-1;
 
-        .wrapper {
-            border-color: $borderColor;
-            background: $color-3;
 
-            &.animate { @extend %slideDown; }
-        }
 
-        .title, .description { color: $color-2; }
 
-        .inputField {
-            border-color: $color-4;
 
-            &:hover {
-                border-color: $color-2;
+    // LIGHTBOX STYLES ///
 
-                input, label { color: $color-2; }
-            }
+    .lightBox__base { background: $color-1; }
 
-            &.is-active {
-                border-color: $color-2;
+    .lightBox__content {
+        border-color: $borderColor;
+        background: $color-3;
 
-                label { color: $color-2; };
+        &.animate { @extend %slideDown; }
+    }
 
-                input {
-                    background: $color-2;
-                    color: $color-3;
-                }
-            }
+    .lightBox__hl,
+    .lightBox__text { color: $color-2; }
 
-            input {
-                @include transition(all 0.5s);
-                -webkit-appearance: none;
-                color: $color-2;
+    .lightBox__inputField {
+        border-color: $color-4;
 
-                &:-webkit-autofill {  // chrome autofill fix
-                    -webkit-box-shadow: 0 0 0 10vh $color-2 inset;
-                    -webkit-text-fill-color: $color-3; }
-
-                &:-webkit-autofill:focus {
-                    -webkit-box-shadow: 0 0 0 10vh $color-2 inset;
-                    -webkit-text-fill-color: $color-3;
-                }
-
-                &:invalid { border: 0; outline: none; box-shadow: none; }
-            }
-
-            label {
-                @include transition(all 0.2s);
-                color: $color-4;
-            }
-        }
-
-        .submitBtn {
-            @include transition(all 0.5s);
-            background: $color-2;
-
-            &:hover { @include opacity(0.8); }
-        }
-
-        .switchBtn {
-            @include transition(all 0.5s);
-            background: $color-3;
+        &:hover {
             border-color: $color-2;
-            color: $color-2;
 
-            &:hover {
+            .lightBox__input,
+            .lightBox__label { color: $color-2; }
+        }
+
+        &.is-active {
+            border-color: $color-2;
+
+            .lightBox__label { color: $color-2; };
+
+            .lightBox__input {
                 background: $color-2;
                 color: $color-3;
             }
         }
+    }
 
-        .separator { border-color: $borderColor; }
+    .lightBox__input {
+        @include transition(all 0.5s);
+        -webkit-appearance: none;
+        color: $color-2;
 
-        .closeBtn { color: $color-2; }
+        &:-webkit-autofill {  // chrome autofill fix
+            -webkit-box-shadow: 0 0 0 10vh $color-2 inset;
+            -webkit-text-fill-color: $color-3; }
 
-        .checkboxLabel {
-            color: $color-2;
+        &:-webkit-autofill:focus {
+            -webkit-box-shadow: 0 0 0 10vh $color-2 inset;
+            -webkit-text-fill-color: $color-3;
+        }
 
-            a { color: $color-2; }
+        &:invalid { border: 0; outline: none; box-shadow: none; }
+    }
+
+    .lightBox__label {
+        @include transition(all 0.2s);
+        color: $color-4;
+    }
+
+    .lightBox__submitBtn {
+        @include transition(all 0.5s);
+        background: $color-2;
+
+        &:hover { @include opacity(0.8); }
+    }
+
+    .lightBox__switchBtn {
+        @include transition(all 0.5s);
+        background: $color-3;
+        border-color: $color-2;
+        color: $color-2;
+
+        &:hover {
+            background: $color-2;
+            color: $color-3;
         }
     }
+
+    .lightBox__separator { border-color: $borderColor; }
+
+    .lightBox__closeBtn,
+    .lightBox__checkboxLabel,
+    .lightbox__checkboxLink { color: $color-2; }
 }
 
 .cart-link {

@@ -1,59 +1,59 @@
-<div class="lightBox">
-    <div class="wrapper col-xs-10 col-sm-6 col-md-5 col-lg-4">
-        <h3 data-register="Create an account" data-login="Existing customer" class="title">Create an
+<div class="lightBox__base">
+    <div class="lightBox__content col-xs-10 col-sm-6 col-md-5 col-lg-4">
+        <h3 class="lightBox__hl" data-register="Create an account" data-login="Existing customer">Create an
             account</h3>
 
-        <p data-login="If you already have an account, please enter your e-mail address and password below."
+        <p class="lightBox__text" data-login="If you already have an account, please enter your e-mail address and password below."
            data-register="Creating an account is easy. Just fill in the form below and enjoy the benefits of having an account."
-           class="description">Creating an account is easy. Just fill in the form below and enjoy the
+           >Creating an account is easy. Just fill in the form below and enjoy the
             benefits of having an account.</p>
 
-        <form data-register="/account" data-login="/account/login" class="MA-lightboxForm clearfix"
+        <form class="lightBox__form clearfix" data-register="/account" data-login="/account/login"
               accept-charset="UTF-8" autocomplete="off" action="/account" method="post">
             <input data-register="create_customer" data-login="customer_login" name="form_type" type="hidden"
                    value="create_customer">
             <input name="utf8" type="hidden" value="✓">
 
-            <div class="inputField">
-                <input type="text" name="customer[first_name]">
-                <label>First Name</label>
+            <div class="lightBox__inputField">
+                <input class="lightBox__input" type="text" name="customer[first_name]">
+                <label class="lightBox__label">First Name</label>
             </div>
 
-            <div class="inputField">
-                <input type="text" name="customer[last_name]">
-                <label>Last Name</label>
+            <div class="lightBox__inputField">
+                <input class="lightBox__input" type="text" name="customer[last_name]">
+                <label class="lightBox__label">Last Name</label>
             </div>
 
-            <div class="inputField">
-                <input name="customer[email]" required onfocus="this.type='email'">
-                <label title="Email Address required.">Email</label>
+            <div class="lightBox__inputField">
+                <input class="lightBox__input" name="customer[email]" required onfocus="this.type='email'">
+                <label class="lightBox__label" title="Email Address required.">Email</label>
             </div>
 
-            <div class="inputField">
-                <input name="customer[password]" required onfocus="this.type='password'">
-                <label title="Password required.">Password</label>
+            <div class="lightBox__inputField">
+                <input class="lightBox__input" name="customer[password]" required onfocus="this.type='password'">
+                <label class="lightBox__label" title="Password required.">Password</label>
             </div>
 
-            <label class="checkboxLabel" for="agree">
-                <input class="termsCheckbox" type="checkbox" id="agree"/>
-                    <span>I agree with the <a target="_blank" href="/pages/terms-and-conditions">Terms and
+            <label class="lightBox__checkboxLabel" for="agree">
+                <input class="lightBox__checkbox" type="checkbox" id="agree"/>
+                    <span>I agree with the <a class="lightbox__checkboxLink" target="_blank" href="/pages/terms-and-conditions">Terms and
                             Conditions</a>.</span>
             </label>
 
-            <div data-register="Register" data-login="Sign in" class="submitBtn">register</div>
-            <div class="separator"></div>
-            <div data-register="Create an account" data-login="Existing customer ?" class="switchBtn">
+            <div data-register="Register" data-login="Sign in" class="lightBox__btn lightBox__submitBtn">register</div>
+            <div class="lightBox__separator"></div>
+            <div data-register="Create an account" data-login="Existing customer ?" class="lightBox__btn lightBox__switchBtn">
                 existing customer ?
             </div>
         </form>
-        <div class="closeBtn"><i class="fa fa-times"></i></div>
+        <div class="lightBox__closeBtn"><i class="fa fa-times"></i></div>
     </div>
 </div>
 
-<div class="lightBoxNav {{ MA-lightboxMQ }}">
-    <a href="{{ customer_login_link }}" class="link login-link">Log in</a>
+<div class="lightBox__nav {{ MA-lightboxMQ }}">
+    <a href="{{ customer_login_link }}" class="lightBox__navLink lightBox__loginLink">Log in</a>
     {% if shop.customer_accounts_optional %}
         <span>/</span>
-        <a href="{{ customer_register_link }}" class="link register-link">Join</a>
+        <a href="{{ customer_register_link }}" class="lightBox__navLink lightBox__registerLink">Join</a>
     {% endif %}
 </div>

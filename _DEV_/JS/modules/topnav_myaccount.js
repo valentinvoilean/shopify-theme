@@ -7,17 +7,17 @@ Shop.Myaccount = (function ($) {
     var _$el = null,
 
         _o = {
-            lightBoxNavClass: '.lightBoxNav',
+            lightBoxNavClass: '.lightBox__nav',
             flyoutLinksClass:   '.MA-flyoutLinks',
-            loginLinkClass:     '.login-link',
-            registerLinkClass:  '.register-link',
-            lightBoxClass: '.lightBox',
-            wrapperClass: '.wrapper',
-            closeBtnClass: '.closeBtn',
-            submitBtnClass: '.submitBtn',
-            switchBtnClass: '.switchBtn',
-            checkboxClass: '.termsCheckbox',
-            checkboxLabelClass: '.checkboxLabel'
+            loginLinkClass:     '.lightBox__loginLink',
+            registerLinkClass:  '.lightBox__registerLink',
+            lightBoxClass: '.lightBox__base',
+            wrapperClass: '.lightBox__content',
+            closeBtnClass: '.lightBox__closeBtn',
+            submitBtnClass: '.lightBox__submitBtn',
+            switchBtnClass: '.lightBox__switchBtn',
+            checkboxClass: '.lightBox__checkbox',
+            checkboxLabelClass: '.lightBox__checkboxLabel'
         },
 
         _updateElements = function () {
