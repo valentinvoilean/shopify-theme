@@ -733,14 +733,18 @@ $topnav-fontsize: 11px;
         cursor: pointer;
     }
 
-    .MA-loginLink,
-    .MA-registerLink {
-        text-transform: uppercase;
+    .openLightBoxLinks {
+        display: none;
 
-        &:hover { text-decoration: underline; }
+        .link {
+            text-transform: uppercase;
+
+            &:hover { text-decoration: underline; }
+        }
     }
 
-    .MA-myprofileLink {
+
+    .myprofileLink {
         text-transform: uppercase;
 
         &:after {
@@ -749,7 +753,7 @@ $topnav-fontsize: 11px;
         }
     }
 
-    .MA-customerLinks {
+    .customerLinks {
         @include rem(padding, 0 14px);
         list-style: none;
         overflow: hidden;
@@ -776,8 +780,7 @@ $topnav-fontsize: 11px;
         }
     }
 
-    .MA-lightboxLinks,
-    .MA-flyoutLinks { display: none; }
+    .flyoutLinks { display: none; }
 
     .lightBox {
         z-index: index($z-layers, lightbox);

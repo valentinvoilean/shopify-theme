@@ -234,19 +234,20 @@ html, body { background-color: $background-color; color: $text-color; }
     }
 
     /* My Account styles */
+
     .myAccount {
         @include no-select;
         color: $topNavIconColor;
     }
 
-    .MA-customerLinks {
+    .customerLinks {
         background: $color-1;
         border-color: $borderColor;
 
         li, a { color: $text-color; }
     }
 
-    .MA-myprofileLink:after {
+    .myprofileLink:after {
         @include transition(all 0.5s);
         cursor: pointer;
     }

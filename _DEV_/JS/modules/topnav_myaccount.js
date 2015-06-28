@@ -7,11 +7,10 @@ Shop.Myaccount = (function ($) {
     var _$el = null,
 
         _o = {
-            loggedInLinksClass: '.MA-loggedInLinks',
-            lightboxLinksClass: '.MA-lightboxLinks',
+            openLightBoxLinksClass: '.openLightBoxLinks',
             flyoutLinksClass:   '.MA-flyoutLinks',
-            loginLinkClass:     '.MA-loginLink',
-            registerLinkClass:  '.MA-registerLink',
+            loginLinkClass:     '.login-link',
+            registerLinkClass:  '.register-link',
             lightBoxClass: '.lightBox',
             wrapperClass: '.wrapper',
             closeBtnClass: '.closeBtn',
@@ -25,14 +24,14 @@ Shop.Myaccount = (function ($) {
             _o.lightbox =  _$el.find(_o.lightBoxClass);
 
             if (_o.lightbox.length) {
-                _o.lightboxLinks = _$el.find(_o.lightboxLinksClass);
+                _o.openLightBoxLinks = _$el.find(_o.openLightBoxLinksClass);
                 _o.wrapper = _o.lightbox.find(_o.wrapperClass);
                 _o.closeBtn = _o.lightbox.find(_o.closeBtnClass);
                 _o.form = _o.lightbox.find('form');
                 _o.submitBtn = _o.lightbox.find(_o.submitBtnClass);
                 _o.lightboxInput = _o.lightbox.find('input');
-                _o.loginLink = _o.lightboxLinks.find(_o.loginLinkClass);
-                _o.registerLink = _o.lightboxLinks.find(_o.registerLinkClass);
+                _o.loginLink = _o.openLightBoxLinks.find(_o.loginLinkClass);
+                _o.registerLink = _o.openLightBoxLinks.find(_o.registerLinkClass);
                 _o.checkbox = _o.lightbox.find(_o.checkboxClass);
                 _o.checkboxLabel = _o.lightbox.find(_o.checkboxLabelClass);
                 _o.switchBtn = _o.lightbox.find(_o.switchBtnClass);

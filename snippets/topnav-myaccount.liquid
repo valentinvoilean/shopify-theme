@@ -23,9 +23,9 @@
 
     <div class="myAccount">
         {% if customer %}
-        <div class="MA-loggedInLinks">
-            <a class="MA-myprofileLink" href="/account">My Account</a>
-            <ul class="MA-customerLinks">
+        <div class="loggedInLinks">
+            <a class="myprofileLink" href="/account">My Account</a>
+            <ul class="customerLinks">
                 <li><a href="/account">My Profile</a></li>
                 <li><a href="/account">My Wishlist</a></li>
                 <li><a href="{{ customer_logout_link }}">Log Out</a></li>

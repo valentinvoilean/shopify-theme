@@ -50,10 +50,10 @@
     </div>
 </div>
 
-<div class="MA-lightboxLinks {{ MA-lightboxMQ }}">
-    <a href="{{ customer_login_link }}" class="MA-loginLink">Log in</a>
+<div class="openLightBoxLinks {{ MA-lightboxMQ }}">
+    <a href="{{ customer_login_link }}" class="link login-link">Log in</a>
     {% if shop.customer_accounts_optional %}
-        /
-        <a href="{{ customer_register_link }}" class="MA-registerLink">Join</a>
+        <span>/</span>
+        <a href="{{ customer_register_link }}" class="link register-link">Join</a>
     {% endif %}
 </div>
