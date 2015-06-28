@@ -23,10 +23,10 @@ Shop.Myaccount = (function ($) {
         },
 
         _updateElements = function () {
-            _o.lightboxLinks = _$el.find(_o.lightboxLinksClass);
+            _o.lightbox =  _$el.find(_o.lightboxClass);
 
-            if (_o.lightboxLinks.length) {
-                _o.lightbox =  _$el.find(_o.lightboxClass);
+            if (_o.lightbox.length) {
+                _o.lightboxLinks = _$el.find(_o.lightboxLinksClass);
                 _o.lightboxWrapper = _o.lightbox.find(_o.lightboxWrapperClass);
                 _o.lightboxCloseButton = _o.lightbox.find(_o.lightboxCloseButtonClass);
                 _o.lightboxForm = _o.lightbox.find(_o.lightboxFormClass);
@@ -94,8 +94,7 @@ Shop.Myaccount = (function ($) {
         },
 
         _addEvents = function () {
-
-            if (_o.lightboxLinks.length) {
+            if (_o.lightbox.length) {
                 _o.loginLink.on('click', _loginLightBox);
                 _o.registerLink.on('click', _registerLightBox);
                 _o.lightboxCloseButton.on('click', _displayLightBox);
@@ -115,8 +114,6 @@ Shop.Myaccount = (function ($) {
                 _updateElements();
                 _addEvents();
             }
-        },
-
-        switchForm: _switchForm
+        }
     };
 })(jQuery);
