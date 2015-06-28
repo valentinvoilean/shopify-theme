@@ -166,7 +166,8 @@
         cursor: pointer;
     }
 
-    .lightBox__checkboxLabel {
+    .lightBox__checkboxLabel,
+    .lightBox__forgotPasswordLink {
         font-size: rem(12px);
         margin-bottom: rem(15px);
         line-height: rem(12px);
@@ -175,7 +176,8 @@
         padding: 0;
     }
 
-    .lightbox__checkboxLink { text-decoration: underline; }
+    .lightbox__checkboxLink,
+    .lightBox__forgotPasswordLink { text-decoration: underline; }
 
     .lightBox__nav { display: none; }
 
