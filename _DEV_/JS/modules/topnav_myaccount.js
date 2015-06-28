@@ -22,7 +22,8 @@ Shop.Myaccount = (function ($) {
             lastNameInputClass:  '.lightBox__input--lastName',
             titleClass: '.lightBox__hl',
             paragraphClass: '.lightBox__text',
-            formClass: '.lightBox__form'
+            formClass: '.lightBox__form',
+            forgotPasswordLinkClass: '.lightBox__forgotPasswordLink'
         },
 
         _updateElements = function () {
@@ -45,6 +46,7 @@ Shop.Myaccount = (function ($) {
                 _o.title = _o.lightbox.find(_o.titleClass);
                 _o.paragraph = _o.lightbox.find(_o.paragraphClass);
                 _o.form = _o.lightbox.find(_o.formClass);
+                _o.forgotPasswordLink = _o.lightbox.find(_o.forgotPasswordLinkClass);
             }
         },
 
@@ -56,6 +58,7 @@ Shop.Myaccount = (function ($) {
         _switchForm = function (formType) {
             if (formType === 'login') {
                 _o.checkboxLabel.hide();
+                _o.forgotPasswordLink.show();
                 _o.firstNameInput.add(_o.lastNameInput).prop('disabled', true).parent().hide();
                 _o.title.text(_o.title.data('login'));
                 _o.paragraph.text(_o.paragraph.data('login'));
@@ -66,6 +69,7 @@ Shop.Myaccount = (function ($) {
 
             else if (formType === 'register') {
                 _o.checkboxLabel.show();
+                _o.forgotPasswordLink.hide();
                 _o.firstNameInput.add(_o.lastNameInput).prop('disabled', false).parent().show();
                 _o.title.text(_o.title.data('register'));
                 _o.paragraph.text(_o.paragraph.data('register'));
@@ -74,7 +78,7 @@ Shop.Myaccount = (function ($) {
                 _o.form.attr('action', _o.form.data('register'));
             }
             else {
-                _o.checkboxLabel.toggle();
+                _o.checkboxLabel.add(_o.forgotPasswordLink).toggle();
                 _o.firstNameInput.add(_o.lastNameInput).prop('disabled', function(i, v) { return !v; }).parent().toggle();
 
                 if (_o.title.text() === _o.title.data('login')) _o.title.text(_o.title.data('register'));
