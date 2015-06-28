@@ -7,21 +7,21 @@ Shop.Myaccount = (function ($) {
     var _$el = null,
 
         _o = {
-            lightBoxNavClass: '.lightBox__nav',
+            lightBoxNavClass:   '.lightBox__nav',
             flyoutLinksClass:   '.MA-flyoutLinks',
             loginLinkClass:     '.lightBox__loginLink',
             registerLinkClass:  '.lightBox__registerLink',
-            lightBoxClass: '.lightBox__base',
-            wrapperClass: '.lightBox__content',
-            closeBtnClass: '.lightBox__closeBtn',
-            submitBtnClass: '.lightBox__submitBtn',
-            switchBtnClass: '.lightBox__switchBtn',
-            checkboxClass: '.lightBox__checkbox',
+            lightBoxClass:      '.lightBox__base',
+            wrapperClass:       '.lightBox__content',
+            closeBtnClass:      '.lightBox__closeBtn',
+            submitBtnClass:     '.lightBox__submitBtn',
+            switchBtnClass:     '.lightBox__switchBtn',
+            checkboxClass:      '.lightBox__checkbox',
             checkboxLabelClass: '.lightBox__checkboxLabel'
         },
 
         _updateElements = function () {
-            _o.lightbox =  _$el.find(_o.lightBoxClass);
+            _o.lightbox = _$el.find(_o.lightBoxClass);
 
             if (_o.lightbox.length) {
                 _o.lightBoxNav = _$el.find(_o.lightBoxNavClass);
@@ -36,7 +36,6 @@ Shop.Myaccount = (function ($) {
                 _o.checkboxLabel = _o.lightbox.find(_o.checkboxLabelClass);
                 _o.switchBtn = _o.lightbox.find(_o.switchBtnClass);
             }
-
         },
 
         _displayLightBox = function () {
@@ -44,7 +43,7 @@ Shop.Myaccount = (function ($) {
             _o.wrapper.toggleClass('animate');
         },
 
-        _switchForm = function(formType) {
+        _switchForm = function (formType) {
             if (formType === 'login') {
                 _o.checkboxLabel.hide();
             }
@@ -53,7 +52,7 @@ Shop.Myaccount = (function ($) {
                 _o.checkboxLabel.show();
             }
             else {
-                _o.checkboxLabel.toggle()
+                _o.checkboxLabel.toggle();
             }
 
         },
@@ -75,20 +74,26 @@ Shop.Myaccount = (function ($) {
         },
 
         _deactivateInput = function () {
-            if (!$(this).val()) $(this).parent().removeClass('is-active');
+            if (!$(this).val()) {
+                $(this).parent().removeClass('is-active');
+            }
         },
 
         _detectInput = function () { // Autofill fix
-            if ($(this).val()) _activateInput.call(this);
-            else _deactivateInput.call(this);
+            if ($(this).val()) {
+                _activateInput.call(this);
+            }
+            else {
+                _deactivateInput.call(this);
+            }
         },
 
         _submitForm = function () {
-            if (_o.checkbox.is(':visible') && _o.checkbox.is(':checked'))
-                _o.form.submit();
-            else {
-                alert('Please agree to terms and conditions.')
+            if (_o.checkbox.is(':visible')) {
+                if (_o.checkbox.is(':checked'))  _o.form.submit();
+                else alert('Please agree to terms and conditions.');
             }
+            else _o.form.submit();
         },
 
         _addEvents = function () {
