@@ -723,7 +723,7 @@ $topnav-fontsize: 11px;
 }
 #topnav {
 
-    .MA {
+    .myAccount {
         @include rem(font-size, $topnav-fontsize);
         @include rem(margin-right, 20px);
         float: right;
@@ -777,10 +777,9 @@ $topnav-fontsize: 11px;
     }
 
     .MA-lightboxLinks,
-    .MA-flyoutLinks,
-    .MA-lightbox { display: none; }
+    .MA-flyoutLinks { display: none; }
 
-    .MA-lightbox {
+    .lightBox {
         z-index: index($z-layers, lightbox);
         width: 100%;
         height: 100%;
@@ -789,124 +788,125 @@ $topnav-fontsize: 11px;
         top: 0;
         cursor: default;
         overflow: auto;
-    }
+        display: none;
 
-    .MA-lightboxWrapper {
-        border: rem(1px) solid;
-        margin: 10% auto;
-        float: none;
-        padding-top: rem(15px);
-        padding-bottom: rem(15px);
-        position: relative;
-        visibility: hidden;
-    }
-
-    .MA-lightboxTitle {
-        font-size: rem(20px);
-        text-transform: uppercase;
-        line-height: rem(10px);
-        padding-top: rem(5px);
-        margin-bottom: rem(25px);
-        font-weight: 400;
-    }
-
-    .MA-lightboxDescription {
-        font-size: rem(12px);
-        font-weight: 300;
-        line-height: rem(15px);
-        margin-top: 0;
-        margin-bottom: rem(30px);
-    }
-
-    .MA-lightboxInput {
-        width: 100%;
-        margin: 0 0 rem(25px);
-        float: left;
-        position: relative;
-        border-bottom: rem(1px) solid;
-
-        @include breakpoint(tablet) {
-            width: calc(50% - #{rem(7.5px)});
-
-            &:nth-child(even) { float: right; }
+        .wrapper {
+            border: rem(1px) solid;
+            margin: 10% auto;
+            float: none;
+            padding-top: rem(15px);
+            padding-bottom: rem(15px);
+            position: relative;
+            visibility: hidden;
         }
 
-        input {
-            float: left;
-            width: 100%;
-            padding: 0;
-            border: 0;
-            margin: 0;
-            outline: none;
-            line-height: rem(25px);
+        .title {
+            font-size: rem(20px);
+            text-transform: uppercase;
+            line-height: rem(10px);
+            padding-top: rem(5px);
+            margin-bottom: rem(25px);
+            font-weight: 400;
+        }
+
+        .description {
             font-size: rem(12px);
             font-weight: 300;
-            border-radius: 0;
+            line-height: rem(15px);
+            margin-top: 0;
+            margin-bottom: rem(30px);
         }
 
-        label {
-            pointer-events: none;
-            position: absolute;
-            padding: 0;
-            border: 0;
-            margin: 0;
-            top: 0;
-            left: 0;
-            line-height: rem(25px);
+        .inputField {
+            width: 100%;
+            margin: 0 0 rem(25px);
+            float: left;
+            position: relative;
+            border-bottom: rem(1px) solid;
+
+            @include breakpoint(tablet) {
+                width: calc(50% - #{rem(7.5px)});
+
+                &:nth-child(even) { float: right; }
+            }
+
+            input {
+                float: left;
+                width: 100%;
+                padding: 0;
+                border: 0;
+                margin: 0;
+                outline: none;
+                line-height: rem(25px);
+                font-size: rem(12px);
+                font-weight: 300;
+                border-radius: 0;
+            }
+
+            label {
+                pointer-events: none;
+                position: absolute;
+                padding: 0;
+                border: 0;
+                margin: 0;
+                top: 0;
+                left: 0;
+                line-height: rem(25px);
+                font-size: rem(12px);
+            }
+
+            input:required + label:after {
+                content: "*";
+                padding-left: rem(5px);
+            }
+
+            &.is-active label { top: rem(-20px); }
+            &.is-active input { @include rem(padding, 0 10px); }
+        }
+
+        .submitBtn,
+        .switchBtn {
+            height: rem(30px);
+            line-height: rem(30px);
             font-size: rem(12px);
+            font-weight: 400;
+            text-transform: uppercase;
+            width: 100%;
+            float: left;
+            text-align: center;
+            cursor: pointer;
         }
 
-        input:required + label:after {
-            content: "*";
-            padding-left: rem(5px);
+        .switchBtn {
+            border: rem(2px) solid;
         }
 
-        &.is-active label { top: rem(-20px); }
-        &.is-active input { @include rem(padding, 0 10px); }
-    }
+        .separator {
+            float: left;
+            width: 50%;
+            margin: rem(10px) 0 rem(10px) 25%;
+            border-bottom: rem(1px) dotted;
+        }
 
-    .MA-lightboxButton1,
-    .MA-lightboxButton2 {
-        height: rem(30px);
-        line-height: rem(30px);
-        font-size: rem(12px);
-        font-weight: 400;
-        text-transform: uppercase;
-        width: 100%;
-        float: left;
-        text-align: center;
-        cursor: pointer;
-    }
+        .closeBtn {
+            position: absolute;
+            top: rem(-20px);
+            right: rem(-15px);
+            font-size: rem(20px);
+            line-height: 0;
+            cursor: pointer;
+        }
 
-    .MA-lightboxButton2 {
-        border: rem(2px) solid;
-    }
+        .checkboxLabel {
+            font-size: rem(12px);
+            margin-bottom: rem(15px);
+            line-height: rem(12px);
+            float: left;
+            clear: both;
+            padding: 0;
 
-    .MA-lightboxSeparator {
-        float: left;
-        width: 50%;
-        margin: rem(10px) 0 rem(10px) 25%;
-        border-bottom: rem(1px) dotted;
-    }
-
-    .MA-closeBtn {
-        position: absolute;
-        top: rem(-20px);
-        right: rem(-15px);
-        font-size: rem(20px);
-        line-height: 0;
-        cursor: pointer;
-    }
-
-    .MA-lightboxCheckboxLabel {
-        font-size: rem(12px);
-        margin-bottom: rem(15px);
-        line-height: rem(12px);
-        float: left;
-        clear: both;
-        padding: 0;
-
-        a { text-decoration: underline; }
+            a { text-decoration: underline; }
+        }
     }
 }
 

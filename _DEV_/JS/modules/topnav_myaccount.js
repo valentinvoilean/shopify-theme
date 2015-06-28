@@ -12,50 +12,49 @@ Shop.Myaccount = (function ($) {
             flyoutLinksClass:   '.MA-flyoutLinks',
             loginLinkClass:     '.MA-loginLink',
             registerLinkClass:  '.MA-registerLink',
-            lightboxClass: '.MA-lightbox',
-            lightboxWrapperClass: '.MA-lightboxWrapper',
-            lightboxCloseButtonClass: '.MA-closeBtn',
-            submitButtonClass: '.MA-lightboxButton1',
-            secondButonClass: '.MA-lightboxButton2',
-            lightboxFormClass: '.MA-lightboxForm',
-            lightboxCheckboxClass: '.MA-lightboxCheckbox',
-            lightboxCheckboxLabelClass: '.MA-lightboxCheckboxLabel'
+            lightBoxClass: '.lightBox',
+            wrapperClass: '.wrapper',
+            closeBtnClass: '.closeBtn',
+            submitBtnClass: '.submitBtn',
+            switchBtnClass: '.switchBtn',
+            checkboxClass: '.termsCheckbox',
+            checkboxLabelClass: '.checkboxLabel'
         },
 
         _updateElements = function () {
-            _o.lightbox =  _$el.find(_o.lightboxClass);
+            _o.lightbox =  _$el.find(_o.lightBoxClass);
 
             if (_o.lightbox.length) {
                 _o.lightboxLinks = _$el.find(_o.lightboxLinksClass);
-                _o.lightboxWrapper = _o.lightbox.find(_o.lightboxWrapperClass);
-                _o.lightboxCloseButton = _o.lightbox.find(_o.lightboxCloseButtonClass);
-                _o.lightboxForm = _o.lightbox.find(_o.lightboxFormClass);
-                _o.submitButton = _o.lightbox.find(_o.submitButtonClass);
+                _o.wrapper = _o.lightbox.find(_o.wrapperClass);
+                _o.closeBtn = _o.lightbox.find(_o.closeBtnClass);
+                _o.form = _o.lightbox.find('form');
+                _o.submitBtn = _o.lightbox.find(_o.submitBtnClass);
                 _o.lightboxInput = _o.lightbox.find('input');
                 _o.loginLink = _o.lightboxLinks.find(_o.loginLinkClass);
                 _o.registerLink = _o.lightboxLinks.find(_o.registerLinkClass);
-                _o.lightboxCheckbox = _o.lightbox.find(_o.lightboxCheckboxClass);
-                _o.lightboxCheckboxLabel = _o.lightbox.find(_o.lightboxCheckboxLabelClass);
-                _o.switchFormButton = _o.lightbox.find(_o.secondButonClass);
+                _o.checkbox = _o.lightbox.find(_o.checkboxClass);
+                _o.checkboxLabel = _o.lightbox.find(_o.checkboxLabelClass);
+                _o.switchBtn = _o.lightbox.find(_o.switchBtnClass);
             }
 
         },
 
         _displayLightBox = function () {
             _o.lightbox.toggle();
-            _o.lightboxWrapper.toggleClass('animate');
+            _o.wrapper.toggleClass('animate');
         },
 
         _switchForm = function(formType) {
             if (formType === 'login') {
-                _o.lightboxCheckboxLabel.hide();
+                _o.checkboxLabel.hide();
             }
 
             else if (formType === 'register') {
-                _o.lightboxCheckboxLabel.show();
+                _o.checkboxLabel.show();
             }
             else {
-                _o.lightboxCheckboxLabel.toggle()
+                _o.checkboxLabel.toggle()
             }
 
         },
@@ -86,8 +85,8 @@ Shop.Myaccount = (function ($) {
         },
 
         _submitForm = function () {
-            if (_o.lightboxCheckbox.is(':visible') && _o.lightboxCheckbox.is(':checked'))
-                _o.lightboxForm.submit();
+            if (_o.checkbox.is(':visible') && _o.checkbox.is(':checked'))
+                _o.form.submit();
             else {
                 alert('Please agree to terms and conditions.')
             }
@@ -97,9 +96,9 @@ Shop.Myaccount = (function ($) {
             if (_o.lightbox.length) {
                 _o.loginLink.on('click', _loginLightBox);
                 _o.registerLink.on('click', _registerLightBox);
-                _o.lightboxCloseButton.on('click', _displayLightBox);
-                _o.submitButton.on('click', _submitForm);
-                _o.switchFormButton.on('click', _switchForm);
+                _o.closeBtn.on('click', _displayLightBox);
+                _o.submitBtn.on('click', _submitForm);
+                _o.switchBtn.on('click', _switchForm);
                 _o.lightboxInput.on('focus', _activateInput);
                 _o.lightboxInput.on('blur', _deactivateInput);
                 _o.lightboxInput.on('change', _detectInput);

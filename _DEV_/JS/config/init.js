@@ -7,7 +7,7 @@ Shop.Init = (function ($) {
         },
         {
             name:    'Myaccount',
-            options: '#topnav .MA'
+            options: '#topnav .myAccount'
         }
     ];
 
