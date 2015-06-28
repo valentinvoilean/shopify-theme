@@ -21,8 +21,8 @@ $color-6: #414141;
 
 /* Table of content */
 /* 1.  Base styles
-   2.  CSS transitions
-   3.  Mixins
+   2.  Mixins
+   3.  CSS transitions
    4.  Header
 */
 
@@ -33,7 +33,16 @@ $color-6: #414141;
 html, body { background-color: $background-color; color: $text-color; }
 
 /* =====================
-   2. CSS transitions
+   2. Mixins
+   ===================== */
+@mixin opacity($opacity) {
+  opacity: $opacity;
+  $opacity-ie: $opacity * 100;
+  filter: alpha(opacity=$opacity-ie); //IE8
+}
+
+/* =====================
+   3. CSS transitions
    ===================== */
 %fadeInBackground {
     -webkit-transform: translateZ(0);
@@ -123,17 +132,6 @@ html, body { background-color: $background-color; color: $text-color; }
 		-webkit-transform: translateY(0%);
 	}
 }
-
-
-/* =====================
-   3. Mixins
-   ===================== */
-@mixin opacity($opacity) {
-  opacity: $opacity;
-  $opacity-ie: $opacity * 100;
-  filter: alpha(opacity=$opacity-ie); //IE8
-}
-
 
 /* =====================
    4. Header
