@@ -7,7 +7,7 @@ Shop.Myaccount = (function ($) {
     var _$el = null,
 
         _o = {
-            openLightBoxLinksClass: '.openLightBoxLinks',
+            lightBoxNavClass: '.lightBoxNav',
             flyoutLinksClass:   '.MA-flyoutLinks',
             loginLinkClass:     '.login-link',
             registerLinkClass:  '.register-link',
@@ -24,14 +24,14 @@ Shop.Myaccount = (function ($) {
             _o.lightbox =  _$el.find(_o.lightBoxClass);
 
             if (_o.lightbox.length) {
-                _o.openLightBoxLinks = _$el.find(_o.openLightBoxLinksClass);
+                _o.lightBoxNav = _$el.find(_o.lightBoxNavClass);
                 _o.wrapper = _o.lightbox.find(_o.wrapperClass);
                 _o.closeBtn = _o.lightbox.find(_o.closeBtnClass);
                 _o.form = _o.lightbox.find('form');
                 _o.submitBtn = _o.lightbox.find(_o.submitBtnClass);
                 _o.lightboxInput = _o.lightbox.find('input');
-                _o.loginLink = _o.openLightBoxLinks.find(_o.loginLinkClass);
-                _o.registerLink = _o.openLightBoxLinks.find(_o.registerLinkClass);
+                _o.loginLink = _o.lightBoxNav.find(_o.loginLinkClass);
+                _o.registerLink = _o.lightBoxNav.find(_o.registerLinkClass);
                 _o.checkbox = _o.lightbox.find(_o.checkboxClass);
                 _o.checkboxLabel = _o.lightbox.find(_o.checkboxLabelClass);
                 _o.switchBtn = _o.lightbox.find(_o.switchBtnClass);
