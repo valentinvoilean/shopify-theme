@@ -174,4 +174,15 @@
         line-height: 0;
         cursor: pointer;
     }
+
+    .MA-lightboxCheckboxLabel {
+        font-size: rem(12px);
+        margin-bottom: rem(15px);
+        line-height: rem(12px);
+        float: left;
+        clear: both;
+        padding: 0;
+
+        a { text-decoration: underline; }
+    }
 }

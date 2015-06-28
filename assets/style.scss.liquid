@@ -188,59 +188,156 @@ html, body { background-color: $background-color; color: $text-color; }
 
     a { color: $topNavLinkColor; }
 
-    .social_link { @extend %fadeInBackground; @extend %growTransition; color: $topNavIconColor; }
+    .social_link {
+        @extend %fadeInBackground;
+        @extend %growTransition;
+        color: $topNavIconColor;
+    }
 
     .topnav_message { color: $topNavIconColor; }
 
     /* Currency Styles */
-    .currency__base { @include no-select; color: $topNavLinkColor; }
+    .currency__base {
+        @include no-select;
+        color: $topNavLinkColor;
+    }
+
     .currency__active:after { border-top-color: $topNavLinkColor; }
-    .currency__verticalList { background: $color-1; border-color: $borderColor; }
-    .currency__verticalList .currency__item { color: $text-color; }
-    .currency__horizontalList:after { @include transition(all 0.5s); border-top-color: $topNavLinkColor; cursor: pointer; }
-    .currency__expandedList:after { @include rotate(90); border-top-color: $link-active-color; }
-    .currency__expandedList .currency__active { color: $link-active-color; }
-    .currency__item { @include transition(all 0.3s); cursor: pointer; }
+
+    .currency__verticalList {
+        background: $color-1;
+        border-color: $borderColor;
+
+        .currency__item { color: $text-color; }
+    }
+
+    .currency__horizontalList:after {
+        @include transition(all 0.5s);
+        border-top-color: $topNavLinkColor;
+        cursor: pointer;
+    }
+
+    .currency__expandedList {
+
+        &:after {
+            @include rotate(90);
+            border-top-color: $link-active-color;
+        }
+
+        .currency__active { color: $link-active-color; }
+
+    }
+
+    .currency__item {
+        @include transition(all 0.3s);
+        cursor: pointer;
+    }
 
     /* My Account styles */
-    .MA { @include no-select; color: $topNavIconColor; }
-    .MA-customerLinks { background: $color-1; border-color: $borderColor; }
-    .MA-customerLinks li, .MA-customerLinks a { color: $text-color; }
-    .MA-myprofileLink:after { @include transition(all 0.5s); cursor: pointer; }
+    .MA {
+        @include no-select;
+        color: $topNavIconColor;
+    }
+
+    .MA-customerLinks {
+        background: $color-1;
+        border-color: $borderColor;
+
+        li, a { color: $text-color; }
+    }
+
+    .MA-myprofileLink:after {
+        @include transition(all 0.5s);
+        cursor: pointer;
+    }
+
     .MA-lightbox { background: $color-1; }
-    .MA-lightboxWrapper { border-color: $borderColor; background: $color-3; }
-    .MA-lightboxWrapper.animate { @extend %slideDown; }
+
+    .MA-lightboxWrapper {
+        border-color: $borderColor;
+        background: $color-3;
+
+        &.animate { @extend %slideDown; }
+    }
+
     .MA-lightboxTitle, .MA-lightboxDescription { color: $color-2; }
-    .MA-lightboxInput { border-color: $color-4; }
-    .MA-lightboxInput input {
-        @include transition(all 0.5s); -webkit-appearance: none; color: $color-2;
-        &:-webkit-autofill { -webkit-box-shadow: 0 0 0 10vh $color-2 inset; -webkit-text-fill-color: $color-3; }
-        &:-webkit-autofill:focus { -webkit-box-shadow: 0 0 0 10vh $color-2 inset; -webkit-text-fill-color: $color-3; }
+
+    .MA-lightboxInput {
+        border-color: $color-4;
+
+        &:hover {
+            border-color: $color-2;
+
+            input, label { color: $color-2; }
+        }
+
+        &.is-active {
+            border-color: $color-2;
+
+            label { color: $color-2; };
+
+            input {
+                background: $color-2;
+                color: $color-3;
+            }
+        }
+
+        input {
+            @include transition(all 0.5s);
+            -webkit-appearance: none;
+            color: $color-2;
+
+            &:-webkit-autofill {  // chrome autofill fix
+                -webkit-box-shadow: 0 0 0 10vh $color-2 inset;
+                -webkit-text-fill-color: $color-3; }
+
+            &:-webkit-autofill:focus {
+                -webkit-box-shadow: 0 0 0 10vh $color-2 inset;
+                -webkit-text-fill-color: $color-3;
+            }
+
+            &:invalid { border: 0; outline: none; box-shadow: none; }
+        }
+
+        label {
+            @include transition(all 0.2s);
+            color: $color-4;
+        }
     }
 
-    .MA-lightboxInput input:invalid { border: 0; outline: none; box-shadow: none; }
-    .MA-lightboxInput label { @include transition(all 0.2s); color: $color-4; }
-    .MA-lightboxInput:hover {
+    .MA-lightboxCheckboxLabel {
+        color: $color-2;
+
+        a { color: $color-2; }
+    }
+
+    .MA-lightboxButton1 {
+        @include transition(all 0.5s);
+        background: $color-2;
+
+        &:hover { @include opacity(0.8); }
+    }
+
+    .MA-lightboxButton2 {
+        @include transition(all 0.5s);
+        background: $color-3;
         border-color: $color-2;
-        input { color: $color-2; }
-        label { color: $color-2; }
-    }
-    .MA-lightboxInput.is-active { border-color: $color-2; }
-    .MA-lightboxInput.is-active label { color: $color-2; }
-    .MA-lightboxInput.is-active input { background: $color-2; color: $color-3; }
+        color: $color-2;
 
-    .MA-lightboxButton1 { @include transition(all 0.5s); background: $color-2; }
-    .MA-lightboxButton1:hover { @include opacity(0.8); }
-    .MA-lightboxButton2 { @include transition(all 0.5s); background: $color-3; border-color: $color-2; color: $color-2; }
-    .MA-lightboxButton2:hover { background: $color-2; color: $color-3; }
+        &:hover {
+            background: $color-2;
+            color: $color-3;
+        }
+    }
 
     .MA-lightboxSeparator { border-color: $borderColor; }
 
     .MA-closeBtn { color: $color-2; }
-
 }
 
-.cart-link { color: $link-color; }
+.cart-link {
+    color: $link-color;
 
-.cart-link > a { color: $link-color; }
+    & > a { color: $link-color; }
+}
 
