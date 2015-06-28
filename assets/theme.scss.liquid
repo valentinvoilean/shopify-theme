@@ -819,17 +819,19 @@ $topnav-fontsize: 11px;
 
     .MA-lightbox {
         z-index: index($z-layers, lightbox);
-        width: 100vw;
-        height: 100vw;
+        width: 100%;
+        height: 100%;
         position: fixed;
         left: 0;
         top: 0;
         cursor: default;
+        overflow: auto;
     }
 
     .MA-lightboxWrapper {
         border: rem(1px) solid;
-        margin-top: 10vw;
+        margin: 10% auto;
+        float: none;
         padding-top: rem(15px);
         padding-bottom: rem(15px);
         position: relative;
@@ -853,19 +855,19 @@ $topnav-fontsize: 11px;
         margin-bottom: rem(30px);
     }
 
-    .MA-lightboxForm {
-        margin-bottom: rem(25px);
-    }
+    .MA-lightboxForm { overflow: hidden; }
 
     .MA-lightboxInput {
-        width: calc(50% - #{rem(7.5px)});
+        width: 100%;
         margin: 0 0 rem(25px);
         float: left;
-        border-bottom: rem(1px) solid;
         position: relative;
+        border-bottom: rem(1px) solid;
 
-        &:nth-child(even) {
-            float: right;
+        @include breakpoint(tablet) {
+            width: calc(50% - #{rem(7.5px)});
+
+            &:nth-child(even) { float: right; }
         }
 
         input {
