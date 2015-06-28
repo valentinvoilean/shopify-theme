@@ -19,7 +19,10 @@ Shop.Myaccount = (function ($) {
             checkboxClass:       '.lightBox__checkbox',
             checkboxLabelClass:  '.lightBox__checkboxLabel',
             firstNameInputClass: '.lightBox__input--firstName',
-            lastNameInputClass:  '.lightBox__input--lastName'
+            lastNameInputClass:  '.lightBox__input--lastName',
+            titleClass: '.lightBox__hl',
+            paragraphClass: '.lightBox__text',
+            formClass: '.lightBox__form'
         },
 
         _updateElements = function () {
@@ -39,6 +42,9 @@ Shop.Myaccount = (function ($) {
                 _o.switchBtn = _o.lightbox.find(_o.switchBtnClass);
                 _o.firstNameInput = _o.lightbox.find(_o.firstNameInputClass);
                 _o.lastNameInput = _o.lightbox.find(_o.lastNameInputClass);
+                _o.title = _o.lightbox.find(_o.titleClass);
+                _o.paragraph = _o.lightbox.find(_o.paragraphClass);
+                _o.form = _o.lightbox.find(_o.formClass);
             }
         },
 
@@ -51,15 +57,40 @@ Shop.Myaccount = (function ($) {
             if (formType === 'login') {
                 _o.checkboxLabel.hide();
                 _o.firstNameInput.add(_o.lastNameInput).prop('disabled', true).parent().hide();
+                _o.title.text(_o.title.data('login'));
+                _o.paragraph.text(_o.paragraph.data('login'));
+                _o.submitBtn.text(_o.submitBtn.data('login'));
+                _o.switchBtn.text(_o.switchBtn.data('login'));
+                _o.form.attr('action', _o.form.data('login'));
             }
 
             else if (formType === 'register') {
                 _o.checkboxLabel.show();
                 _o.firstNameInput.add(_o.lastNameInput).prop('disabled', false).parent().show();
+                _o.title.text(_o.title.data('register'));
+                _o.paragraph.text(_o.paragraph.data('register'));
+                _o.submitBtn.text(_o.submitBtn.data('register'));
+                _o.switchBtn.text(_o.switchBtn.data('register'));
+                _o.form.attr('action', _o.form.data('register'));
             }
             else {
                 _o.checkboxLabel.toggle();
                 _o.firstNameInput.add(_o.lastNameInput).prop('disabled', function(i, v) { return !v; }).parent().toggle();
+
+                if (_o.title.text() === _o.title.data('login')) _o.title.text(_o.title.data('register'));
+                else _o.title.text(_o.title.data('login'));
+
+                if (_o.paragraph.text() === _o.paragraph.data('login')) _o.paragraph.text(_o.paragraph.data('register'));
+                else _o.paragraph.text(_o.paragraph.data('login'));
+
+                if (_o.submitBtn.text() === _o.submitBtn.data('login')) _o.submitBtn.text(_o.submitBtn.data('register'));
+                else _o.submitBtn.text(_o.submitBtn.data('login'));
+
+                if (_o.switchBtn.text() === _o.switchBtn.data('login')) _o.switchBtn.text(_o.switchBtn.data('register'));
+                else _o.switchBtn.text(_o.switchBtn.data('login'));
+
+                if (_o.form.attr('action') === _o.form.data('login')) _o.form.attr('action', _o.form.data('register'));
+                else _o.form.attr('action', _o.form.data('login'));
             }
 
         },
