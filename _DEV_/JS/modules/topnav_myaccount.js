@@ -7,17 +7,19 @@ Shop.Myaccount = (function ($) {
     var _$el = null,
 
         _o = {
-            lightBoxNavClass:   '.lightBox__nav',
-            flyoutLinksClass:   '.MA-flyoutLinks',
-            loginLinkClass:     '.lightBox__loginLink',
-            registerLinkClass:  '.lightBox__registerLink',
-            lightBoxClass:      '.lightBox__base',
-            wrapperClass:       '.lightBox__content',
-            closeBtnClass:      '.lightBox__closeBtn',
-            submitBtnClass:     '.lightBox__submitBtn',
-            switchBtnClass:     '.lightBox__switchBtn',
-            checkboxClass:      '.lightBox__checkbox',
-            checkboxLabelClass: '.lightBox__checkboxLabel'
+            lightBoxNavClass:    '.lightBox__nav',
+            flyoutLinksClass:    '.MA-flyoutLinks',
+            loginLinkClass:      '.lightBox__loginLink',
+            registerLinkClass:   '.lightBox__registerLink',
+            lightBoxClass:       '.lightBox__base',
+            wrapperClass:        '.lightBox__content',
+            closeBtnClass:       '.lightBox__closeBtn',
+            submitBtnClass:      '.lightBox__submitBtn',
+            switchBtnClass:      '.lightBox__switchBtn',
+            checkboxClass:       '.lightBox__checkbox',
+            checkboxLabelClass:  '.lightBox__checkboxLabel',
+            firstNameInputClass: '.lightBox__input--firstName',
+            lastNameInputClass:  '.lightBox__input--lastName'
         },
 
         _updateElements = function () {
@@ -35,6 +37,8 @@ Shop.Myaccount = (function ($) {
                 _o.checkbox = _o.lightbox.find(_o.checkboxClass);
                 _o.checkboxLabel = _o.lightbox.find(_o.checkboxLabelClass);
                 _o.switchBtn = _o.lightbox.find(_o.switchBtnClass);
+                _o.firstNameInput = _o.lightbox.find(_o.firstNameInputClass);
+                _o.lastNameInput = _o.lightbox.find(_o.lastNameInputClass);
             }
         },
 
@@ -46,13 +50,16 @@ Shop.Myaccount = (function ($) {
         _switchForm = function (formType) {
             if (formType === 'login') {
                 _o.checkboxLabel.hide();
+                _o.firstNameInput.add(_o.lastNameInput).prop('disabled', true).parent().hide();
             }
 
             else if (formType === 'register') {
                 _o.checkboxLabel.show();
+                _o.firstNameInput.add(_o.lastNameInput).prop('disabled', false).parent().show();
             }
             else {
                 _o.checkboxLabel.toggle();
+                _o.firstNameInput.add(_o.lastNameInput).prop('disabled', function(i, v) { return !v; }).parent().toggle();
             }
 
         },
@@ -90,10 +97,16 @@ Shop.Myaccount = (function ($) {
 
         _submitForm = function () {
             if (_o.checkbox.is(':visible')) {
-                if (_o.checkbox.is(':checked'))  _o.form.submit();
-                else alert('Please agree to terms and conditions.');
+                if (_o.checkbox.is(':checked')) {
+                    _o.form.submit();
+                }
+                else {
+                    alert('Please agree to terms and conditions.');
+                }
             }
-            else _o.form.submit();
+            else {
+                _o.form.submit();
+            }
         },
 
         _addEvents = function () {
