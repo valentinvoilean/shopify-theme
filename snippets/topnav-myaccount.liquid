@@ -32,66 +32,8 @@
             </ul>
         </div>
         {% else %}
-
-        <div class="MA-lightbox">
-            <div class="container">
-                <div class="MA-lightboxWrapper col-xs-10 col-sm-6 col-md-5 col-lg-4">
-                    <h3 data-register="Create an account" data-login="Existing customer" class="MA-lightboxTitle">Create an account</h3>
-                    <p data-login="If you already have an account, please enter your e-mail address and password below."
-                       data-register="Creating an account is easy. Just fill in the form below and enjoy the benefits of having an account."
-                       class="MA-lightboxDescription">Creating an account is easy. Just fill in the form below and enjoy the benefits of having an account.</p>
-                    <form data-register="/account" data-login="/account/login" class="MA-lightboxForm clearfix" accept-charset="UTF-8" autocomplete="off" action="/account" method="post">
-                        <input data-register="create_customer" data-login="customer_login" name="form_type" type="hidden" value="create_customer">
-                        <input name="utf8" type="hidden" value="✓">
-                        <div class="MA-lightboxInput">
-                            <input type="text" name="customer[first_name]">
-                            <label>First Name</label>
-                        </div>
-
-                        <div class="MA-lightboxInput">
-                            <input type="text" name="customer[last_name]">
-                            <label>Last Name</label>
-                        </div>
-
-                        <div class="MA-lightboxInput">
-                            <input name="customer[email]" required onfocus="this.type='email'">
-                            <label title="Email Address required.">Email</label>
-                        </div>
-
-                        <div class="MA-lightboxInput">
-                            <input name="customer[password]" required onfocus="this.type='password'">
-                            <label title="Password required.">Password</label>
-                        </div>
-
-                        <label class="MA-lightboxCheckboxLabel" for="agree">
-                            <input class="MA-lightboxCheckbox" type="checkbox" id="agree"/>
-                            <span>I agree with the <a target="_blank" href="/pages/terms-and-conditions">Terms and Conditions</a>.</span>
-                        </label>
-
-                        <div data-register="Register" data-login="Sign in" class="MA-lightboxButton1">register</div>
-                        <div class="MA-lightboxSeparator"></div>
-                        <div data-register="Create an account" data-login="Existing customer ?" class="MA-lightboxButton2">existing customer ?</div>
-                    </form>
-                    <div class="MA-closeBtn"><i class="fa fa-times"></i></div>
-                </div>
-            </div>
-        </div>
-
-        <div class="MA-lightboxLinks {{ MA-lightboxMQ }}">
-            <a href="{{ customer_login_link }}" class="MA-loginLink">Log in</a>
-            {% if shop.customer_accounts_optional %}
-                /
-                <a href="{{ customer_register_link }}" class="MA-registerLink">Join</a>
-            {% endif %}
-        </div>
-
-        <ul class="MA-flyoutLinks {{ MA-flyoutMQ }}">
-            <li><a class="MA-myprofileLink" href="/account">My Account</a></li>
-            <li><a href="{{ customer_logout_link }}">Log Out</a></li>
-            <li><a href="/account">My Wishlist</a></li>
-            <li><a href="/account">My Profile</a></li>
-        </ul>
-
+            {% include 'topnav-myaccount-lightbox' %}
+            {% include 'topnav-myaccount-flyout' %}
         {% endif %}
     </div>
 {% endif %}
