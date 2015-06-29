@@ -4,10 +4,6 @@ Shop.Init = (function ($) {
     _documentReadyList = [
         {
             name: 'Breakpoints'
-        },
-        {
-            name:    'MyAccount',
-            options: '#topnav .myAccount'
         }
     ];
 
@@ -15,6 +11,10 @@ Shop.Init = (function ($) {
         {
             name:    'ChangeCurrency',
             options: '#topnav .currency__base'
+        },
+        {
+            name:    'MyAccount',
+            options: '#topnav .myAccount'
         }
     ];
 
