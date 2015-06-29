@@ -7,22 +7,22 @@ Shop.Myaccount = (function ($) {
     var _$el = null,
 
         _o = {
-            lightBoxNavClass:    '.lightBox__nav',
-            flyoutLinksClass:    '.MA-flyoutLinks',
-            loginLinkClass:      '.lightBox__loginLink',
-            registerLinkClass:   '.lightBox__registerLink',
-            lightBoxClass:       '.lightBox__base',
-            wrapperClass:        '.lightBox__content',
-            closeBtnClass:       '.lightBox__closeBtn',
-            submitBtnClass:      '.lightBox__submitBtn',
-            switchBtnClass:      '.lightBox__switchBtn',
-            checkboxClass:       '.lightBox__checkbox',
-            checkboxLabelClass:  '.lightBox__checkboxLabel',
-            firstNameInputClass: '.lightBox__input--firstName',
-            lastNameInputClass:  '.lightBox__input--lastName',
-            titleClass: '.lightBox__hl',
-            paragraphClass: '.lightBox__text',
-            formClass: '.lightBox__form',
+            lightBoxNavClass:        '.lightBox__nav',
+            flyoutLinksClass:        '.MA-flyoutLinks',
+            loginLinkClass:          '.lightBox__loginLink',
+            registerLinkClass:       '.lightBox__registerLink',
+            lightBoxClass:           '.lightBox__base',
+            wrapperClass:            '.lightBox__content',
+            closeBtnClass:           '.lightBox__closeBtn',
+            submitBtnClass:          '.lightBox__submitBtn',
+            switchBtnClass:          '.lightBox__switchBtn',
+            checkboxClass:           '.lightBox__checkbox',
+            checkboxLabelClass:      '.lightBox__checkboxLabel',
+            firstNameInputClass:     '.lightBox__input--firstName',
+            lastNameInputClass:      '.lightBox__input--lastName',
+            titleClass:              '.lightBox__hl',
+            paragraphClass:          '.lightBox__text',
+            formClass:               '.lightBox__form',
             forgotPasswordLinkClass: '.lightBox__forgotPasswordLink'
         },
 
@@ -56,45 +56,51 @@ Shop.Myaccount = (function ($) {
         },
 
         _switchForm = function (formType) {
-            if (formType === 'login') {
+
+            var switchData = function (list, type) {
+                var i = 0;
+
+                for (; i < list.length; i++)  list[i].text(list[i].data(type))
+            };
+
+            var toggleData = function (list) {
+                var i = 0;
+
+                for (; i < list.length; i++)
+                    list[i].text(list[i].text() === list[i].data('login') ? list[i].data('register') : list[i].data('login'));
+            };
+
+            if (formType === 'login') { // on click the login link
                 _o.checkboxLabel.hide();
                 _o.forgotPasswordLink.show();
                 _o.firstNameInput.add(_o.lastNameInput).prop('disabled', true).parent().hide();
-                _o.title.text(_o.title.data('login'));
-                _o.paragraph.text(_o.paragraph.data('login'));
-                _o.submitBtn.text(_o.submitBtn.data('login'));
-                _o.switchBtn.text(_o.switchBtn.data('login'));
+
+                switchData([_o.title, _o.paragraph, _o.submitBtn, _o.switchBtn], 'login');
                 _o.form.attr('action', _o.form.data('login'));
             }
 
-            else if (formType === 'register') {
+            else if (formType === 'register') { // on click the register link
                 _o.checkboxLabel.show();
                 _o.forgotPasswordLink.hide();
                 _o.firstNameInput.add(_o.lastNameInput).prop('disabled', false).parent().show();
-                _o.title.text(_o.title.data('register'));
-                _o.paragraph.text(_o.paragraph.data('register'));
-                _o.submitBtn.text(_o.submitBtn.data('register'));
-                _o.switchBtn.text(_o.switchBtn.data('register'));
+
+                switchData([_o.title, _o.paragraph, _o.submitBtn, _o.switchBtn], 'register');
                 _o.form.attr('action', _o.form.data('register'));
             }
-            else {
+            else { // on click the switch button
                 _o.checkboxLabel.add(_o.forgotPasswordLink).toggle();
-                _o.firstNameInput.add(_o.lastNameInput).prop('disabled', function(i, v) { return !v; }).parent().toggle();
+                _o.firstNameInput.add(_o.lastNameInput).prop('disabled', function (i, v) {
+                    return !v;
+                }).parent().toggle();
 
-                if (_o.title.text() === _o.title.data('login')) _o.title.text(_o.title.data('register'));
-                else _o.title.text(_o.title.data('login'));
+                toggleData([_o.title, _o.paragraph, _o.submitBtn, _o.switchBtn]);
 
-                if (_o.paragraph.text() === _o.paragraph.data('login')) _o.paragraph.text(_o.paragraph.data('register'));
-                else _o.paragraph.text(_o.paragraph.data('login'));
-
-                if (_o.submitBtn.text() === _o.submitBtn.data('login')) _o.submitBtn.text(_o.submitBtn.data('register'));
-                else _o.submitBtn.text(_o.submitBtn.data('login'));
-
-                if (_o.switchBtn.text() === _o.switchBtn.data('login')) _o.switchBtn.text(_o.switchBtn.data('register'));
-                else _o.switchBtn.text(_o.switchBtn.data('login'));
-
-                if (_o.form.attr('action') === _o.form.data('login')) _o.form.attr('action', _o.form.data('register'));
-                else _o.form.attr('action', _o.form.data('login'));
+                if (_o.form.attr('action') === _o.form.data('login')) {
+                    _o.form.attr('action', _o.form.data('register'));
+                }
+                else {
+                    _o.form.attr('action', _o.form.data('login'));
+                }
             }
 
         },
@@ -161,6 +167,7 @@ Shop.Myaccount = (function ($) {
 
         init: function (element) {
             _$el = $(element);
+
             if (_$el.length) {
                 _updateElements();
                 _addEvents();
