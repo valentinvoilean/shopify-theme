@@ -824,13 +824,12 @@ $topnav-fontsize: 11px;
         }
 
         &.is-active .lightBox__label { top: rem(-20px); }
-        &.is-active .lightBox__input { @include rem(padding, 0 10px); }
     }
 
     .lightBox__input {
+        @include rem(padding, 0 10px);
         float: left;
         width: 100%;
-        padding: 0;
         border: 0;
         margin: 0;
         outline: none;
