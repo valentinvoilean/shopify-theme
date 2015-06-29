@@ -6,7 +6,7 @@ Shop.Init = (function ($) {
             name: 'Breakpoints'
         },
         {
-            name:    'Myaccount',
+            name:    'MyAccount',
             options: '#topnav .myAccount'
         }
     ];
